@@ -23,5 +23,50 @@ namespace Iskur_EF.UI.Win
             form.MdiParent = this;
             form.Show();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void personDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //dlg_PersonelDetay frm = new dlg_PersonelDetay();
+            //frm.MdiParent = this;
+            //frm.Show();
+        }
+
+        private void salesStoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //dlg_Sales frm = new dlg_Sales();
+            //frm.MdiParent = this;
+            //frm.Show();
+
+        }
+
+        private void personelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void storeGösterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void storeSalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dlg_Sales frm = new dlg_Sales();
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
+
+        private void müşterilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            müsteriListele frm = new müsteriListele();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

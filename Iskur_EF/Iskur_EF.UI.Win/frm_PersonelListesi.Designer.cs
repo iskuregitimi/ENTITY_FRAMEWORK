@@ -28,27 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_PersonelListesi = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_PersonelListesi)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgv_PersonelListesi
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgv_PersonelListesi.AllowUserToAddRows = false;
+            this.dgv_PersonelListesi.AllowUserToDeleteRows = false;
+            this.dgv_PersonelListesi.AllowUserToOrderColumns = true;
+            this.dgv_PersonelListesi.AllowUserToResizeRows = false;
+            this.dgv_PersonelListesi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 40);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 398);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_PersonelListesi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_PersonelListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_PersonelListesi.Location = new System.Drawing.Point(12, 40);
+            this.dgv_PersonelListesi.Name = "dgv_PersonelListesi";
+            this.dgv_PersonelListesi.RowTemplate.Height = 24;
+            this.dgv_PersonelListesi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_PersonelListesi.Size = new System.Drawing.Size(776, 398);
+            this.dgv_PersonelListesi.TabIndex = 0;
+            this.dgv_PersonelListesi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_PersonelListesi_CellContentClick);
+            this.dgv_PersonelListesi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_PersonelListesi_CellDoubleClick);
             // 
             // textBox1
             // 
@@ -65,10 +68,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_PersonelListesi);
             this.Name = "frm_PersonelListesi";
             this.Text = "frm_PersonelListesi";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frm_PersonelListesi_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_PersonelListesi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -76,7 +80,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_PersonelListesi;
         private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Iskur_EF.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,19 @@ namespace Iskur_EF.UI.Win
         public dlg_PersonelDetay()
         {
             InitializeComponent();
+        }
+
+        private void dlg_PersonelDetay_Load(object sender, EventArgs e)
+        {
+
+            var a=  EmployeeBLL.GetEmployeeDetail(frm_PersonelListesi.BusinessEntityId);
+            lblFirstName.Text = a.Person.FirstName;
+            lblLastName.Text = a.Person.LastName;
+            lblMiddleName.Text = a.Person.MiddleName;
+            lblJopTitle.Text = a.JobTitle;
+            dataGridView1.DataSource = a.Person.PersonPhones.ToList();
+            
+            
         }
     }
 }

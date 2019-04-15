@@ -23,5 +23,19 @@ namespace Iskur_EF.UI.Win
             form.MdiParent = this;
             form.Show();
         }
+
+        private void mağazaListeleriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetStores frm = new GetStores();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void müşteriListeleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MüşteriListesi frm = new MüşteriListesi();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

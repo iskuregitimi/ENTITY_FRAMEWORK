@@ -33,7 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,6 +65,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Magazalar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Magazalar.Designer.cs">
+      <DependentUpon>frm_Magazalar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_MusteriListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_MusteriListesi.Designer.cs">
+      <DependentUpon>frm_MusteriListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_PersonelListesi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,8 +85,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="dlg_PersonelDetay.resx">
+      <DependentUpon>dlg_PersonelDetay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Magazalar.resx">
+      <DependentUpon>frm_Magazalar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_MusteriListesi.resx">
+      <DependentUpon>frm_MusteriListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_PersonelListesi.resx">
       <DependentUpon>frm_PersonelListesi.cs</DependentUpon>
@@ -81,6 +109,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,7 +121,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Iskur_EF.BLL\Iskur_EF.BLL.csproj">
+      <Project>{9f8d2ce3-3490-49e4-9bd7-798899e4cdd8}</Project>
+      <Name>Iskur_EF.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Iskur_EF.DAL\Iskur_EF.DAL.csproj">
+      <Project>{a32fab75-55e9-4e67-95e8-6630c67057d4}</Project>
+      <Name>Iskur_EF.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

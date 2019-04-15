@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Iskur_EF.UI.Win
 {
-    public partial class Form1 : Form
+    public partial class frm_PersonelListesi : Form
     {
-        public Form1()
+        public frm_PersonelListesi()
         {
             InitializeComponent();
-        }
-
-        private void personelListesiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frm_PersonelListesi form = new frm_PersonelListesi();
-            form.MdiParent = this;
-            form.Show();
         }
     }
 }

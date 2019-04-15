@@ -33,7 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,19 +65,58 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMusteriListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMusteriListesi.Designer.cs">
+      <DependentUpon>FrmMusteriListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_PersonelListesi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_PersonelListesi.Designer.cs">
       <DependentUpon>frm_PersonelListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="MagazaDetay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagazaDetay.Designer.cs">
+      <DependentUpon>MagazaDetay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MagazaListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagazaListesi.Designer.cs">
+      <DependentUpon>MagazaListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MusteriDetay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusteriDetay.Designer.cs">
+      <DependentUpon>MusteriDetay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="dlg_PersonelDetay.resx">
+      <DependentUpon>dlg_PersonelDetay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMusteriListesi.resx">
+      <DependentUpon>FrmMusteriListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_PersonelListesi.resx">
       <DependentUpon>frm_PersonelListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagazaDetay.resx">
+      <DependentUpon>MagazaDetay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagazaListesi.resx">
+      <DependentUpon>MagazaListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusteriDetay.resx">
+      <DependentUpon>MusteriDetay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,6 +127,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +140,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Iskur_EF.BLL\Iskur_EF.BLL.csproj">
+      <Project>{9f8d2ce3-3490-49e4-9bd7-798899e4cdd8}</Project>
+      <Name>Iskur_EF.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Iskur_EF.DAL\Iskur_EF.DAL.csproj">
+      <Project>{EFD72455-8DAB-4004-AE43-EFAB13A8D317}</Project>
+      <Name>Iskur_EF.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

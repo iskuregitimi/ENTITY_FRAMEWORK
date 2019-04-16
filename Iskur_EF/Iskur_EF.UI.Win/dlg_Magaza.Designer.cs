@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgv_Magaza = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.satışPersoneliGösterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.satışDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Magaza)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -47,15 +47,9 @@
             this.dgv_Magaza.ContextMenuStrip = this.contextMenuStrip1;
             this.dgv_Magaza.Location = new System.Drawing.Point(12, 59);
             this.dgv_Magaza.Name = "dgv_Magaza";
+            this.dgv_Magaza.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Magaza.Size = new System.Drawing.Size(705, 370);
             this.dgv_Magaza.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(705, 20);
-            this.textBox1.TabIndex = 1;
             // 
             // contextMenuStrip1
             // 
@@ -63,7 +57,7 @@
             this.satışPersoneliGösterToolStripMenuItem,
             this.satışDetayToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(187, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(187, 48);
             // 
             // satışPersoneliGösterToolStripMenuItem
             // 
@@ -77,6 +71,13 @@
             this.satışDetayToolStripMenuItem.Name = "satışDetayToolStripMenuItem";
             this.satışDetayToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.satışDetayToolStripMenuItem.Text = "Satış Detay";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(705, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // dlg_Magaza
             // 

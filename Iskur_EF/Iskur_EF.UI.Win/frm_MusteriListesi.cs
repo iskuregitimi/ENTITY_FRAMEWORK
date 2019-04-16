@@ -33,6 +33,7 @@ namespace Iskur_EF.UI.Win
         private void yeniSiparişEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_YeniSiparis f = new frm_YeniSiparis();
+            f.id= int.Parse(dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString());
             f.MdiParent = this.MdiParent;
             f.Show();
         }

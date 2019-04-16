@@ -45,7 +45,7 @@
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(39, 30);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(606, 351);
+            this.dataGridView1.Size = new System.Drawing.Size(640, 351);
             this.dataGridView1.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -53,12 +53,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.siparişDetayToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(142, 26);
             // 
             // siparişDetayToolStripMenuItem
             // 
             this.siparişDetayToolStripMenuItem.Name = "siparişDetayToolStripMenuItem";
-            this.siparişDetayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.siparişDetayToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.siparişDetayToolStripMenuItem.Text = "Sipariş Detay";
             this.siparişDetayToolStripMenuItem.Click += new System.EventHandler(this.siparişDetayToolStripMenuItem_Click);
             // 
@@ -66,7 +66,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 406);
+            this.ClientSize = new System.Drawing.Size(703, 406);
             this.Controls.Add(this.dataGridView1);
             this.Name = "dlg_Siparisler";
             this.Text = "dlg_Siparisler";

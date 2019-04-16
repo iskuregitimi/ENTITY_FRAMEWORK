@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Iskur_EF.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace Iskur_EF.UI.Win
         public frm_YeniSiparis()
         {
             InitializeComponent();
+        }
+
+        private void frm_YeniSiparis_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = ProductBLL.GetProducts();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

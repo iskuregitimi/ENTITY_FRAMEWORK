@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.siparişlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yeniSiparişEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -47,15 +47,9 @@
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(27, 39);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(743, 376);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(27, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(743, 20);
-            this.textBox1.TabIndex = 1;
             // 
             // contextMenuStrip1
             // 
@@ -68,7 +62,7 @@
             // siparişlerToolStripMenuItem
             // 
             this.siparişlerToolStripMenuItem.Name = "siparişlerToolStripMenuItem";
-            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.siparişlerToolStripMenuItem.Text = "Siparişler";
             this.siparişlerToolStripMenuItem.Click += new System.EventHandler(this.siparişlerToolStripMenuItem_Click);
             // 
@@ -77,6 +71,14 @@
             this.yeniSiparişEkleToolStripMenuItem.Name = "yeniSiparişEkleToolStripMenuItem";
             this.yeniSiparişEkleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.yeniSiparişEkleToolStripMenuItem.Text = "Yeni Sipariş Ekle";
+            this.yeniSiparişEkleToolStripMenuItem.Click += new System.EventHandler(this.yeniSiparişEkleToolStripMenuItem_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(27, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(743, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // frm_MusteriListesi
             // 

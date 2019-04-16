@@ -44,5 +44,30 @@ namespace Iskur_EF.BLL
             var result = dataContext.CreditCards;
             return result.ToList();
         }
+        public static List<CurrencyRate> GetCurrencyRateID()
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            var result = dataContext.CurrencyRates;
+            return result.ToList();
+        }
+        public static List<SalesTerritory> GetSalesTerritoryID()
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            var result = dataContext.SalesTerritories;
+            return result.ToList();
+        }
+        //person.address deki addressid=billtoaddressıd ve addressid=shiptoadressid
+        public static List<Address> GetBillToAddressID()
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            var result = dataContext.Addresses;
+            return result.ToList();
+        }
+        public static List<ShipMethod> GetShipMethodID()
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            var result = dataContext.ShipMethods;
+            return result.ToList();
+        }
     }
 }

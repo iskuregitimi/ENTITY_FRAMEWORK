@@ -18,16 +18,6 @@ namespace Iskur_EF.UI.Win
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = OrderBLL.GetProducts();
@@ -41,6 +31,23 @@ namespace Iskur_EF.UI.Win
             foreach (var item in OrderBLL.GetCreditCardID())
             {
                 cmb_KrediKartID.Items.Add(item.CreditCardID);
+            }
+            foreach (var item in OrderBLL.GetCurrencyRateID())
+            {
+                cmb_DövizKuruID.Items.Add(item.CurrencyRateID);
+            }
+            foreach (var item in OrderBLL.GetSalesTerritoryID())
+            {
+                cmb_BölgeID.Items.Add(item.TerritoryID);
+            }
+            foreach (var item in OrderBLL.GetBillToAddressID())
+            {
+                cmb_FaturaAdresID.Items.Add(item.AddressID);
+                cmb_ShipToAdresID.Items.Add(item.AddressID);
+            }
+            foreach (var item in OrderBLL.GetShipMethodID())
+            {
+                cmb_ShipMethodID.Items.Add(item.ShipMethodID);
             }
         }
     }

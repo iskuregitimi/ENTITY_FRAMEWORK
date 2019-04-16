@@ -22,7 +22,7 @@ namespace Iskur_EF.UI.Win
     
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = ProductBLL.GetProducts(productID);
+            dataGridView1.DataSource = ProductBLL.GetProducts();
         }
 
         private void ürünToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,6 +31,8 @@ namespace Iskur_EF.UI.Win
             int productID = int.Parse(dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString());
             Product product = ProductBLL.GetProducts(productID);
             OrderDetailBLL.AddOrderDetails(product, header);
+
+            MessageBox.Show("urun ORDER TABLOSUNA EKLENDİ");
         }
     }
 }

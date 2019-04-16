@@ -28,10 +28,15 @@ namespace Iskur_EF.UI.Win
             cmb_bolge.DataSource = bolgeler.GetSalesTerritory();
             cmb_bolge.DisplayMember = "Name";
             cmb_bolge.ValueMember = "TerritoryID";
-
+            dataGridView1.DataSource = ProductBLL.GetProducts();
         }
 
         private void cmb_bolge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

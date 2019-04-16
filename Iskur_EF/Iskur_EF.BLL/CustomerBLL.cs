@@ -42,5 +42,11 @@ namespace Iskur_EF.BLL
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
             return datacontext.SalesOrderHeaders.Add(sales);
         }
+
+        public static Customer GetCustomer(int CustomerID)
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            return dataContext.Customers.Where(x => x.CustomerID == CustomerID).FirstOrDefault();
+        }
     }
 }

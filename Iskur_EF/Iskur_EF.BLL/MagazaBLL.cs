@@ -18,7 +18,7 @@ namespace Iskur_EF.BLL
         }
         public static Store GetStore(int SalesPersonId)
         {
-
+   
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
             return datacontext.Stores.Where(x=>x.SalesPersonID==SalesPersonId).FirstOrDefault();
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Iskur_EF.BLL;
+using Iskur_EF.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +14,14 @@ namespace Iskur_EF.UI.Win
 {
     public partial class frm_YeniSiparis : Form
     {
+        public int CustomerId;
+
         public frm_YeniSiparis()
         {
             InitializeComponent();
         }
+
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -23,6 +29,19 @@ namespace Iskur_EF.UI.Win
         }
 
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
+        private void frm_YeniSiparis_Load(object sender, EventArgs e)
+        {
+            Customer cs = new Customer();
+            cs = CustomerBLL.GetCustomer(CustomerId);
+            label4.Text = cs.Person.FirstName;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

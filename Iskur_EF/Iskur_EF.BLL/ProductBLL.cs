@@ -11,13 +11,17 @@ namespace Iskur_EF.BLL
     {
 
 
-        public static List<Product> GetProducts(int productID)
+
+        static AdventureWorksEntities dataContext = new AdventureWorksEntities();
+
+        public static List<Product> GetProducts()
         {
+            return dataContext.Products.Where(x => x.ProductID >= 700).ToList();
+        }
 
-            AdventureWorksEntities datacontext = new AdventureWorksEntities();
-            return datacontext.Products.ToList();
-
-          
+        public static Product GetProducts(int id)
+        {
+            return dataContext.Products.FirstOrDefault(x => x.ProductID == id);
         }
 
 

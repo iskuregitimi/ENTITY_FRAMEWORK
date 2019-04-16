@@ -37,6 +37,7 @@ namespace Iskur_EF.BLL
             salesOrder.rowguid = Guid.NewGuid();
 
             var header = dataContext.SalesOrderHeaders.Add(salesOrder);
+
             dataContext.SaveChanges();
             return header;
         }

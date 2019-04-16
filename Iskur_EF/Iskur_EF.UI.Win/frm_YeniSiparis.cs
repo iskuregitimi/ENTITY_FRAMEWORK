@@ -19,6 +19,9 @@ namespace Iskur_EF.UI.Win
             InitializeComponent();
         }
         public int id = 0;
+
+        public int ProductID;
+
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = ProductBLL.GetProducts();
@@ -26,7 +29,7 @@ namespace Iskur_EF.UI.Win
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var header = OrderBLL.AddOrder(id, 100);
+            var header = OrderBLL.AddOrder(ProductID, 100);
             int productID = int.Parse(dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString());
             Product product = ProductBLL.GetProduct(productID);
             OrderDetaisBLL.AddOrderDetails(product, header);

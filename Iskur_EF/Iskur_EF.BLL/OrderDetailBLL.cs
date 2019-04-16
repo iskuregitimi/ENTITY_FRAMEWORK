@@ -1,4 +1,4 @@
-﻿using Iskur_EF.DAL;
+﻿ using Iskur_EF.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace Iskur_EF.BLL
             orderDetail.ProductID = products.ProductID;
             orderDetail.SpecialOfferID = products.SpecialOfferProducts.FirstOrDefault(x => x.ProductID == products.ProductID).SpecialOfferID;
             orderDetail.OrderQty = 1;
-            orderDetail.UnitPrice = products.ProductCostHistories.FirstOrDefault(x => x.ProductID == products.ProductID).StandardCost;
+            orderDetail.UnitPrice = products.StandardCost;
             orderDetail.UnitPriceDiscount = 0;
             orderDetail.rowguid = Guid.NewGuid();
             orderDetail.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));

@@ -25,6 +25,14 @@ namespace Iskur_EF.UI.Win
         {
             Customer c = CustomerBLL.GetCustomer(Id);
             label4.Text = c.Person.FirstName;
+            cmb_bolge.DataSource = bolgeler.GetSalesTerritory();
+            cmb_bolge.DisplayMember = "Name";
+            cmb_bolge.ValueMember = "TerritoryID";
+
+        }
+
+        private void cmb_bolge_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

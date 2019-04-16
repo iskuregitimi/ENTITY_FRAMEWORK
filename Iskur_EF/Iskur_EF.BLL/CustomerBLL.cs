@@ -24,6 +24,12 @@ namespace Iskur_EF.BLL
 
             return result.ToList();
         }
+        public static Customer GetCustomerName(int id)
+        {
+            AdventureWorksEntities datacontext = new AdventureWorksEntities();
+            return datacontext.Customers.Where(c => c.CustomerID == id).FirstOrDefault();
+           
+        }
 
         public static List<SalesOrderHeader> GetSalesOrderHeaders(int id)
         {
@@ -42,5 +48,6 @@ namespace Iskur_EF.BLL
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
             return datacontext.SalesOrderHeaders.Add(sales);
         }
+
     }
 }

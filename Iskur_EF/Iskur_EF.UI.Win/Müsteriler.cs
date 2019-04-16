@@ -37,6 +37,8 @@ namespace Iskur_EF.UI.Win
         private void siparisVerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SiparisVer ver = new SiparisVer();
+            int id = int.Parse(dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString());
+            ver.customerId = id;
             ver.Show();
         }
     }

@@ -13,7 +13,6 @@ namespace Iskur_EF.BLL
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
             return dataContext.Employees.Where(x=>x.Person.FirstName.Contains(searchText)||x.Person.LastName.Contains(searchText)).ToList();
-         
         }
         public static Employee GetPeople(int BusinessEntityId)
         

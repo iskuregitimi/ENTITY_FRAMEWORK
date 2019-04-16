@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Iskur_EF.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,14 +18,17 @@ namespace Iskur_EF.UI.Win
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
+            dgvUrunler.DataSource = ProductBLL.GetProducts(string.Empty);
+            lblCustomerName.Text = FirstName+" "+LastName ;
+            var salesPersons = SalesBLL.GetSalesPeople();
 
-        }
-
-        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            cmbSalesPersons.DisplayMember = "FirstName";
+            cmbSalesPersons.DataSource = salesPersons;
         }
     }
 }

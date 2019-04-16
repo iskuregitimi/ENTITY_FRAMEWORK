@@ -34,6 +34,8 @@ namespace Iskur_EF.UI.Win
         {
             frm_YeniSiparis f = new frm_YeniSiparis();
             f.MdiParent = this.MdiParent;
+            f.FirstName = dataGridView1.SelectedRows[0].Cells["FirstName"].Value.ToString();
+            f.LastName = dataGridView1.SelectedRows[0].Cells["LastName"].Value.ToString();
             f.Show();
         }
     }

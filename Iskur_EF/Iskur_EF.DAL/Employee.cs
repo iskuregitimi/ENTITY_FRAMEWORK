@@ -49,5 +49,7 @@ namespace Iskur_EF.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrderHeader> PurchaseOrderHeaders { get; set; }
         public virtual SalesPerson SalesPerson { get; set; }
+
+
     }
 }

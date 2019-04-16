@@ -18,17 +18,25 @@ namespace Iskur_EF.UI.Win
         {
             InitializeComponent();
         }
-
-        public int ProductId { get; internal set; }
-
+   
+        public int CustomerId { get; internal set; }
+        Customer customer = new Customer();
+        Employee emp = new Employee();
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = ProductBLL.GetProducts();
+            customer = CustomerBLL.GetCustomer(CustomerId);
+            lbl_customerName.Text = customer.Person.FirstName;
+            List<Employee> employee = EmployeeBLL.GetSalesPerson();
+            cmb_SatisPersoneli.DataSource = employee;
+            cmb_SatisPersoneli.DisplayMember =emp.Person.FirstName;
+            cmb_SatisPersoneli.ValueMember = "BusinessEntityID";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            var header = OrderBLL.AddOrder(ProductId, 100);
+            var header = OrderBLL.AddOrder(CustomerId, 100);
             int ProductID = int.Parse(dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString());
             Product product = ProductBLL.GetProduct(ProductID);
             OrderBLL.AddOrderDetail(product, header);

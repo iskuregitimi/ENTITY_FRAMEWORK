@@ -9,10 +9,12 @@ namespace Iskur_EF.BLL
 {
    public static class EmployeeBLL
     {
+      static AdventureWorksEntities dataContext = new AdventureWorksEntities();
         public static List<Employee> GetEmployees(string searchText)
         {
-            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+           
             return dataContext.Employees.Where(x=>x.Person.FirstName.Contains(searchText)||x.Person.LastName.Contains(searchText)).ToList();
+            
          
         }
         public static Employee GetPeople(int BusinessEntityId)
@@ -21,6 +23,11 @@ namespace Iskur_EF.BLL
             AdventureWorksEntities efDataContext = new AdventureWorksEntities();
             Employee emp = efDataContext.Employees.Where(e => e.BusinessEntityID == BusinessEntityId).FirstOrDefault();
             return emp;
+        }
+         public static List<Employee> GetSalesPerson()
+        {
+            return dataContext.Employees.Where(x=>x.JobTitle== "Sales Representative").ToList();
+
         }
     }
 }

@@ -9,9 +9,10 @@ namespace Iskur_EF.BLL
 {
     public static class CustomerBLL
     {
+      static  AdventureWorksEntities datacontext = new AdventureWorksEntities();
         public static object GetCustomers(string searchText)
         {
-            AdventureWorksEntities datacontext = new AdventureWorksEntities();
+           
             var result = datacontext.Customers.Where(c => c.PersonID != null).Select(
                 x => new
                 {
@@ -23,6 +24,11 @@ namespace Iskur_EF.BLL
                 );
 
             return result.ToList();
+        }
+
+        public static Customer GetCustomer(int customerıd)
+        {
+           return datacontext.Customers.Where(x => x.CustomerID == customerıd).FirstOrDefault();
         }
 
     }

@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dlg_MüsteriDetay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlg_MüsteriDetay.Designer.cs">
+      <DependentUpon>dlg_MüsteriDetay.cs</DependentUpon>
+    </Compile>
     <Compile Include="dlg_PersonelDetay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,13 +77,25 @@
     <Compile Include="frm_PersonelListesi.Designer.cs">
       <DependentUpon>frm_PersonelListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_MüsteriListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_MüsteriListesi.Designer.cs">
+      <DependentUpon>frm_MüsteriListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="dlg_MüsteriDetay.resx">
+      <DependentUpon>dlg_MüsteriDetay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dlg_PersonelDetay.resx">
       <DependentUpon>dlg_PersonelDetay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_MüsteriListesi.resx">
+      <DependentUpon>frm_MüsteriListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_PersonelListesi.resx">
       <DependentUpon>frm_PersonelListesi.cs</DependentUpon>

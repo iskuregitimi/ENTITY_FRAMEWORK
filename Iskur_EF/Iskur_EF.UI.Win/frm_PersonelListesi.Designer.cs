@@ -44,11 +44,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_PersonelListesi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_PersonelListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_PersonelListesi.Location = new System.Drawing.Point(12, 40);
+            this.dgv_PersonelListesi.Location = new System.Drawing.Point(9, 32);
+            this.dgv_PersonelListesi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_PersonelListesi.Name = "dgv_PersonelListesi";
             this.dgv_PersonelListesi.RowTemplate.Height = 24;
             this.dgv_PersonelListesi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_PersonelListesi.Size = new System.Drawing.Size(776, 398);
+            this.dgv_PersonelListesi.Size = new System.Drawing.Size(582, 323);
             this.dgv_PersonelListesi.TabIndex = 0;
             this.dgv_PersonelListesi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_PersonelListesi_CellContentClick);
             this.dgv_PersonelListesi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_PersonelListesi_CellDoubleClick);
@@ -57,18 +58,20 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Location = new System.Drawing.Point(9, 10);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(776, 22);
+            this.textBox1.Size = new System.Drawing.Size(583, 20);
             this.textBox1.TabIndex = 1;
             // 
             // frm_PersonelListesi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgv_PersonelListesi);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frm_PersonelListesi";
             this.Text = "frm_PersonelListesi";
             this.Load += new System.EventHandler(this.frm_PersonelListesi_Load);

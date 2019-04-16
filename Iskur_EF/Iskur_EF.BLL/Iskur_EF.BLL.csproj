@@ -60,6 +60,8 @@
     <Compile Include="EmployeeBLL.cs" />
     <Compile Include="MagazaBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiparisBLL.cs" />
+    <Compile Include="UrunlerBLL.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

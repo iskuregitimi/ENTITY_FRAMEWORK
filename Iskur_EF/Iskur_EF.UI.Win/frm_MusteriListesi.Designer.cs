@@ -30,32 +30,31 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.siparişlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yeniSiparişEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(27, 39);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(743, 376);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(27, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(743, 20);
-            this.textBox1.TabIndex = 1;
             // 
             // contextMenuStrip1
             // 
@@ -63,20 +62,28 @@
             this.siparişlerToolStripMenuItem,
             this.yeniSiparişEkleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 48);
             // 
             // siparişlerToolStripMenuItem
             // 
             this.siparişlerToolStripMenuItem.Name = "siparişlerToolStripMenuItem";
-            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.siparişlerToolStripMenuItem.Text = "Siparişler";
             this.siparişlerToolStripMenuItem.Click += new System.EventHandler(this.siparişlerToolStripMenuItem_Click);
             // 
             // yeniSiparişEkleToolStripMenuItem
             // 
             this.yeniSiparişEkleToolStripMenuItem.Name = "yeniSiparişEkleToolStripMenuItem";
-            this.yeniSiparişEkleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.yeniSiparişEkleToolStripMenuItem.Text = "Yeni Sipariş Ekle";
+            this.yeniSiparişEkleToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.yeniSiparişEkleToolStripMenuItem.Text = "Sipariş Ver";
+            this.yeniSiparişEkleToolStripMenuItem.Click += new System.EventHandler(this.yeniSiparişEkleToolStripMenuItem_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(27, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(743, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // frm_MusteriListesi
             // 

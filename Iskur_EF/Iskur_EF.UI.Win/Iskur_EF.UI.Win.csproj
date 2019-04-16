@@ -71,6 +71,12 @@
     <Compile Include="dlg_Siparisler.Designer.cs">
       <DependentUpon>dlg_Siparisler.cs</DependentUpon>
     </Compile>
+    <Compile Include="dlg_Urunler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlg_Urunler.Designer.cs">
+      <DependentUpon>dlg_Urunler.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dlg_Siparisler.resx">
       <DependentUpon>dlg_Siparisler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlg_Urunler.resx">
+      <DependentUpon>dlg_Urunler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

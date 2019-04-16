@@ -29,5 +29,11 @@ namespace Iskur_EF.UI.Win
         {
             dataGridView1.DataSource = CustomerBLL.GetCustomers(string.Empty);
         }
+
+        private void yeniSiparişEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dlg_Urunler frm = new dlg_Urunler();
+            frm.ShowDialog();
+        }
     }
 }

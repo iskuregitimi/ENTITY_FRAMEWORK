@@ -37,6 +37,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(48, 139);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(430, 269);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -48,6 +49,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "frm_YeniSiparis";
             this.Text = "frm_YeniSiparis";
+            this.Load += new System.EventHandler(this.frm_YeniSiparis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

@@ -40,4 +40,4 @@ namespace Iskur_EF.BLL
 
         }
     }
-}
+

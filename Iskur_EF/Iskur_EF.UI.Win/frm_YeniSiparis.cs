@@ -25,14 +25,16 @@ namespace Iskur_EF.UI.Win
             dataGridView1.DataSource = ProductBLL.GetProducts();
         }
 
-        private void ürünToolStripMenuItem_Click(object sender, EventArgs e)
+       
+
+        private void button1_Click(object sender, EventArgs e)
         {
             var header = OrderBLL.AddOrder(id, 100);
             int productID = int.Parse(dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString());
             Product product = ProductBLL.GetProducts(productID);
             OrderDetailBLL.AddOrderDetails(product, header);
 
-            MessageBox.Show("urun ORDER TABLOSUNA EKLENDİ");
+          
         }
     }
 }

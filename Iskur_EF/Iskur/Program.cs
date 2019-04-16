@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Iskur_EF.BLL
+namespace Iskur
 {
     static class Program
     {

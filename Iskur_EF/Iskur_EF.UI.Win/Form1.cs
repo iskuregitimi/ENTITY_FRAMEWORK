@@ -23,5 +23,31 @@ namespace Iskur_EF.UI.Win
             form.MdiParent = this;
             form.Show();
         }
+
+        private void personelDetayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void personelDetayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            dlg_PersonelDetay detay = new dlg_PersonelDetay();
+            detay.MdiParent = this;
+            detay.Show();
+        }
+
+        private void magazaListesiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_magazalistesi frm = new frm_magazalistesi();
+            frm.Show();
+
+        }
+
+        private void müsterilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Müsteriler müs = new Müsteriler();
+            müs.Show();
+
+        }
     }
 }

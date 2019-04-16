@@ -30,15 +30,57 @@ namespace Iskur_EF.UI.Win
 
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource= OrderBLL.GetProduct();
-            foreach (var item in OrderBLL.Get_SalePerson())
+            dataGridView1.DataSource = OrderBLL.GetProduct();
+
+            cmbSatısPersoneli.DataSource = OrderBLL.Get_SalePerson(); ;
+            cmbSatısPersoneli.ValueMember = "BusinessEntityID";
+            cmbSatısPersoneli.DisplayMember = "FirstName";
+
+
+            cmbCreditID.DataSource = OrderBLL.GetCreditCardsID();
+            cmbCreditID.DisplayMember = "CreditCardID";
+            cmbCreditID.ValueMember = "CreditCardID";
+
+            cmbCurrencyRate.DataSource = OrderBLL.GetCurrencyRate();
+            cmbCurrencyRate.DisplayMember = "CurrencyRateID";
+            cmbCurrencyRate.ValueMember = "CurrencyRateID";
+
+            cmbTerratory.DataSource = OrderBLL.GetTerritoryID();
+            cmbTerratory.ValueMember = "TerritoryID";
+            cmbTerratory.DisplayMember = "Name";
+
+            cmbBillToAdress.DataSource = OrderBLL.GetBillToAdress();
+            cmbBillToAdress.ValueMember = "AddressID";
+            cmbBillToAdress.DisplayMember = "AddressLine1";
+
+            cmbShippedToAdress.DataSource = OrderBLL.GetBillToAdress();
+            cmbShippedToAdress.ValueMember = "AddressID";
+            cmbShippedToAdress.DisplayMember = "AddressLine1";
+
+            cmbShippedMetod.DataSource = OrderBLL.GetShipMetodID();
+            cmbShippedMetod.DisplayMember = "ShipMethodID";
+            cmbShippedMetod.ValueMember = "ShipMethodID";
+
+            lblCustomerName.Text = frm_MusteriListesi.CustomerName;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
             {
-                cmbSatısPersoneli.Items.Add(item.FirstName);
+                int ProductID = (int)dataGridView1.CurrentRow.Cells["ProductID"].Value;
+                OrderBLL.İnsertOrderHeader(frm_MusteriListesi.CustomerID, Convert.ToInt32(cmbSatısPersoneli.SelectedValue), Convert.ToInt32(cmbTerratory.SelectedValue), Convert.ToInt32(cmbBillToAdress.SelectedValue), Convert.ToInt32(cmbShippedToAdress.SelectedValue), Convert.ToInt32(cmbShippedMetod.SelectedValue), Convert.ToInt32(cmbCreditID.SelectedValue));
+
+                OrderBLL.İnsertSaleOrderDetail(ProductID);
+                MessageBox.Show("Siparişiniz Başarıyla Alınmıştır İyi Günler Dileriz");
             }
-            foreach (var item in OrderBLL.GetCreditCardsID())
+            catch
             {
-                cmbID.Items.Add(item.CreditCardID);
+
+                MessageBox.Show("Siparişiniz İşleminiz Gerçekleştirilemedi");
             }
+
         }
     }
 }

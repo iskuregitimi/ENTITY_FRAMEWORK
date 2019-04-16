@@ -29,10 +29,13 @@ namespace Iskur_EF.UI.Win
         {
             dataGridView1.DataSource = CustomerBLL.GetCustomers(string.Empty);
         }
-
+        public static int CustomerID { get; set; }
+        public static string CustomerName { get; set; }
         private void yeniSiparişEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_YeniSiparis f = new frm_YeniSiparis();
+            CustomerID =(int)dataGridView1.CurrentRow.Cells["CustomerID"].Value;
+            CustomerName= $"{dataGridView1.CurrentRow.Cells["FirstName"].Value.ToString()}  {dataGridView1.CurrentRow.Cells["LastName"].Value.ToString()}";
             f.MdiParent = this.MdiParent;
             f.Show();
         }

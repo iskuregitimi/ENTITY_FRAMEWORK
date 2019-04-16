@@ -22,9 +22,9 @@ namespace Iskur_EF.BLL
             return dataContext.Stores.Where(x=>x.Name == searchText).ToList();
         }
 
-        public static List<Store> GetPerson(int id)
+        public static List<Store> GetPerson(int SalesPersonID)
         {
-            return dataContext.Stores.Where(x=>x.SalesPersonID==id).ToList();
+            return dataContext.Stores.Where(x=>x.SalesPersonID==SalesPersonID).ToList();
         }
     }
 }

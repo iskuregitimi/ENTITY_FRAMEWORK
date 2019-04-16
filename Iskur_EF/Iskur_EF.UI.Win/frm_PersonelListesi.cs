@@ -30,6 +30,7 @@ namespace Iskur_EF.UI.Win
 
         private void personelDetayToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             dlg_PersonelDetay frm = new dlg_PersonelDetay();
             frm.BusinessID = int.Parse(dgv_PersonelListesi.SelectedRows[0].Cells[0].Value.ToString());
             frm.ShowDialog();

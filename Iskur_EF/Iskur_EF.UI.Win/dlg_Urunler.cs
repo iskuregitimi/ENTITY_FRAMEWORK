@@ -27,10 +27,18 @@ namespace Iskur_EF.UI.Win
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            var header = SiparisBLL.AddOrder(CustomerID, 100);
-            int productID = int.Parse(dgvUrunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
-            Product product = SiparisBLL.GetProduct(productID);
-            SiparisBLL.AddOrderDetails(product, header);
+            var selectedRows = dgvUrunler.SelectedRows.OfType<DataGridViewRow>().Where(row => !row.IsNewRow).ToArray();
+            int i = 0;
+            foreach (var row in selectedRows)
+            {            
+                var header = SiparisBLL.AddOrder(CustomerID, 100);
+                int productID = int.Parse(dgvUrunler.SelectedRows[i].Cells["ProductID"].Value.ToString());
+                Product product = SiparisBLL.GetProduct(productID);
+                SiparisBLL.AddOrderDetails(product, header);
+                i++;
+            }
+            
+            MessageBox.Show("Ürün Eklendi!");
         }
     }
 }

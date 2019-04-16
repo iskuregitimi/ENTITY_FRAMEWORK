@@ -60,5 +60,10 @@ namespace Iskur_EF.BLL
             dataContext.SalesOrderDetails.Add(orderDetail);
             dataContext.SaveChanges();
         }
+
+        public static Product GetProduct(int id)
+        {
+            return dataContext.Products.FirstOrDefault(x => x.ProductID == id);
+        }
     }
 }

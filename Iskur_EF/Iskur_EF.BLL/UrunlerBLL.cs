@@ -9,10 +9,26 @@ namespace Iskur_EF.BLL
 {
     public static class UrunlerBLL
     {
-        public static List<Product> GetProducts(string searchText)
+        public static object GetProducts(string searchText)
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
-            return dataContext.Products.ToList();
+            var result = dataContext.Products.Select(
+                x => new
+                {
+                    x.ProductID,
+                    x.Name,
+                    x.ProductNumber,
+                    x.Color,
+                    x.SafetyStockLevel,
+                    x.StandardCost,
+                    x.ListPrice,
+                    x.Size,
+                    x.Weight,
+                    x.SellStartDate,
+                    x.SellEndDate
+                }
+                );
+            return result.ToList();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Iskur_EF.BLL
 {
   public static class MagazaBLL
     {
+
         public static List<Store> GetStores(string searchText)
         {
 
@@ -16,13 +17,7 @@ namespace Iskur_EF.BLL
             return datacontext.Stores.ToList();
 
         }
-        public static Store GetStore(int SalesPersonId)
-        {
-
-            AdventureWorksEntities datacontext = new AdventureWorksEntities();
-            return datacontext.Stores.Where(x=>x.SalesPersonID==SalesPersonId).FirstOrDefault();
-
-        }
+    
 
   
     }

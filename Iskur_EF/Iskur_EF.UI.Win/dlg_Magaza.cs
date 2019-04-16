@@ -28,7 +28,7 @@ namespace Iskur_EF.UI.Win
         private void satışPersoneliGösterToolStripMenuItem_Click(object sender, EventArgs e)
         {
         
-          dlg_PersonelDetay form = new dlg_PersonelDetay();
+            dlg_PersonelDetay form = new dlg_PersonelDetay();
             form.businessEntityId= int.Parse(dgv_Magaza.SelectedRows[0].Cells["SalesPersonID"].Value.ToString());
             form.Show();
         }

@@ -22,7 +22,7 @@ namespace Iskur_EF.UI.Win
 
         private void frm_SiparisDetail_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = CustomerBLL.GetOrderDetail(SalesOrderId);
+            dataGridView1.DataSource = OrderBLL.GetOrderDetail(SalesOrderId);
         }
     }
 }

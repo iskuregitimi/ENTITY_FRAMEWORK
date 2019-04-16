@@ -19,16 +19,10 @@ namespace Iskur_EF.UI.Win
             InitializeComponent();
         }
 
-        Employee emp = new Employee();
-        Store store = new Store();
-
+        Employee emp = new Employee();     
         public int businessEntityId;
-
-   
-
         private void dlg_PersonelDetay_Load(object sender, EventArgs e)
         {
-
 
             emp = EmployeeBLL.GetPeople(businessEntityId);
             txt_Firstname.Text = emp.Person.FirstName;

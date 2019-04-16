@@ -45,6 +45,7 @@
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(39, 30);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(606, 351);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -53,12 +54,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.siparişDetayToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(142, 26);
             // 
             // siparişDetayToolStripMenuItem
             // 
             this.siparişDetayToolStripMenuItem.Name = "siparişDetayToolStripMenuItem";
-            this.siparişDetayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.siparişDetayToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.siparişDetayToolStripMenuItem.Text = "Sipariş Detay";
             this.siparişDetayToolStripMenuItem.Click += new System.EventHandler(this.siparişDetayToolStripMenuItem_Click);
             // 

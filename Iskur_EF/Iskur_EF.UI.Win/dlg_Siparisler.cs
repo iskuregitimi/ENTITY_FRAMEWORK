@@ -22,7 +22,7 @@ namespace Iskur_EF.UI.Win
 
         private void dlg_Siparisler_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = CustomerBLL.GetSalesOrderHeaders(CustomerId);
+            dataGridView1.DataSource = OrderBLL.GetSalesOrderHeaders(CustomerId);
         }
 
         private void siparişDetayToolStripMenuItem_Click(object sender, EventArgs e)

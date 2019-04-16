@@ -28,17 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.orderDetayınıListeleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(856, 276);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.orderDetayınıListeleToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(187, 26);
+            // 
+            // orderDetayınıListeleToolStripMenuItem
+            // 
+            this.orderDetayınıListeleToolStripMenuItem.Name = "orderDetayınıListeleToolStripMenuItem";
+            this.orderDetayınıListeleToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.orderDetayınıListeleToolStripMenuItem.Text = "Order Detayını Listele";
+            this.orderDetayınıListeleToolStripMenuItem.Click += new System.EventHandler(this.orderDetayınıListeleToolStripMenuItem_Click);
             // 
             // Get_Order
             // 
@@ -50,6 +69,7 @@
             this.Text = "Get_Order";
             this.Load += new System.EventHandler(this.Get_Order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -57,5 +77,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem orderDetayınıListeleToolStripMenuItem;
     }
 }

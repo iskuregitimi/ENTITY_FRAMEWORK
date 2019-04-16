@@ -32,32 +32,44 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.orderListeleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderVerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 44);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 27);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(749, 322);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 385);
             this.dataGridView1.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.orderListeleToolStripMenuItem});
+            this.orderListeleToolStripMenuItem,
+            this.orderVerToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(141, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // orderListeleToolStripMenuItem
             // 
             this.orderListeleToolStripMenuItem.Name = "orderListeleToolStripMenuItem";
-            this.orderListeleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.orderListeleToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.orderListeleToolStripMenuItem.Text = "Order Listele";
             this.orderListeleToolStripMenuItem.Click += new System.EventHandler(this.orderListeleToolStripMenuItem_Click);
+            // 
+            // orderVerToolStripMenuItem
+            // 
+            this.orderVerToolStripMenuItem.Name = "orderVerToolStripMenuItem";
+            this.orderVerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.orderVerToolStripMenuItem.Text = "Order Ver";
+            this.orderVerToolStripMenuItem.Click += new System.EventHandler(this.orderVerToolStripMenuItem_Click);
             // 
             // MüşteriListesi
             // 
@@ -79,5 +91,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem orderListeleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orderVerToolStripMenuItem;
     }
 }

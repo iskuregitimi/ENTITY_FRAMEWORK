@@ -22,5 +22,12 @@ namespace Iskur_EF.UI.Win
         {
            dataGridView1.DataSource=  EmployeeBLL.Get_Order(MüşteriListesi.CustomerID);
         }
+        public static int SPID { get; set; }
+        private void orderDetayınıListeleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OrderDetail frm = new OrderDetail();
+            SPID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            frm.Show();
+        }
     }
 }

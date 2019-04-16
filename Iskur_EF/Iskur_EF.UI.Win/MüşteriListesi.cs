@@ -29,5 +29,12 @@ namespace Iskur_EF.UI.Win
             Get_Order or = new Get_Order();
             or.Show();
         }
+
+        private void orderVerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Products_Listele frm = new Products_Listele();
+            
+            frm.Show();
+        }
     }
 }

@@ -21,5 +21,18 @@ namespace Iskur_EF.BLL
                 );
             return result.ToList(); 
         }
+        public static void addToComment()
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            //dataContext
+        }
+
+        public static List<SalesTerritory> GetTerritories()
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+
+            return dataContext.SalesTerritories.ToList();
+
+        }
     }
 }

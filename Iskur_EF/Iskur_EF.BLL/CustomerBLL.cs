@@ -25,6 +25,7 @@ namespace Iskur_EF.BLL
             return result.ToList();
         }
 
+
         public static List<SalesOrderHeader> GetSalesOrderHeaders(int id)
         {
             AdventureWorksEntities datacontext = new AdventureWorksEntities();

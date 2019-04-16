@@ -17,8 +17,8 @@ namespace Iskur_EF.BLL
         public static Employee GetPeople(int BusinessEntityId)
         
         {
-            AdventureWorksEntities efDataContext = new AdventureWorksEntities();
-            Employee emp = efDataContext.Employees.Where(e => e.BusinessEntityID == BusinessEntityId).FirstOrDefault();
+            AdventureWorksEntities DataContext = new AdventureWorksEntities();
+            Employee emp = DataContext.Employees.Where(e => e.BusinessEntityID == BusinessEntityId).FirstOrDefault();
             return emp;
         }
     }

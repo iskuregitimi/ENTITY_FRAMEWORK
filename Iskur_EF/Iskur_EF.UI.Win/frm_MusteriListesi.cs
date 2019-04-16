@@ -33,6 +33,7 @@ namespace Iskur_EF.UI.Win
         private void yeniSiparişEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dlg_Urunler frm = new dlg_Urunler();
+            frm.CustomerID = int.Parse(dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString());
             frm.ShowDialog();
         }
     }

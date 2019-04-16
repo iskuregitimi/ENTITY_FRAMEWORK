@@ -1,4 +1,5 @@
 ﻿using Iskur_EF.BLL;
+using Iskur_EF.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace Iskur_EF.UI.Win
 {
     public partial class dlg_Urunler : Form
     {
+        public int CustomerID { get; set; }
         public dlg_Urunler()
         {
             InitializeComponent();
@@ -25,10 +27,10 @@ namespace Iskur_EF.UI.Win
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            var header = OrderBLL.AddOrder(id, 100);
-            int productID = int.Parse(dgv_Products.SelectedRows[0].Cells["ProductID"].Value.ToString());
-            Product product = ProductBLL.GetProduct(productID);
-            OrderDetaisBLL.AddOrderDetails(product, header);
+            var header = SiparisBLL.AddOrder(CustomerID, 100);
+            int productID = int.Parse(dgvUrunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
+            Product product = SiparisBLL.GetProduct(productID);
+            SiparisBLL.AddOrderDetails(product, header);
         }
     }
 }

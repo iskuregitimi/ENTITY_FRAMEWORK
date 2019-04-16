@@ -77,6 +77,12 @@
     <Compile Include="frm_MusteriListesi.Designer.cs">
       <DependentUpon>frm_MusteriListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_MusteriSiparisleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_MusteriSiparisleri.Designer.cs">
+      <DependentUpon>frm_MusteriSiparisleri.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_PersonelListesi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_MusteriListesi.resx">
       <DependentUpon>frm_MusteriListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_MusteriSiparisleri.resx">
+      <DependentUpon>frm_MusteriSiparisleri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_PersonelListesi.resx">
       <DependentUpon>frm_PersonelListesi.cs</DependentUpon>

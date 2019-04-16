@@ -33,6 +33,8 @@
             this.personelListesiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mağazalarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mağazaListesiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.müşterilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.müşteriDetayıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +43,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.personelToolStripMenuItem,
-            this.mağazalarToolStripMenuItem});
+            this.mağazalarToolStripMenuItem,
+            this.müşterilerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -79,6 +82,21 @@
             this.mağazaListesiToolStripMenuItem.Text = "Mağaza Listesi";
             this.mağazaListesiToolStripMenuItem.Click += new System.EventHandler(this.mağazaListesiToolStripMenuItem_Click);
             // 
+            // müşterilerToolStripMenuItem
+            // 
+            this.müşterilerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.müşteriDetayıToolStripMenuItem});
+            this.müşterilerToolStripMenuItem.Name = "müşterilerToolStripMenuItem";
+            this.müşterilerToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.müşterilerToolStripMenuItem.Text = "Müşteriler";
+            // 
+            // müşteriDetayıToolStripMenuItem
+            // 
+            this.müşteriDetayıToolStripMenuItem.Name = "müşteriDetayıToolStripMenuItem";
+            this.müşteriDetayıToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.müşteriDetayıToolStripMenuItem.Text = "Müşteri Listesi";
+            this.müşteriDetayıToolStripMenuItem.Click += new System.EventHandler(this.müşteriDetayıToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,7 +105,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Personel V2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -105,6 +123,8 @@
         private System.Windows.Forms.ToolStripMenuItem personelListesiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mağazalarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mağazaListesiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem müşterilerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem müşteriDetayıToolStripMenuItem;
     }
 }
 

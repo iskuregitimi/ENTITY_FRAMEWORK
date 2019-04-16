@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Iskur_EF.BLL;
+using Iskur_EF.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,13 +19,12 @@ namespace Iskur_EF.UI.Win
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        
+        public int Id;
+        private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            Customer c = CustomerBLL.GetCustomer(Id);
+            label4.Text = c.Person.FirstName;
 
         }
     }

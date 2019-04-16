@@ -34,6 +34,7 @@ namespace Iskur_EF.UI.Win
         {
             frm_YeniSiparis f = new frm_YeniSiparis();
             f.MdiParent = this.MdiParent;
+            f.Id = int.Parse(dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString());
             f.Show();
         }
     }

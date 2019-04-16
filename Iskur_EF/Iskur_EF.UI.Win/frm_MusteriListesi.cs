@@ -32,9 +32,14 @@ namespace Iskur_EF.UI.Win
 
         private void yeniSiparişEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_YeniSiparis f = new frm_YeniSiparis();
-            f.MdiParent = this.MdiParent;
-            f.Show();
+            frm_YeniSiparis frm = new frm_YeniSiparis();
+            frm.MdiParent = this.MdiParent;
+            frm.CustomerId = int.Parse(dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString());
+
+            frm.Show();
+
+
+
         }
     }
 }

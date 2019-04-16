@@ -36,5 +36,10 @@ namespace Iskur_EF.UI.Win
             form.businessEntityId = int.Parse(dgv_PersonelListesi.SelectedRows[0].Cells["BusinessEntityID"].Value.ToString());
             form.Show();
         }
+
+        private void dgv_PersonelListesi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

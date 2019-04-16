@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgv_PersonelListesi = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.personelDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PersonelListesi)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,16 +55,7 @@
             this.dgv_PersonelListesi.RowTemplate.Height = 24;
             this.dgv_PersonelListesi.Size = new System.Drawing.Size(582, 323);
             this.dgv_PersonelListesi.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(9, 10);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(583, 20);
-            this.textBox1.TabIndex = 1;
+            this.dgv_PersonelListesi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_PersonelListesi_CellContentClick);
             // 
             // contextMenuStrip1
             // 
@@ -76,9 +67,19 @@
             // personelDetayToolStripMenuItem
             // 
             this.personelDetayToolStripMenuItem.Name = "personelDetayToolStripMenuItem";
-            this.personelDetayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personelDetayToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.personelDetayToolStripMenuItem.Text = "Personel Detay";
             this.personelDetayToolStripMenuItem.Click += new System.EventHandler(this.personelDetayToolStripMenuItem_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(9, 10);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(583, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // frm_PersonelListesi
             // 

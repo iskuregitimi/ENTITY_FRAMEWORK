@@ -12,10 +12,10 @@ namespace Iskur_EF.BLL
         static AdventureWorksEntities dataContext = new AdventureWorksEntities();
         public static object GetSalesPerson()
         {
-            var emp = dataContext.Employees.Where(x => x.JobTitle == "Sales Representative").Select(
+            var emp = dataContext.SalesPersons.OrderBy(x=>x.BusinessEntityID).Select(
                 x => new
                 {                   
-                   FullName= x.Person.FirstName +" "+ x.Person.LastName,
+                   FullName= x.Employee.Person.FirstName +" "+ x.Employee.Person.LastName,
                     x.BusinessEntityID                   
                 }
 

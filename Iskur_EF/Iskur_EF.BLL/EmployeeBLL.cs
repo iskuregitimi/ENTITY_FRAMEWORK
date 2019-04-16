@@ -24,10 +24,6 @@ namespace Iskur_EF.BLL
             Employee emp = efDataContext.Employees.Where(e => e.BusinessEntityID == BusinessEntityId).FirstOrDefault();
             return emp;
         }
-         public static List<Employee> GetSalesPerson()
-        {
-            return dataContext.Employees.Where(x=>x.JobTitle== "Sales Representative").ToList();
-
-        }
+        
     }
 }

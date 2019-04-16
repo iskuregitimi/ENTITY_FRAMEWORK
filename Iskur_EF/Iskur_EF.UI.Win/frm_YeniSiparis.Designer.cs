@@ -30,10 +30,10 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lbl_LineTotal = new System.Windows.Forms.Label();
+            this.lbl_Freight = new System.Windows.Forms.Label();
+            this.lbl_TaxAmount = new System.Windows.Forms.Label();
+            this.lbl_SubTotal = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -45,14 +45,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cmb_CurrencyRate = new System.Windows.Forms.ComboBox();
+            this.cmb_CrediCard = new System.Windows.Forms.ComboBox();
             this.lbl_customerName = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cmb_ShipMethod = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmb_ShiptoAddress = new System.Windows.Forms.ComboBox();
+            this.cmb_BilltoAddress = new System.Windows.Forms.ComboBox();
+            this.cmb_Territory = new System.Windows.Forms.ComboBox();
             this.cmb_SatisPersoneli = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -82,45 +82,45 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // label18
+            // lbl_LineTotal
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(524, 174);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(155, 13);
-            this.label18.TabIndex = 34;
-            this.label18.Text = "Ara Toplam + Vergiler + Nakliye";
+            this.lbl_LineTotal.AutoSize = true;
+            this.lbl_LineTotal.Location = new System.Drawing.Point(524, 174);
+            this.lbl_LineTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_LineTotal.Name = "lbl_LineTotal";
+            this.lbl_LineTotal.Size = new System.Drawing.Size(155, 13);
+            this.lbl_LineTotal.TabIndex = 34;
+            this.lbl_LineTotal.Text = "Ara Toplam + Vergiler + Nakliye";
             // 
-            // label16
+            // lbl_Freight
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(524, 156);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(75, 13);
-            this.label16.TabIndex = 33;
-            this.label16.Text = "SubTotal * 0,1";
+            this.lbl_Freight.AutoSize = true;
+            this.lbl_Freight.Location = new System.Drawing.Point(524, 156);
+            this.lbl_Freight.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Freight.Name = "lbl_Freight";
+            this.lbl_Freight.Size = new System.Drawing.Size(75, 13);
+            this.lbl_Freight.TabIndex = 33;
+            this.lbl_Freight.Text = "SubTotal * 0,1";
             // 
-            // label14
+            // lbl_TaxAmount
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(524, 138);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 13);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "SubTotal * 0,18";
+            this.lbl_TaxAmount.AutoSize = true;
+            this.lbl_TaxAmount.Location = new System.Drawing.Point(524, 138);
+            this.lbl_TaxAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_TaxAmount.Name = "lbl_TaxAmount";
+            this.lbl_TaxAmount.Size = new System.Drawing.Size(81, 13);
+            this.lbl_TaxAmount.TabIndex = 32;
+            this.lbl_TaxAmount.Text = "SubTotal * 0,18";
             // 
-            // label12
+            // lbl_SubTotal
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(524, 116);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 13);
-            this.label12.TabIndex = 31;
-            this.label12.Text = "00000";
+            this.lbl_SubTotal.AutoSize = true;
+            this.lbl_SubTotal.Location = new System.Drawing.Point(524, 116);
+            this.lbl_SubTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_SubTotal.Name = "lbl_SubTotal";
+            this.lbl_SubTotal.Size = new System.Drawing.Size(37, 13);
+            this.lbl_SubTotal.TabIndex = 31;
+            this.lbl_SubTotal.Text = "00000";
             // 
             // label17
             // 
@@ -232,23 +232,23 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Bölge (TerritoryID)";
             // 
-            // comboBox7
+            // cmb_CurrencyRate
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(202, 107);
-            this.comboBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(151, 21);
-            this.comboBox7.TabIndex = 18;
+            this.cmb_CurrencyRate.FormattingEnabled = true;
+            this.cmb_CurrencyRate.Location = new System.Drawing.Point(202, 107);
+            this.cmb_CurrencyRate.Margin = new System.Windows.Forms.Padding(2);
+            this.cmb_CurrencyRate.Name = "cmb_CurrencyRate";
+            this.cmb_CurrencyRate.Size = new System.Drawing.Size(151, 21);
+            this.cmb_CurrencyRate.TabIndex = 18;
             // 
-            // comboBox6
+            // cmb_CrediCard
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(202, 83);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(151, 21);
-            this.comboBox6.TabIndex = 17;
+            this.cmb_CrediCard.FormattingEnabled = true;
+            this.cmb_CrediCard.Location = new System.Drawing.Point(202, 83);
+            this.cmb_CrediCard.Margin = new System.Windows.Forms.Padding(2);
+            this.cmb_CrediCard.Name = "cmb_CrediCard";
+            this.cmb_CrediCard.Size = new System.Drawing.Size(151, 21);
+            this.cmb_CrediCard.TabIndex = 17;
             // 
             // lbl_customerName
             // 
@@ -260,14 +260,14 @@
             this.lbl_customerName.TabIndex = 20;
             this.lbl_customerName.Text = "label4";
             // 
-            // comboBox5
+            // cmb_ShipMethod
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(521, 89);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(185, 21);
-            this.comboBox5.TabIndex = 16;
+            this.cmb_ShipMethod.FormattingEnabled = true;
+            this.cmb_ShipMethod.Location = new System.Drawing.Point(521, 89);
+            this.cmb_ShipMethod.Margin = new System.Windows.Forms.Padding(2);
+            this.cmb_ShipMethod.Name = "cmb_ShipMethod";
+            this.cmb_ShipMethod.Size = new System.Drawing.Size(185, 21);
+            this.cmb_ShipMethod.TabIndex = 16;
             // 
             // dateTimePicker1
             // 
@@ -277,32 +277,32 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 19;
             // 
-            // comboBox4
+            // cmb_ShiptoAddress
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(521, 63);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(185, 21);
-            this.comboBox4.TabIndex = 15;
+            this.cmb_ShiptoAddress.FormattingEnabled = true;
+            this.cmb_ShiptoAddress.Location = new System.Drawing.Point(521, 63);
+            this.cmb_ShiptoAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.cmb_ShiptoAddress.Name = "cmb_ShiptoAddress";
+            this.cmb_ShiptoAddress.Size = new System.Drawing.Size(185, 21);
+            this.cmb_ShiptoAddress.TabIndex = 15;
             // 
-            // comboBox3
+            // cmb_BilltoAddress
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(521, 39);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(185, 21);
-            this.comboBox3.TabIndex = 14;
+            this.cmb_BilltoAddress.FormattingEnabled = true;
+            this.cmb_BilltoAddress.Location = new System.Drawing.Point(521, 39);
+            this.cmb_BilltoAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.cmb_BilltoAddress.Name = "cmb_BilltoAddress";
+            this.cmb_BilltoAddress.Size = new System.Drawing.Size(185, 21);
+            this.cmb_BilltoAddress.TabIndex = 14;
             // 
-            // comboBox2
+            // cmb_Territory
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(521, 17);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(185, 21);
-            this.comboBox2.TabIndex = 13;
+            this.cmb_Territory.FormattingEnabled = true;
+            this.cmb_Territory.Location = new System.Drawing.Point(521, 17);
+            this.cmb_Territory.Margin = new System.Windows.Forms.Padding(2);
+            this.cmb_Territory.Name = "cmb_Territory";
+            this.cmb_Territory.Size = new System.Drawing.Size(185, 21);
+            this.cmb_Territory.TabIndex = 13;
             // 
             // cmb_SatisPersoneli
             // 
@@ -367,10 +367,10 @@
             this.ClientSize = new System.Drawing.Size(769, 476);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lbl_LineTotal);
+            this.Controls.Add(this.lbl_Freight);
+            this.Controls.Add(this.lbl_TaxAmount);
+            this.Controls.Add(this.lbl_SubTotal);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
@@ -382,14 +382,14 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox7);
-            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.cmb_CurrencyRate);
+            this.Controls.Add(this.cmb_CrediCard);
             this.Controls.Add(this.lbl_customerName);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.cmb_ShipMethod);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmb_ShiptoAddress);
+            this.Controls.Add(this.cmb_BilltoAddress);
+            this.Controls.Add(this.cmb_Territory);
             this.Controls.Add(this.cmb_SatisPersoneli);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -408,10 +408,10 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbl_LineTotal;
+        private System.Windows.Forms.Label lbl_Freight;
+        private System.Windows.Forms.Label lbl_TaxAmount;
+        private System.Windows.Forms.Label lbl_SubTotal;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
@@ -423,14 +423,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cmb_CurrencyRate;
+        private System.Windows.Forms.ComboBox cmb_CrediCard;
         private System.Windows.Forms.Label lbl_customerName;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cmb_ShipMethod;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmb_ShiptoAddress;
+        private System.Windows.Forms.ComboBox cmb_BilltoAddress;
+        private System.Windows.Forms.ComboBox cmb_Territory;
         private System.Windows.Forms.ComboBox cmb_SatisPersoneli;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

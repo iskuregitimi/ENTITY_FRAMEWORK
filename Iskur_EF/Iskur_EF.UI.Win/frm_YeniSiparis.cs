@@ -18,19 +18,37 @@ namespace Iskur_EF.UI.Win
         {
             InitializeComponent();
         }
-   
+      
         public int CustomerId { get; internal set; }
         Customer customer = new Customer();
-        Employee emp = new Employee();
+      
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = ProductBLL.GetProducts();
+
             customer = CustomerBLL.GetCustomer(CustomerId);
             lbl_customerName.Text = customer.Person.FirstName;
-            List<Employee> employee = EmployeeBLL.GetSalesPerson();
+            //Get Sales
+            var employee = GetBLL.GetSalesPerson();
             cmb_SatisPersoneli.DataSource = employee;
-            cmb_SatisPersoneli.DisplayMember =emp.Person.FirstName;
-            cmb_SatisPersoneli.ValueMember = "BusinessEntityID";
+            cmb_SatisPersoneli.DisplayMember = "FullName";
+           //Get CreditCard
+            var credi = GetBLL.GetCreditCard();
+            cmb_CrediCard.DataSource = credi;
+            cmb_CrediCard.DisplayMember = "CreditCardID";
+            //Get CurrencyRate
+            var currencyrate = GetBLL.GetCurrencyRateID();
+            cmb_CurrencyRate.DataSource = currencyrate;
+            cmb_CurrencyRate.DisplayMember = "CurrencyRateID";
+            //Get Territory
+            var territory = GetBLL.GetTerritory();
+            cmb_Territory.DataSource = territory;
+            cmb_Territory.DisplayMember = "TerritoryID";
+            //Get ShipMethod
+            var shipmethod = GetBLL.GetShipMethod();
+            cmb_ShipMethod.DataSource = shipmethod;
+            cmb_ShipMethod.DisplayMember = "ShipMethodID";
+           
         }
 
         
@@ -41,5 +59,7 @@ namespace Iskur_EF.UI.Win
             Product product = ProductBLL.GetProduct(ProductID);
             OrderBLL.AddOrderDetail(product, header);
         }
+
+   
     }
 }

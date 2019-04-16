@@ -11,7 +11,7 @@ namespace Iskur_EF.BLL
     {
 
 
-        public static List<Product> GetProducts(string SearchText)
+        public static List<Product> GetProducts(int productID)
         {
 
             AdventureWorksEntities datacontext = new AdventureWorksEntities();

@@ -50,13 +50,14 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ürünToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
             // 
             // ürünToolStripMenuItem
             // 
             this.ürünToolStripMenuItem.Name = "ürünToolStripMenuItem";
-            this.ürünToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.ürünToolStripMenuItem.Text = "Ürünü Spariş Ver";
+            this.ürünToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ürünToolStripMenuItem.Text = "Yeni Sipariş Ekle";
+            this.ürünToolStripMenuItem.Click += new System.EventHandler(this.ürünToolStripMenuItem_Click);
             // 
             // frm_YeniSiparis
             // 

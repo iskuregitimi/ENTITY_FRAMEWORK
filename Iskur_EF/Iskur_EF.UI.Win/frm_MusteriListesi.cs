@@ -36,6 +36,7 @@ namespace Iskur_EF.UI.Win
             frm.MdiParent = this.MdiParent;
             frm.CustomerId = int.Parse(dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString());
 
+
             frm.Show();
 
 

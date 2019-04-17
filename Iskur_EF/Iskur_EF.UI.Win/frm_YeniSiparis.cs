@@ -37,8 +37,22 @@ namespace Iskur_EF.UI.Win
         {
             Customer cs = new Customer();
             cs = CustomerBLL.GetCustomer(CustomerId);
-            label4.Text = cs.Person.FirstName;
+            label4.Text = cs.Person.FirstName+"  "+cs.Person.LastName;
+            comboBox3.DataSource = OrderBLL.GetBillToAdress(CustomerId);
+            comboBox3.DisplayMember = "AddressLine1";
+            comboBox1.DataSource = OrderBLL.GetSalePerson();
+            comboBox1.DisplayMember = "SalesPersonName";
+            comboBox6.DataSource = OrderBLL.GetCrediCard(CustomerId);
+            comboBox6.DisplayMember = "CreditCardID";
+            comboBox6.ValueMember = "CreditCardID";
+            comboBox2.DataSource = OrderBLL.GetTerretory(CustomerId);
+            comboBox2.DisplayMember = "TerritoryID";
+            comboBox4.DataSource = OrderBLL.GetShipToAddress(CustomerId);
+            comboBox4.ValueMember = "AddressLine1";
+            comboBox7.DataSource = OrderBLL.GetCurrentyRateId();
+            comboBox7.DisplayMember = "CurrencyRateID";
 
+           
         }
     }
 }

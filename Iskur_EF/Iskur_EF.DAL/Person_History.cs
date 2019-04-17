@@ -12,11 +12,11 @@ namespace Iskur_EF.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Person_history1
+    public partial class Person_History
     {
         public int BusinessEntityID { get; set; }
         public string PersonType { get; set; }
-        public string NameStyle { get; set; }
+        public bool NameStyle { get; set; }
         public string Title { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
@@ -25,8 +25,7 @@ namespace Iskur_EF.DAL
         public int EmailPromotion { get; set; }
         public string AdditionalContactInfo { get; set; }
         public string Demographics { get; set; }
-        public string rowguid { get; set; }
+        public System.Guid rowguid { get; set; }
         public System.DateTime ModifiedDate { get; set; }
-        public System.DateTime log_tarih { get; set; }
     }
 }

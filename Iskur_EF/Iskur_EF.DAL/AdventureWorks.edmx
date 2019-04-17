@@ -41,6 +41,15 @@
           <Property Name="ErrorLine" Type="int" />
           <Property Name="ErrorMessage" Type="nvarchar" MaxLength="4000" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AdventureWorks.dbo.Hastalar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Hastalar">
+          <Key>
+            <PropertyRef Name="HastaId" />
+          </Key>
+          <Property Name="HastaId" Type="int" Nullable="false" />
+          <Property Name="HastaAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Department">
           <Key>
             <PropertyRef Name="DepartmentID" />
@@ -227,8 +236,8 @@ warning 6005: The data type 'hierarchyid' is currently not supported for the tar
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'AdventureWorks.Person.Person_history1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Person_history1">
+warning 6002: The table/view 'AdventureWorks.Person.Person_History' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Person_History">
           <Key>
             <PropertyRef Name="BusinessEntityID" />
             <PropertyRef Name="PersonType" />
@@ -238,22 +247,20 @@ warning 6002: The table/view 'AdventureWorks.Person.Person_history1' does not ha
             <PropertyRef Name="EmailPromotion" />
             <PropertyRef Name="rowguid" />
             <PropertyRef Name="ModifiedDate" />
-            <PropertyRef Name="log_tarih" />
           </Key>
           <Property Name="BusinessEntityID" Type="int" Nullable="false" />
           <Property Name="PersonType" Type="nchar" MaxLength="2" Nullable="false" />
-          <Property Name="NameStyle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NameStyle" Type="bit" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="8" />
-          <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="MiddleName" Type="varchar" MaxLength="100" />
-          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
           <Property Name="EmailPromotion" Type="int" Nullable="false" />
-          <Property Name="AdditionalContactInfo" Type="varchar(max)" />
-          <Property Name="Demographics" Type="varchar(max)" />
-          <Property Name="rowguid" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AdditionalContactInfo" Type="xml" />
+          <Property Name="Demographics" Type="xml" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-          <Property Name="log_tarih" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="PersonPhone">
           <Key>
@@ -2045,23 +2052,28 @@ error 6004: The table 'AdventureWorks.Production.Document' is referenced by a re
           <EntitySet Name="SpecialOffer" EntityType="Self.SpecialOffer" Schema="Sales" store:Type="Tables" />
           <EntitySet Name="SpecialOfferProduct" EntityType="Self.SpecialOfferProduct" Schema="Sales" store:Type="Tables" />
           <EntitySet Name="Store" EntityType="Self.Store" Schema="Sales" store:Type="Tables" />
-          <EntitySet Name="Person_history1" EntityType="Self.Person_history1" store:Type="Tables" store:Schema="Person">
+          <EntitySet Name="Hastalar" EntityType="Self.Hastalar" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Person_history1].[BusinessEntityID] AS [BusinessEntityID], 
-    [Person_history1].[PersonType] AS [PersonType], 
-    [Person_history1].[NameStyle] AS [NameStyle], 
-    [Person_history1].[Title] AS [Title], 
-    [Person_history1].[FirstName] AS [FirstName], 
-    [Person_history1].[MiddleName] AS [MiddleName], 
-    [Person_history1].[LastName] AS [LastName], 
-    [Person_history1].[Suffix] AS [Suffix], 
-    [Person_history1].[EmailPromotion] AS [EmailPromotion], 
-    [Person_history1].[AdditionalContactInfo] AS [AdditionalContactInfo], 
-    [Person_history1].[Demographics] AS [Demographics], 
-    [Person_history1].[rowguid] AS [rowguid], 
-    [Person_history1].[ModifiedDate] AS [ModifiedDate], 
-    [Person_history1].[log_tarih] AS [log_tarih]
-    FROM [Person].[Person_history1] AS [Person_history1]</DefiningQuery>
+    [Hastalar].[HastaId] AS [HastaId], 
+    [Hastalar].[HastaAdi] AS [HastaAdi]
+    FROM [dbo].[Hastalar] AS [Hastalar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Person_History" EntityType="Self.Person_History" store:Type="Tables" store:Schema="Person">
+            <DefiningQuery>SELECT 
+    [Person_History].[BusinessEntityID] AS [BusinessEntityID], 
+    [Person_History].[PersonType] AS [PersonType], 
+    [Person_History].[NameStyle] AS [NameStyle], 
+    [Person_History].[Title] AS [Title], 
+    [Person_History].[FirstName] AS [FirstName], 
+    [Person_History].[MiddleName] AS [MiddleName], 
+    [Person_History].[LastName] AS [LastName], 
+    [Person_History].[Suffix] AS [Suffix], 
+    [Person_History].[EmailPromotion] AS [EmailPromotion], 
+    [Person_History].[AdditionalContactInfo] AS [AdditionalContactInfo], 
+    [Person_History].[Demographics] AS [Demographics], 
+    [Person_History].[rowguid] AS [rowguid], 
+    [Person_History].[ModifiedDate] AS [ModifiedDate]
+    FROM [Person].[Person_History] AS [Person_History]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ProductDocument" EntityType="Self.ProductDocument" store:Type="Tables" store:Schema="Production">
             <DefiningQuery>SELECT 
@@ -3445,7 +3457,14 @@ error 6004: The table 'AdventureWorks.Production.Document' is referenced by a re
           <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Store_StoreID" FromRole="Store" ToRole="Customer" />
           <NavigationProperty Name="SalesPerson" Relationship="Self.FK_Store_SalesPerson_SalesPersonID" FromRole="Store" ToRole="SalesPerson" />
         </EntityType>
-        <EntityType Name="Person_history1">
+        <EntityType Name="Hastalar">
+          <Key>
+            <PropertyRef Name="HastaId" />
+          </Key>
+          <Property Name="HastaId" Type="Int32" Nullable="false" />
+          <Property Name="HastaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Person_History">
           <Key>
             <PropertyRef Name="BusinessEntityID" />
             <PropertyRef Name="PersonType" />
@@ -3455,22 +3474,20 @@ error 6004: The table 'AdventureWorks.Production.Document' is referenced by a re
             <PropertyRef Name="EmailPromotion" />
             <PropertyRef Name="rowguid" />
             <PropertyRef Name="ModifiedDate" />
-            <PropertyRef Name="log_tarih" />
           </Key>
           <Property Name="BusinessEntityID" Type="Int32" Nullable="false" />
           <Property Name="PersonType" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="NameStyle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NameStyle" Type="Boolean" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Suffix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="EmailPromotion" Type="Int32" Nullable="false" />
-          <Property Name="AdditionalContactInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Demographics" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="rowguid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdditionalContactInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Demographics" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="log_tarih" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="ProductDocument">
           <Key>
@@ -4612,7 +4629,8 @@ error 6004: The table 'AdventureWorks.Production.Document' is referenced by a re
           <EntitySet Name="SpecialOffers" EntityType="Self.SpecialOffer" />
           <EntitySet Name="SpecialOfferProducts" EntityType="Self.SpecialOfferProduct" />
           <EntitySet Name="Stores" EntityType="Self.Store" />
-          <EntitySet Name="Person_history1" EntityType="Self.Person_history1" />
+          <EntitySet Name="Hastalars" EntityType="Self.Hastalar" />
+          <EntitySet Name="Person_History" EntityType="Self.Person_History" />
           <EntitySet Name="ProductDocuments" EntityType="Self.ProductDocument" />
           <AssociationSet Name="FK_EmployeeDepartmentHistory_Department_DepartmentID" Association="Self.FK_EmployeeDepartmentHistory_Department_DepartmentID">
             <End Role="Department" EntitySet="Departments" />
@@ -5855,9 +5873,17 @@ error 6004: The table 'AdventureWorks.Production.Document' is referenced by a re
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Person_history1">
-            <EntityTypeMapping TypeName="AdventureWorksModel.Person_history1">
-              <MappingFragment StoreEntitySet="Person_history1">
+          <EntitySetMapping Name="Hastalars">
+            <EntityTypeMapping TypeName="AdventureWorksModel.Hastalar">
+              <MappingFragment StoreEntitySet="Hastalar">
+                <ScalarProperty Name="HastaId" ColumnName="HastaId" />
+                <ScalarProperty Name="HastaAdi" ColumnName="HastaAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person_History">
+            <EntityTypeMapping TypeName="AdventureWorksModel.Person_History">
+              <MappingFragment StoreEntitySet="Person_History">
                 <ScalarProperty Name="BusinessEntityID" ColumnName="BusinessEntityID" />
                 <ScalarProperty Name="PersonType" ColumnName="PersonType" />
                 <ScalarProperty Name="NameStyle" ColumnName="NameStyle" />
@@ -5871,7 +5897,6 @@ error 6004: The table 'AdventureWorks.Production.Document' is referenced by a re
                 <ScalarProperty Name="Demographics" ColumnName="Demographics" />
                 <ScalarProperty Name="rowguid" ColumnName="rowguid" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="log_tarih" ColumnName="log_tarih" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

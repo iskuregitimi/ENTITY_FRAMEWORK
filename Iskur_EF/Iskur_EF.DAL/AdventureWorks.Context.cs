@@ -94,7 +94,8 @@ namespace Iskur_EF.DAL
         public virtual DbSet<SpecialOffer> SpecialOffers { get; set; }
         public virtual DbSet<SpecialOfferProduct> SpecialOfferProducts { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
-        public virtual DbSet<Person_history1> Person_history1 { get; set; }
+        public virtual DbSet<Hastalar> Hastalars { get; set; }
+        public virtual DbSet<Person_History> Person_History { get; set; }
         public virtual DbSet<ProductDocument> ProductDocuments { get; set; }
     }
 }

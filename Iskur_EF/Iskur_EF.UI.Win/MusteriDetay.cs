@@ -19,11 +19,11 @@ namespace Iskur_EF.UI.Win
         {
             InitializeComponent();
         }
-        Customer selectedcustomer;
+       // Customer selectedcustomer;
         public int customerID = 0;
         private void MusteriDetay_Load(object sender, EventArgs e)
         {
-            selectedcustomer = CustomerBLL.GetCustomerDetail(customerID);
+            //selectedcustomer = CustomerBLL.GetCustomerDetail(customerID);
 
             dataGridView1.DataSource = CustomerBLL.GetCustomerDetail(customerID);
             SalesOrderHeader cstmr = CustomerBLL.GetCustomerDetail(customerID);

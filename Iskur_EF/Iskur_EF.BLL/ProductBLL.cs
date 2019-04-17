@@ -12,7 +12,7 @@ namespace Iskur_EF.BLL
         public static object GetProducts(string searchText)
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
-            var result = dataContext.Products.Select(
+            var result = dataContext.Products.Where(x => x.ProductID > 700).Select(
                 x => new
                 {
                     x.ProductID,

@@ -63,17 +63,6 @@ namespace Iskur_EF.UI.Win
             cmbShipMethod.DataSource = shipMethods;
         }
 
-        private void dgvUrunler_SelectionChanged(object sender, EventArgs e)
-        {
-            //int ProductID = int.Parse(dgvUrunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
-            //lblSubTotal.Text = (Convert.ToDecimal(lblSubTotal.Text) + Convert.ToDecimal(CustomerBLL.GetProductPrice(ProductID))).ToString();
-        }
-
-        private void dgvUrunler_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            dgvUrunler.Rows[0].Selected = false;
-        }
-
         private void dgvUrunler_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int ProductID = int.Parse(dgvUrunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
@@ -94,8 +83,12 @@ namespace Iskur_EF.UI.Win
             int shipToAddressID = Convert.ToInt32(cmbShiptoAddress.SelectedValue);
             int shipMethodID = Convert.ToInt32(cmbShipMethod.SelectedValue);
             int creditCardID = Convert.ToInt32(cmbCreditCards.SelectedValue);
+            decimal subTotal = Convert.ToDecimal(lblSubTotal.Text);
+            decimal Tax = Convert.ToDecimal(lblTax.Text);
+            decimal Freight = Convert.ToDecimal(lblFreight.Text);
+            string Comment = txtComment.Text;
 
-            var header = SiparisBLL.AddOrder(CustomerID,salesPersonID,territoryID,billToAddressID,shipToAddressID,shipMethodID,creditCardID,0);
+            var header = SiparisBLL.AddOrder(CustomerID,salesPersonID,territoryID,billToAddressID,shipToAddressID,shipMethodID,creditCardID,subTotal,Tax,Freight,Comment);
             int productID = int.Parse(dgvUrunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
             Product product = SiparisBLL.GetProduct(productID);
             SiparisBLL.AddOrderDetails(product, header);

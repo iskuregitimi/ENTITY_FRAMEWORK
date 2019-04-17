@@ -10,7 +10,7 @@ namespace Iskur_EF.BLL
     public static class SiparisBLL
     {
         static AdventureWorksEntities dataContext = new AdventureWorksEntities();
-        public static SalesOrderHeader AddOrder(int customerID,int salesPersonID,int territoryID,int billToAddressID, int shipToAddressID,int shipMethodID, int creditCardID,decimal totalDue)
+        public static SalesOrderHeader AddOrder(int customerID,int salesPersonID,int territoryID,int billToAddressID, int shipToAddressID,int shipMethodID, int creditCardID,decimal subTotal,decimal Tax,decimal Freight,string Comment)
         {
             SalesOrderHeader salesOrder = new SalesOrderHeader();
             salesOrder.RevisionNumber = 8;        
@@ -25,11 +25,10 @@ namespace Iskur_EF.BLL
             salesOrder.ShipToAddressID = shipToAddressID;
             salesOrder.ShipMethodID = shipMethodID;
             salesOrder.CreditCardID = creditCardID;
-            
-
-            salesOrder.SubTotal = 100;
-            salesOrder.TaxAmt = 100;
-            salesOrder.Freight = 100;
+            salesOrder.SubTotal = subTotal;
+            salesOrder.TaxAmt = Tax;
+            salesOrder.Freight = Freight;
+            salesOrder.Comment = Comment;
             salesOrder.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesOrder.rowguid = Guid.NewGuid();
 

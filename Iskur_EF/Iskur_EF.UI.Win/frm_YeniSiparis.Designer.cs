@@ -78,7 +78,6 @@
             this.dgvUrunler.Size = new System.Drawing.Size(657, 222);
             this.dgvUrunler.TabIndex = 0;
             this.dgvUrunler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellContentClick);
-            this.dgvUrunler.SelectionChanged += new System.EventHandler(this.dgvUrunler_SelectionChanged);
             // 
             // label1
             // 

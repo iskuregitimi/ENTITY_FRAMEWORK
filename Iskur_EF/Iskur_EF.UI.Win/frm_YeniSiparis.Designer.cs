@@ -36,27 +36,27 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbTerritory = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cmbBilltoAdress = new System.Windows.Forms.ComboBox();
+            this.cmbShiptoAddress = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cmbShipMethod = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cmbCreditCards = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cmbCurrencyRate = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblSubTotal = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblTax = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblFreight = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtComment = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +77,8 @@
             this.dgvUrunler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUrunler.Size = new System.Drawing.Size(657, 222);
             this.dgvUrunler.TabIndex = 0;
+            this.dgvUrunler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellContentClick);
+            this.dgvUrunler.SelectionChanged += new System.EventHandler(this.dgvUrunler_SelectionChanged);
             // 
             // label1
             // 
@@ -110,6 +112,7 @@
             // 
             // cmbSalesPersons
             // 
+            this.cmbSalesPersons.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSalesPersons.FormattingEnabled = true;
             this.cmbSalesPersons.Location = new System.Drawing.Point(164, 59);
             this.cmbSalesPersons.Margin = new System.Windows.Forms.Padding(2);
@@ -145,14 +148,15 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Bölge (TerritoryID)";
             // 
-            // comboBox2
+            // cmbTerritory
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(483, 18);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(185, 21);
-            this.comboBox2.TabIndex = 2;
+            this.cmbTerritory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTerritory.FormattingEnabled = true;
+            this.cmbTerritory.Location = new System.Drawing.Point(483, 18);
+            this.cmbTerritory.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbTerritory.Name = "cmbTerritory";
+            this.cmbTerritory.Size = new System.Drawing.Size(185, 21);
+            this.cmbTerritory.TabIndex = 2;
             // 
             // label6
             // 
@@ -164,23 +168,25 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Fatura Adresi(BillToAddress)";
             // 
-            // comboBox3
+            // cmbBilltoAdress
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(483, 40);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(185, 21);
-            this.comboBox3.TabIndex = 2;
+            this.cmbBilltoAdress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBilltoAdress.FormattingEnabled = true;
+            this.cmbBilltoAdress.Location = new System.Drawing.Point(483, 42);
+            this.cmbBilltoAdress.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbBilltoAdress.Name = "cmbBilltoAdress";
+            this.cmbBilltoAdress.Size = new System.Drawing.Size(185, 21);
+            this.cmbBilltoAdress.TabIndex = 2;
             // 
-            // comboBox4
+            // cmbShiptoAddress
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(483, 64);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(185, 21);
-            this.comboBox4.TabIndex = 2;
+            this.cmbShiptoAddress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbShiptoAddress.FormattingEnabled = true;
+            this.cmbShiptoAddress.Location = new System.Drawing.Point(483, 66);
+            this.cmbShiptoAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbShiptoAddress.Name = "cmbShiptoAddress";
+            this.cmbShiptoAddress.Size = new System.Drawing.Size(185, 21);
+            this.cmbShiptoAddress.TabIndex = 2;
             // 
             // label7
             // 
@@ -192,14 +198,15 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Teslimat Adresi(ShipToAddress)";
             // 
-            // comboBox5
+            // cmbShipMethod
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(483, 90);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(185, 21);
-            this.comboBox5.TabIndex = 2;
+            this.cmbShipMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbShipMethod.FormattingEnabled = true;
+            this.cmbShipMethod.Location = new System.Drawing.Point(483, 90);
+            this.cmbShipMethod.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbShipMethod.Name = "cmbShipMethod";
+            this.cmbShipMethod.Size = new System.Drawing.Size(185, 21);
+            this.cmbShipMethod.TabIndex = 2;
             // 
             // label8
             // 
@@ -211,14 +218,15 @@
             this.label8.TabIndex = 5;
             this.label8.Text = "Taşıma Şeklii(ShipMethodID)";
             // 
-            // comboBox6
+            // cmbCreditCards
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(164, 84);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(151, 21);
-            this.comboBox6.TabIndex = 2;
+            this.cmbCreditCards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCreditCards.FormattingEnabled = true;
+            this.cmbCreditCards.Location = new System.Drawing.Point(164, 84);
+            this.cmbCreditCards.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbCreditCards.Name = "cmbCreditCards";
+            this.cmbCreditCards.Size = new System.Drawing.Size(151, 21);
+            this.cmbCreditCards.TabIndex = 2;
             // 
             // label9
             // 
@@ -230,14 +238,15 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Kredi Kartı (CrediCardID)";
             // 
-            // comboBox7
+            // cmbCurrencyRate
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(164, 108);
-            this.comboBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(151, 21);
-            this.comboBox7.TabIndex = 2;
+            this.cmbCurrencyRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCurrencyRate.FormattingEnabled = true;
+            this.cmbCurrencyRate.Location = new System.Drawing.Point(164, 108);
+            this.cmbCurrencyRate.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbCurrencyRate.Name = "cmbCurrencyRate";
+            this.cmbCurrencyRate.Size = new System.Drawing.Size(151, 21);
+            this.cmbCurrencyRate.TabIndex = 2;
             // 
             // label10
             // 
@@ -259,15 +268,15 @@
             this.label11.TabIndex = 5;
             this.label11.Text = "Ara Toplam (SubTotal)";
             // 
-            // label12
+            // lblSubTotal
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(486, 117);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 13);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "00000";
+            this.lblSubTotal.AutoSize = true;
+            this.lblSubTotal.Location = new System.Drawing.Point(486, 114);
+            this.lblSubTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSubTotal.Name = "lblSubTotal";
+            this.lblSubTotal.Size = new System.Drawing.Size(37, 13);
+            this.lblSubTotal.TabIndex = 5;
+            this.lblSubTotal.Text = "00000";
             // 
             // label13
             // 
@@ -279,15 +288,15 @@
             this.label13.TabIndex = 5;
             this.label13.Text = "Vergiler (TaxAmount)";
             // 
-            // label14
+            // lblTax
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(486, 139);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 13);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "SubTotal * 0,18";
+            this.lblTax.AutoSize = true;
+            this.lblTax.Location = new System.Drawing.Point(486, 139);
+            this.lblTax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTax.Name = "lblTax";
+            this.lblTax.Size = new System.Drawing.Size(37, 13);
+            this.lblTax.TabIndex = 5;
+            this.lblTax.Text = "00000";
             // 
             // label15
             // 
@@ -299,15 +308,15 @@
             this.label15.TabIndex = 5;
             this.label15.Text = "Nakliye Ücreti (Freight)";
             // 
-            // label16
+            // lblFreight
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(486, 157);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(75, 13);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "SubTotal * 0,1";
+            this.lblFreight.AutoSize = true;
+            this.lblFreight.Location = new System.Drawing.Point(486, 157);
+            this.lblFreight.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFreight.Name = "lblFreight";
+            this.lblFreight.Size = new System.Drawing.Size(37, 13);
+            this.lblFreight.TabIndex = 5;
+            this.lblFreight.Text = "00000";
             // 
             // label17
             // 
@@ -319,15 +328,15 @@
             this.label17.TabIndex = 5;
             this.label17.Text = "Toplam Tutar";
             // 
-            // label18
+            // lblTotalAmount
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(486, 175);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(155, 13);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "Ara Toplam + Vergiler + Nakliye";
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Location = new System.Drawing.Point(486, 175);
+            this.lblTotalAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(37, 13);
+            this.lblTotalAmount.TabIndex = 5;
+            this.lblTotalAmount.Text = "00000";
             // 
             // button1
             // 
@@ -340,14 +349,14 @@
             this.button1.Text = "Sipariş Ekle";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtComment
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 139);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 50);
-            this.textBox1.TabIndex = 7;
+            this.txtComment.Location = new System.Drawing.Point(164, 139);
+            this.txtComment.Margin = new System.Windows.Forms.Padding(2);
+            this.txtComment.Multiline = true;
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(151, 50);
+            this.txtComment.TabIndex = 7;
             // 
             // label19
             // 
@@ -364,12 +373,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 472);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtComment);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lblTotalAmount);
+            this.Controls.Add(this.lblFreight);
+            this.Controls.Add(this.lblTax);
+            this.Controls.Add(this.lblSubTotal);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
@@ -381,14 +390,14 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox7);
-            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.cmbCurrencyRate);
+            this.Controls.Add(this.cmbCreditCards);
             this.Controls.Add(this.lblCustomerName);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.cmbShipMethod);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbShiptoAddress);
+            this.Controls.Add(this.cmbBilltoAdress);
+            this.Controls.Add(this.cmbTerritory);
             this.Controls.Add(this.cmbSalesPersons);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -413,27 +422,27 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lblCustomerName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbTerritory;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cmbBilltoAdress;
+        private System.Windows.Forms.ComboBox cmbShiptoAddress;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cmbShipMethod;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cmbCreditCards;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cmbCurrencyRate;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblSubTotal;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblTax;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblFreight;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtComment;
         private System.Windows.Forms.Label label19;
     }
 }

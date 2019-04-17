@@ -15,10 +15,9 @@ namespace Iskur_EF.BLL
             var result = dataContext.SalesPersons.Select(
                 x => new
                 {
-                    x.Employee.Person.FirstName,
-                    x.Employee.Person.LastName
-                }
-                );
+                    x.BusinessEntityID,
+                    SalesPersonName = x.Employee.Person.FirstName + " " + x.Employee.Person.MiddleName + " " + x.Employee.Person.LastName
+                });
             return result.ToList(); 
         }
     }

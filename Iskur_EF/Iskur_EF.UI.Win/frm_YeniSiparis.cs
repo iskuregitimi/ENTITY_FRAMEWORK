@@ -45,5 +45,10 @@ namespace Iskur_EF.UI.Win
         {
 
         }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

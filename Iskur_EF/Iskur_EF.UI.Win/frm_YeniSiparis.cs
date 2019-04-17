@@ -79,5 +79,14 @@ namespace Iskur_EF.UI.Win
             lblFreight.Text = freight.ToString();
             lblTotalAmount.Text = (freight + tax + result.LineTotal).ToString();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {       
+            var header = SiparisBLL.AddOrder(CustomerID, 100);
+            Product product = SiparisBLL.GetProduct(productID);
+            SiparisBLL.AddOrderDetails(product, header);
+
+            MessageBox.Show("Ürün Eklendi!");
+        }
     }
 }

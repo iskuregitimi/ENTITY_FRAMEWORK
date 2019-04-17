@@ -115,6 +115,7 @@
             // 
             // cmb_salesPerson
             // 
+            this.cmb_salesPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_salesPerson.FormattingEnabled = true;
             this.cmb_salesPerson.Location = new System.Drawing.Point(164, 59);
             this.cmb_salesPerson.Margin = new System.Windows.Forms.Padding(2);
@@ -152,6 +153,7 @@
             // 
             // cmb_teriotry
             // 
+            this.cmb_teriotry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_teriotry.Location = new System.Drawing.Point(483, 18);
             this.cmb_teriotry.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_teriotry.Name = "cmb_teriotry";
@@ -170,6 +172,7 @@
             // 
             // cmb_biltoAddress
             // 
+            this.cmb_biltoAddress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_biltoAddress.FormattingEnabled = true;
             this.cmb_biltoAddress.Location = new System.Drawing.Point(483, 40);
             this.cmb_biltoAddress.Margin = new System.Windows.Forms.Padding(2);
@@ -179,6 +182,7 @@
             // 
             // cmb_shipAdress
             // 
+            this.cmb_shipAdress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_shipAdress.FormattingEnabled = true;
             this.cmb_shipAdress.Location = new System.Drawing.Point(483, 64);
             this.cmb_shipAdress.Margin = new System.Windows.Forms.Padding(2);
@@ -198,6 +202,7 @@
             // 
             // cmb_shipMetod
             // 
+            this.cmb_shipMetod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_shipMetod.FormattingEnabled = true;
             this.cmb_shipMetod.Location = new System.Drawing.Point(483, 90);
             this.cmb_shipMetod.Margin = new System.Windows.Forms.Padding(2);
@@ -217,6 +222,7 @@
             // 
             // cmb_credıtCart
             // 
+            this.cmb_credıtCart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_credıtCart.FormattingEnabled = true;
             this.cmb_credıtCart.Location = new System.Drawing.Point(164, 84);
             this.cmb_credıtCart.Margin = new System.Windows.Forms.Padding(2);
@@ -237,6 +243,7 @@
             // 
             // cmb_currency
             // 
+            this.cmb_currency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_currency.FormattingEnabled = true;
             this.cmb_currency.Location = new System.Drawing.Point(164, 108);
             this.cmb_currency.Margin = new System.Windows.Forms.Padding(2);

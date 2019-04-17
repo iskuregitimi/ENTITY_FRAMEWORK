@@ -46,7 +46,7 @@ namespace Iskur_EF.BLL
             return dataContext.SalesOrderHeaders.Where(x => x.CustomerID == id).ToList();
         }
 
-        public static SalesOrderHeader AddOrder(int customerID, decimal totalDue,decimal subtotal,int biltoAdressId,int salesAddressId,int shipmetodId)
+        public static SalesOrderHeader AddOrder(int customerID, decimal totalDue,decimal subtotal,int biltoAdressId,int salesAddressId,int shipmetodId,int teriotyId,string comment,int crediId,string credicartAprovel/*,int curencyId*/)
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
 
@@ -56,8 +56,13 @@ namespace Iskur_EF.BLL
             salesOrder.DueDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesOrder.TotalDue = totalDue;
             salesOrder.SubTotal = subtotal;
+            salesOrder.TerritoryID = teriotyId;
             salesOrder.TaxAmt = 100;
             salesOrder.Freight = 100;
+            salesOrder.Comment = comment;
+            salesOrder.CreditCardID = crediId;
+            salesOrder.CreditCardApprovalCode = credicartAprovel;
+            //salesOrder.CurrencyRateID = curencyId;
             salesOrder.RevisionNumber = 8;
             salesOrder.Status = 5;
             salesOrder.OnlineOrderFlag = false;

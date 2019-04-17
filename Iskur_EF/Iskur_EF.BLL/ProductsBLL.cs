@@ -18,7 +18,7 @@ namespace Iskur_EF.BLL
 
 
 
-            var result = datacontext.Products.Select(
+            var result = datacontext.Products.Where(x=> x.ProductID>700).Select(
                 x => new
                 {
                     x.ProductID,

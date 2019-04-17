@@ -48,7 +48,7 @@ namespace Iskur_EF.UI.Win
             cmb_salesPerson.DataSource = salesPersons;
 
             var bolgeTeritory = CustomerBLL.getSalesTEritory(teriotyId);
-            cmb_teriotry.ValueMember = "ShipMethodID";
+            cmb_teriotry.ValueMember = "TerritoryID";
             cmb_teriotry.DisplayMember = "Name";
             cmb_teriotry.DataSource = bolgeTeritory;
 
@@ -79,6 +79,8 @@ namespace Iskur_EF.UI.Win
             cmb_shipMetod.ValueMember = "ShipMethodID";
             cmb_shipMetod.DisplayMember = "Name";
             cmb_shipMetod.DataSource = shipEtod;
+
+            
 
            
 
@@ -128,12 +130,20 @@ namespace Iskur_EF.UI.Win
             int biltoadressId = Convert.ToInt32(cmb_biltoAddress.SelectedValue);
             int salesadressId = Convert.ToInt32(cmb_shipAdress.SelectedValue);
             int shipmetodId = Convert.ToInt32(cmb_shipMetod.SelectedValue);
+            int teriotyId = Convert.ToInt32(cmb_teriotry.SelectedValue);
+            int cardId = Convert.ToInt32(cmb_credıtCart.SelectedValue);
+            string credıAp = (cmb_credıtCart.SelectedValue).ToString();
+            //int curenceryId = Convert.ToInt32(cmb_currency.SelectedValue);
+            decimal toplamtutar = Convert.ToDecimal(lbl_toplamtutar.Text);
+            decimal subtotal = Convert.ToDecimal(lbl_subTotal.Text);
+            string comment = txt_comment.Text;
 
-            var header = SalesBLL.AddOrder(id, Convert.ToDecimal(lbl_toplamtutar),Convert.ToDecimal(lbl_subTotal),biltoadressId,salesadressId,shipmetodId);
+
+            var header = SalesBLL.AddOrder(id, toplamtutar,subtotal,biltoadressId,salesadressId,shipmetodId,teriotyId,comment,cardId,credıAp/*,curenceryId*/);
             int productID = int.Parse(dgv_urunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
             Product product = ProductsBLL.GETPRODUCT(productID);
             SalesBLL.AddOrderDetails(product, header);
-
+            MessageBox.Show("Ürün Başarıyla Eklendi");
         }
     }
 }

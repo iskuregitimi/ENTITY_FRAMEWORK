@@ -64,7 +64,8 @@ namespace Iskur_EF.BLL
             var result = datacontext.Customers.Where(c => c.CustomerID== id).Select(
                 x => new
                 {
-                    x.SalesTerritory.Name
+                    x.SalesTerritory.Name,
+                    x.TerritoryID
                 }
                 );
 

@@ -56,7 +56,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.lbl_toplamtutar = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_comment = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_urunler)).BeginInit();
             this.SuspendLayout();
@@ -298,9 +298,9 @@
             this.lbl_vergi.Location = new System.Drawing.Point(486, 139);
             this.lbl_vergi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_vergi.Name = "lbl_vergi";
-            this.lbl_vergi.Size = new System.Drawing.Size(81, 13);
+            this.lbl_vergi.Size = new System.Drawing.Size(37, 13);
             this.lbl_vergi.TabIndex = 5;
-            this.lbl_vergi.Text = "SubTotal * 0,18";
+            this.lbl_vergi.Text = "00000";
             // 
             // label15
             // 
@@ -318,9 +318,9 @@
             this.lbl_nakliye.Location = new System.Drawing.Point(486, 157);
             this.lbl_nakliye.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_nakliye.Name = "lbl_nakliye";
-            this.lbl_nakliye.Size = new System.Drawing.Size(75, 13);
+            this.lbl_nakliye.Size = new System.Drawing.Size(37, 13);
             this.lbl_nakliye.TabIndex = 5;
-            this.lbl_nakliye.Text = "SubTotal * 0,1";
+            this.lbl_nakliye.Text = "00000";
             // 
             // label17
             // 
@@ -338,9 +338,9 @@
             this.lbl_toplamtutar.Location = new System.Drawing.Point(486, 175);
             this.lbl_toplamtutar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_toplamtutar.Name = "lbl_toplamtutar";
-            this.lbl_toplamtutar.Size = new System.Drawing.Size(155, 13);
+            this.lbl_toplamtutar.Size = new System.Drawing.Size(37, 13);
             this.lbl_toplamtutar.TabIndex = 5;
-            this.lbl_toplamtutar.Text = "Ara Toplam + Vergiler + Nakliye";
+            this.lbl_toplamtutar.Text = "00000";
             // 
             // button1
             // 
@@ -354,14 +354,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // txt_comment
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 139);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 50);
-            this.textBox1.TabIndex = 7;
+            this.txt_comment.Location = new System.Drawing.Point(164, 139);
+            this.txt_comment.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_comment.Multiline = true;
+            this.txt_comment.Name = "txt_comment";
+            this.txt_comment.Size = new System.Drawing.Size(151, 50);
+            this.txt_comment.TabIndex = 7;
             // 
             // label19
             // 
@@ -378,7 +378,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 472);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_comment);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_toplamtutar);
             this.Controls.Add(this.lbl_nakliye);
@@ -447,7 +447,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lbl_toplamtutar;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_comment;
         private System.Windows.Forms.Label label19;
     }
 }

@@ -15,7 +15,9 @@ namespace Iskur_EF.BLL
             var result = datacontext.PersonCreditCards.Where(c => c.BusinessEntityID== id).Select(
                 x => new
                 {
-                    x.CreditCard.CardNumber
+                    x.CreditCard.CardNumber,
+                    x.CreditCardID
+                  
                 }
                 );
 

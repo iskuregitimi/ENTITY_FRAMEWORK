@@ -47,6 +47,7 @@ namespace Iskur_EF.BLL
             var result = datacontext.PersonCreditCards.Where(x => x.BusinessEntityID == id).Select(
                 c => new
                 {
+                    c.CreditCardID,
                     c.CreditCard.CardNumber,
                 }
                 );
@@ -69,6 +70,7 @@ namespace Iskur_EF.BLL
             var result = datacontext.Customers.Where(x => x.CustomerID == id).Select(
                 c => new
                 {
+                    c.TerritoryID,
                     c.SalesTerritory.Name,
                 }
                 );
@@ -81,7 +83,8 @@ namespace Iskur_EF.BLL
             var addresList = datacontext.Addresses.Where(a => businessEntityAddresses.Any(b => b.AddressID == a.AddressID)).Select(
                 x => new
                 {
-                    x.AddressLine1  
+                    x.AddressID,
+                    x.AddressLine1,
                 }
                 );
 
@@ -93,6 +96,7 @@ namespace Iskur_EF.BLL
             var result = datacontext.ShipMethods.Select(
                 x => new
                 {
+                    x.ShipMethodID,
                     x.Name,
                 });
             return result.ToList();

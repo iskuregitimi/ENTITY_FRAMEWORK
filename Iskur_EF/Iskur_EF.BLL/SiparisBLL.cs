@@ -10,22 +10,26 @@ namespace Iskur_EF.BLL
     public static class SiparisBLL
     {
         static AdventureWorksEntities dataContext = new AdventureWorksEntities();
-        public static SalesOrderHeader AddOrder(int customerID, decimal totalDue)
+        public static SalesOrderHeader AddOrder(int customerID,int salesPersonID,int territoryID,int billToAddressID, int shipToAddressID,int shipMethodID, int creditCardID,decimal totalDue)
         {
             SalesOrderHeader salesOrder = new SalesOrderHeader();
-            salesOrder.CustomerID = customerID;
+            salesOrder.RevisionNumber = 8;        
             salesOrder.OrderDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesOrder.DueDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
-            salesOrder.TotalDue = totalDue;
+            salesOrder.Status = 5;
+            salesOrder.OnlineOrderFlag = false;
+            salesOrder.CustomerID = customerID;
+            salesOrder.SalesPersonID = salesPersonID;
+            salesOrder.TerritoryID = territoryID;
+            salesOrder.BillToAddressID = billToAddressID;
+            salesOrder.ShipToAddressID = shipToAddressID;
+            salesOrder.ShipMethodID = shipMethodID;
+            salesOrder.CreditCardID = creditCardID;
+            
+
             salesOrder.SubTotal = 100;
             salesOrder.TaxAmt = 100;
             salesOrder.Freight = 100;
-            salesOrder.RevisionNumber = 8;
-            salesOrder.Status = 5;
-            salesOrder.OnlineOrderFlag = false;
-            salesOrder.BillToAddressID = 25989;
-            salesOrder.ShipToAddressID = 25989;
-            salesOrder.ShipMethodID = 1;
             salesOrder.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesOrder.rowguid = Guid.NewGuid();
 
@@ -48,6 +52,11 @@ namespace Iskur_EF.BLL
 
             dataContext.SalesOrderDetails.Add(orderDetail);
             dataContext.SaveChanges();
+        }
+
+        public static Product GetProduct(int id)
+        {
+            return dataContext.Products.FirstOrDefault(x => x.ProductID == id);
         }
     }
 }

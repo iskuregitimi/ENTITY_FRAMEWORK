@@ -30,10 +30,12 @@ namespace Iskur_EF.UI.Win
             lblCustomerName.Text = FirstName+" "+LastName ;
 
             var salesPersons = SalesBLL.GetSalesPeople();
+            cmbSalesPersons.ValueMember = "BusinessEntityID";
             cmbSalesPersons.DisplayMember = "SalesPersonName";
             cmbSalesPersons.DataSource = salesPersons;
 
             var creditCards = CustomerBLL.GetPersonCreditCards(PersonID);
+            cmbCreditCards.ValueMember = "CreditCardID";
             cmbCreditCards.DisplayMember = "CardNumber";
             cmbCreditCards.DataSource = creditCards;
 
@@ -42,17 +44,21 @@ namespace Iskur_EF.UI.Win
             cmbCurrencyRate.DataSource = currencies;
 
             var territories = CustomerBLL.GetTerritories(CustomerID);
+            cmbTerritory.ValueMember = "TerritoryID";
             cmbTerritory.DisplayMember = "Name";
             cmbTerritory.DataSource = territories;
 
             var billtoAdress = CustomerBLL.GetBillToAddressID(PersonID);
+            cmbBilltoAdress.ValueMember = "AddressID";
             cmbBilltoAdress.DisplayMember = "AddressLine1";
             cmbBilltoAdress.DataSource = billtoAdress;
 
+            cmbShiptoAddress.ValueMember = "AddressID";
             cmbShiptoAddress.DisplayMember = "AddressLine1";
             cmbShiptoAddress.DataSource = billtoAdress;
 
             var shipMethods = CustomerBLL.GetShipMethod();
+            cmbShipMethod.ValueMember = "ShipMethodID";
             cmbShipMethod.DisplayMember = "Name";
             cmbShipMethod.DataSource = shipMethods;
         }
@@ -81,8 +87,16 @@ namespace Iskur_EF.UI.Win
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {       
-            var header = SiparisBLL.AddOrder(CustomerID, 100);
+        {
+            int salesPersonID = Convert.ToInt32(cmbSalesPersons.SelectedValue);
+            int territoryID = Convert.ToInt32(cmbTerritory.SelectedValue);
+            int billToAddressID = Convert.ToInt32(cmbBilltoAdress.SelectedValue);
+            int shipToAddressID = Convert.ToInt32(cmbShiptoAddress.SelectedValue);
+            int shipMethodID = Convert.ToInt32(cmbShipMethod.SelectedValue);
+            int creditCardID = Convert.ToInt32(cmbCreditCards.SelectedValue);
+
+            var header = SiparisBLL.AddOrder(CustomerID,salesPersonID,territoryID,billToAddressID,shipToAddressID,shipMethodID,creditCardID,0);
+            int productID = int.Parse(dgvUrunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
             Product product = SiparisBLL.GetProduct(productID);
             SiparisBLL.AddOrderDetails(product, header);
 

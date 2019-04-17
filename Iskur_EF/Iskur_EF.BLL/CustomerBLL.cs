@@ -18,6 +18,7 @@ namespace Iskur_EF.BLL
                     x.CustomerID,
                     x.Person.FirstName,
                     x.Person.LastName,
+                    x.PersonID,
                     x.TerritoryID
                 }
                 );
@@ -47,6 +48,54 @@ namespace Iskur_EF.BLL
         {
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
             return datacontext.SalesOrderHeaders.Add(sales);
+        }
+
+        //public static SalesTerritory getSalesTeritory(int id)
+        //{
+        //    AdventureWorksEntities datacontext = new AdventureWorksEntities();
+        //    return datacontext.SalesTerritories.Where(x=> x.c)
+
+
+        //}
+
+        public static object getSalesTEritory(int id)
+        {
+            AdventureWorksEntities datacontext = new AdventureWorksEntities();
+            var result = datacontext.Customers.Where(c => c.CustomerID== id).Select(
+                x => new
+                {
+                    x.SalesTerritory.Name
+                }
+                );
+
+            return result.ToList();
+        }
+
+        public static object GetBillToAddressID(int customerId)
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+
+            var businessEntityAddresses = dataContext.BusinessEntityAddresses.Where(b => b.BusinessEntityID == customerId);
+            var addresList = dataContext.Addresses.Where(a => businessEntityAddresses.Any(b => b.AddressID == a.AddressID)).Select(
+            x => new
+            {
+                x.AddressLine1
+            }
+            );
+            return addresList.ToList();
+        }
+        public static object GetShipTOAdress(int customerId)
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+
+            var businessEntityAddresses = dataContext.BusinessEntityAddresses.Where(b => b.BusinessEntityID == customerId);
+            var addresList = dataContext.Addresses.Where(a => businessEntityAddresses.Any(b => b.AddressID == a.AddressID)).Select(
+            x => new
+            {
+                x.AddressLine1
+            }
+            );
+            return addresList.ToList();
         }
 
     }

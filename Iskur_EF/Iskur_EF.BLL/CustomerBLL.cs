@@ -9,12 +9,14 @@ namespace Iskur_EF.BLL
 {
     public static class CustomerBLL
     {
+
         public static object GetCustomers(string searchText)
         {
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
             var result = datacontext.Customers.Where(c => c.PersonID != null).Select(
                 x => new
                 {
+                    x.Person.BusinessEntityID,
                     x.CustomerID,
                     x.Person.FirstName,
                     x.Person.LastName,
@@ -41,6 +43,15 @@ namespace Iskur_EF.BLL
         {
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
             return datacontext.SalesOrderHeaders.Add(sales);
+        }
+
+        public static List<Address> GetBillToAddressID(int businessentityid)
+        {
+            
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            var businessEntityAddresses = dataContext.BusinessEntityAddresses.Where(b => b.BusinessEntityID == businessentityid);
+            var addresList = dataContext.Addresses.Where(a => businessEntityAddresses.Any(b => b.AddressID == a.AddressID));
+            return addresList.ToList();
         }
     }
 }

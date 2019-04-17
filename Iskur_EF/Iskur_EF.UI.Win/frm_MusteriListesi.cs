@@ -17,24 +17,36 @@ namespace Iskur_EF.UI.Win
         {
             InitializeComponent();
         }
+        
+        public static string musteribilgi;
+        public static int person_beid;
+        public static int person_cid;
 
         private void siparişlerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dlg_Siparisler frm = new dlg_Siparisler();
-            frm.CustomerId = int.Parse(dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString());
+            frm.CustomerId = int.Parse(dgv_musterilistesi.SelectedRows[0].Cells["CustomerID"].Value.ToString());
             frm.Show();
         }
 
         private void frm_MusteriListesi_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = CustomerBLL.GetCustomers(string.Empty);
+            dgv_musterilistesi.DataSource = CustomerBLL.GetCustomers(string.Empty);
         }
 
         private void yeniSiparişEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            musteribilgi = dgv_musterilistesi.SelectedRows[0].Cells["Firstname"].Value.ToString() + " " + dgv_musterilistesi.SelectedRows[0].Cells["LastName"].Value.ToString();
+            person_beid = Int32.Parse(dgv_musterilistesi.SelectedRows[0].Cells["BusinessEntityID"].Value.ToString());
+            //kesinlikle daha pratik bir yolu olmalı
             frm_YeniSiparis f = new frm_YeniSiparis();
             f.MdiParent = this.MdiParent;
             f.Show();
+        }
+
+        private void dgv_musterilistesi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

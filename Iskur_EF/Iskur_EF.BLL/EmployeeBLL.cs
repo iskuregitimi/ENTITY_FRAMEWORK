@@ -22,5 +22,22 @@ namespace Iskur_EF.BLL
             Employee emp = efDataContext.Employees.Where(e => e.BusinessEntityID == BusinessEntityId).FirstOrDefault();
             return emp;
         }
+
+        public static object GetSalesPerson()
+        {
+            AdventureWorksEntities efDataContext = new AdventureWorksEntities();
+            return efDataContext.People
+                .Where(x => x.PersonType == "SP")
+                .Select(x => new { x.BusinessEntityID, SalesPersonName = x.FirstName + " " + x.MiddleName + " " + x.LastName })
+                .ToList();
+        }
+
+        public static List<CreditCard> GetCreditCard(int businessentityid)
+        {
+            AdventureWorksEntities datacontext = new AdventureWorksEntities();
+            var result = datacontext.PersonCreditCards.Where(X => X.CreditCardID == businessentityid).FirstOrDefault();                  
+            var creditcard = datacontext.CreditCards.Where(c => c.CreditCardID == result.CreditCardID).ToList();
+            return creditcard;
+        }
     }
 }

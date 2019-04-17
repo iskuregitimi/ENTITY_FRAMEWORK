@@ -24,6 +24,32 @@ namespace Iskur_EF.BLL
 
         }
 
-  
+        public static object GetProducts()
+        {
+            AdventureWorksEntities datacontext = new AdventureWorksEntities();
+            var result = datacontext.Products.Select(
+                x => new
+                {
+                    x.Name,
+                    x.Color,
+                    x.ListPrice,
+                    x.Size,
+                    x.SizeUnitMeasureCode,
+                    x.Weight,
+                    x.WeightUnitMeasureCode
+                }
+                );
+
+                return result.ToList();
+        }
+
+        public static object GetCurrencyRate()
+        {
+            AdventureWorksEntities crDataContext = new AdventureWorksEntities();
+            return crDataContext.CurrencyRates
+                .Select(x => new { x.CurrencyRateID, CurrencyCode = x.FromCurrencyCode + ">" + x.ToCurrencyCode + "=" +x.AverageRate})
+                .ToList();
+        }
+
     }
 }

@@ -9,7 +9,6 @@ namespace Iskur_EF.BLL
 {
     public static class CustomerBLL
     {
-
         public static object GetCustomers(string searchText)
         {
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
@@ -30,7 +29,7 @@ namespace Iskur_EF.BLL
         public static List<SalesOrderHeader> GetSalesOrderHeaders(int id)
         {
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
-            return datacontext.SalesOrderHeaders.Where(x => x.CustomerID== id).ToList();
+            return datacontext.SalesOrderHeaders.Where(x => x.CustomerID == id).ToList();
         }
 
         public static List<SalesOrderDetail> GetOrderDetail(int SalesOrderId)
@@ -45,13 +44,17 @@ namespace Iskur_EF.BLL
             return datacontext.SalesOrderHeaders.Add(sales);
         }
 
-        public static List<Address> GetBillToAddressID(int businessentityid)
+        public static object GetCustomerAdress(int businessentityid)
         {
-            
+
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
             var businessEntityAddresses = dataContext.BusinessEntityAddresses.Where(b => b.BusinessEntityID == businessentityid);
-            var addresList = dataContext.Addresses.Where(a => businessEntityAddresses.Any(b => b.AddressID == a.AddressID));
+            var addresList = dataContext.Addresses
+                .Where(a => businessEntityAddresses.Any(b => b.AddressID == a.AddressID))
+                .Select(x => new { x.AddressID, Adres = x.AddressLine1 + " " + x.AddressLine2 })
+                ;
             return addresList.ToList();
         }
+
     }
 }

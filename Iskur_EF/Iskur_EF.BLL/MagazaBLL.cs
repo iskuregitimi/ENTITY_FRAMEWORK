@@ -47,7 +47,7 @@ namespace Iskur_EF.BLL
         {
             AdventureWorksEntities crDataContext = new AdventureWorksEntities();
             return crDataContext.CurrencyRates
-                .Select(x => new { x.CurrencyRateID, CurrencyCode = x.FromCurrencyCode + ">" + x.ToCurrencyCode + "=" +x.AverageRate})
+                .Select(x => new { x.CurrencyRateID, CurrencyCode = x.FromCurrencyCode + "=>" + x.ToCurrencyCode + "=" +x.AverageRate})
                 .ToList();
         }
 

@@ -47,13 +47,21 @@ namespace Iskur_EF.UI.Win
             cmb_CurrencyRate.DataSource = MagazaBLL.GetCurrencyRate();
             cmb_CurrencyRate.DisplayMember = "CurrencyCode";
             cmb_CurrencyRate.ValueMember = "CurrencyRateID";
-            cmb_billaddress.DataSource = CustomerBLL.GetBillToAddressID(frm_MusteriListesi.person_beid);
-            cmb_billaddress.DisplayMember = "AddressLine1";
-
+            cmb_billaddress.DataSource = CustomerBLL.GetCustomerAdress(frm_MusteriListesi.person_beid);
+            cmb_billaddress.DisplayMember = "Adres";
+            cmb_billaddress.ValueMember = "AddressID";
+            cmb_shippingAdress.DataSource=CustomerBLL.GetCustomerAdress(frm_MusteriListesi.person_beid);
+            cmb_shippingAdress.DisplayMember = "Adres";
+            cmb_shippingAdress.ValueMember = "AddressID";
         }
 
         private void comboBox1_Format(object sender, ListControlConvertEventArgs e)
         {
+        }
+
+        private void cmb_shippingAdressList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

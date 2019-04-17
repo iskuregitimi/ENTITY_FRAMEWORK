@@ -79,7 +79,7 @@ namespace Iskur_EF.BLL
             var addresList = dataContext.Addresses.Where(a => businessEntityAddresses.Any(b => b.AddressID == a.AddressID)).Select(
             x => new
             {
-                x.AddressLine1
+                x.AddressLine1,x.AddressID
             }
             );
             return addresList.ToList();
@@ -92,7 +92,7 @@ namespace Iskur_EF.BLL
             var addresList = dataContext.Addresses.Where(a => businessEntityAddresses.Any(b => b.AddressID == a.AddressID)).Select(
             x => new
             {
-                x.AddressLine1
+                x.AddressLine1,x.AddressID
             }
             );
             return addresList.ToList();

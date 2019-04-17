@@ -9,7 +9,7 @@ namespace Iskur_EF.BLL
 {
     public static class ProductsBLL
     {
-        public static object getProduct(string searchText)
+        public static object getProduct(String search)
         {
 
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
@@ -29,14 +29,21 @@ namespace Iskur_EF.BLL
                     x.StandardCost,
                     x.ListPrice,
 
-                    
+
 
                 }
                 );
 
             return result.ToList();
+         
 
 
+        }
+        public static Product GETPRODUCT(int productId)
+        {
+
+            AdventureWorksEntities datacontext = new AdventureWorksEntities();
+            return datacontext.Products.Where(x => x.ProductID == productId).FirstOrDefault();
         }
 
         public static object getCurrenny()

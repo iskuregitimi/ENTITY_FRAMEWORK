@@ -50,9 +50,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lbl_subTotal = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lbl_vergi = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lbl_nakliye = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.lbl_toplamtutar = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -292,15 +292,15 @@
             this.label13.TabIndex = 5;
             this.label13.Text = "Vergiler (TaxAmount)";
             // 
-            // label14
+            // lbl_vergi
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(486, 139);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 13);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "SubTotal * 0,18";
+            this.lbl_vergi.AutoSize = true;
+            this.lbl_vergi.Location = new System.Drawing.Point(486, 139);
+            this.lbl_vergi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_vergi.Name = "lbl_vergi";
+            this.lbl_vergi.Size = new System.Drawing.Size(81, 13);
+            this.lbl_vergi.TabIndex = 5;
+            this.lbl_vergi.Text = "SubTotal * 0,18";
             // 
             // label15
             // 
@@ -312,15 +312,15 @@
             this.label15.TabIndex = 5;
             this.label15.Text = "Nakliye Ücreti (Freight)";
             // 
-            // label16
+            // lbl_nakliye
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(486, 157);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(75, 13);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "SubTotal * 0,1";
+            this.lbl_nakliye.AutoSize = true;
+            this.lbl_nakliye.Location = new System.Drawing.Point(486, 157);
+            this.lbl_nakliye.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_nakliye.Name = "lbl_nakliye";
+            this.lbl_nakliye.Size = new System.Drawing.Size(75, 13);
+            this.lbl_nakliye.TabIndex = 5;
+            this.lbl_nakliye.Text = "SubTotal * 0,1";
             // 
             // label17
             // 
@@ -352,6 +352,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Sipariş Ekle";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -380,8 +381,8 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_toplamtutar);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.lbl_nakliye);
+            this.Controls.Add(this.lbl_vergi);
             this.Controls.Add(this.lbl_subTotal);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
@@ -440,9 +441,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lbl_subTotal;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbl_vergi;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lbl_nakliye;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lbl_toplamtutar;
         private System.Windows.Forms.Button button1;

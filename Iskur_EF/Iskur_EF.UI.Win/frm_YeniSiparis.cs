@@ -27,52 +27,55 @@ namespace Iskur_EF.UI.Win
         {
 
         }
-
+       
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = OrderBLL.GetProduct();
 
             cmbSatısPersoneli.DataSource = OrderBLL.Get_SalePerson(); ;
             cmbSatısPersoneli.ValueMember = "BusinessEntityID";
-            cmbSatısPersoneli.DisplayMember = "FirstName";
+            cmbSatısPersoneli.DisplayMember = "SalesPersonName";
 
 
-            cmbCreditID.DataSource = OrderBLL.GetCreditCardsID();
-            cmbCreditID.DisplayMember = "CreditCardID";
-            cmbCreditID.ValueMember = "CreditCardID";
+            cmbCreditID.DataSource = OrderBLL.GetCreditCardsID(frm_MusteriListesi.CustomerID);
+            cmbCreditID.DisplayMember = "CardNumber"; 
+            cmbCreditID.ValueMember = "CardId";
 
             cmbCurrencyRate.DataSource = OrderBLL.GetCurrencyRate();
-            cmbCurrencyRate.DisplayMember = "CurrencyRateID";
-            cmbCurrencyRate.ValueMember = "CurrencyRateID";
+            cmbCurrencyRate.DisplayMember = "CurrencyName";
+            cmbCurrencyRate.ValueMember = "CurrencyID";
 
             cmbTerratory.DataSource = OrderBLL.GetTerritoryID();
             cmbTerratory.ValueMember = "TerritoryID";
             cmbTerratory.DisplayMember = "Name";
 
-            cmbBillToAdress.DataSource = OrderBLL.GetBillToAdress();
-            cmbBillToAdress.ValueMember = "AddressID";
-            cmbBillToAdress.DisplayMember = "AddressLine1";
+            cmbBillToAdress.DataSource = OrderBLL.GetBillToAddressID(frm_MusteriListesi.CustomerID);
+            cmbBillToAdress.ValueMember = "AdressID";
+            cmbBillToAdress.DisplayMember = "AdressLine";
 
-            cmbShippedToAdress.DataSource = OrderBLL.GetBillToAdress();
-            cmbShippedToAdress.ValueMember = "AddressID";
-            cmbShippedToAdress.DisplayMember = "AddressLine1";
+            cmbShippedToAdress.DataSource = OrderBLL.GetBillToAddressID(frm_MusteriListesi.CustomerID);
+            cmbShippedToAdress.ValueMember = "AdressID";
+            cmbShippedToAdress.DisplayMember = "AdressLine";
 
             cmbShippedMetod.DataSource = OrderBLL.GetShipMetodID();
             cmbShippedMetod.DisplayMember = "ShipMethodID";
             cmbShippedMetod.ValueMember = "ShipMethodID";
 
             lblCustomerName.Text = frm_MusteriListesi.CustomerName;
-
+            
         }
-
+        public static decimal ProductListPrice { get; set; }
         private void button1_Click(object sender, EventArgs e)
         {
+            ProductListPrice =(decimal)dataGridView1.CurrentRow.Cells[3].Value;
+            int ProductID = (int)dataGridView1.CurrentRow.Cells["ProductID"].Value;
+
             try
             {
-                int ProductID = (int)dataGridView1.CurrentRow.Cells["ProductID"].Value;
-                OrderBLL.İnsertOrderHeader(frm_MusteriListesi.CustomerID, Convert.ToInt32(cmbSatısPersoneli.SelectedValue), Convert.ToInt32(cmbTerratory.SelectedValue), Convert.ToInt32(cmbBillToAdress.SelectedValue), Convert.ToInt32(cmbShippedToAdress.SelectedValue), Convert.ToInt32(cmbShippedMetod.SelectedValue), Convert.ToInt32(cmbCreditID.SelectedValue));
+               
+                OrderBLL.İnsertOrderHeader(frm_MusteriListesi.CustomerID, Convert.ToInt32(cmbSatısPersoneli.SelectedValue), Convert.ToInt32(cmbTerratory.SelectedValue), Convert.ToInt32(cmbBillToAdress.SelectedValue), Convert.ToInt32(cmbShippedToAdress.SelectedValue), Convert.ToInt32(cmbShippedMetod.SelectedValue), Convert.ToInt32(cmbCreditID.SelectedValue),Convert.ToDouble(ProductListPrice), Convert.ToInt32(cmbCurrencyRate.SelectedValue),textComment.Text);
 
-                OrderBLL.İnsertSaleOrderDetail(ProductID);
+                OrderBLL.İnsertSaleOrderDetail(ProductID,ProductListPrice);
                 MessageBox.Show("Siparişiniz Başarıyla Alınmıştır İyi Günler Dileriz");
             }
             catch

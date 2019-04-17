@@ -23,32 +23,56 @@ namespace Iskur_EF.BLL
             return a.ToList();
         }
 
-        public static List<Person> Get_SalePerson()
+        public static object Get_SalePerson()
         {
             AdventureWorksEntities db = new AdventureWorksEntities();
-            return db.People.Where(x => x.BusinessEntityID > 273 && x.BusinessEntityID <= 291).ToList();
+            return db.People.Where(x => x.PersonType == "SP").Select(x => new { x.BusinessEntityID, SalesPersonName = x.FirstName + " " + x.MiddleName + " " + x.LastName }).ToList();
 
         }
-        public static List<CreditCard> GetCreditCardsID()
+        public static object GetCreditCardsID(int BEID)
         {
             AdventureWorksEntities db = new AdventureWorksEntities();
-            return db.CreditCards.ToList();
-        }
-        public static List<CurrencyRate> GetCurrencyRate()
-        {
-            AdventureWorksEntities db = new AdventureWorksEntities();
-            return db.CurrencyRates.ToList();
+            var a = from pc in db.PersonCreditCards
+                    join sc in db.CreditCards on pc.CreditCardID equals sc.CreditCardID
+                    where pc.BusinessEntityID == BEID
+                    select new
+                    {
+                        CardId = sc.CreditCardID,
+                        CardNumber = sc.CardNumber
+                    };
 
+
+            return a.ToList();
+
+        }
+        public static object GetCurrencyRate()
+        {
+            AdventureWorksEntities db = new AdventureWorksEntities();
+            var a = from p in db.Currencies
+                    join kp in db.CurrencyRates on p.CurrencyCode equals kp.ToCurrencyCode
+                    select new
+                    {
+                        CurrencyName = p.Name,
+                        CurrencyID = kp.CurrencyRateID
+                    };
+
+            //var a = db.Currencies.Select(x => x.Name);
+            return a.ToList();
         }
         public static List<SalesTerritory> GetTerritoryID()
         {
             AdventureWorksEntities db = new AdventureWorksEntities();
             return db.SalesTerritories.ToList();
         }
-        public static List<Address> GetBillToAdress()
+        public static object GetBillToAddressID(int customerId)
         {
-            AdventureWorksEntities db = new AdventureWorksEntities();
-            return db.Addresses.ToList();
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+
+            var businessEntityAddresses = dataContext.BusinessEntityAddresses.Where(b => b.BusinessEntityID == customerId);
+            var addresList = dataContext.Addresses.Where(a => businessEntityAddresses.Any(b => b.AddressID == a.AddressID)).
+            Select(x => new { AdressID = x.AddressID, AdressLine = x.AddressLine1 });
+
+            return addresList.ToList();
         }
         public static List<ShipMethod> GetShipMetodID()
         {
@@ -56,7 +80,8 @@ namespace Iskur_EF.BLL
             return db.ShipMethods.ToList();
         }
         public static int SaleOrderID { get; set; }
-        public static void İnsertOrderHeader(int _CustomerID,int _SalePersonID,int _TerratoryID,int _BillToAdressID,int _ShipedToAdressID,int _ShipedMethodID,int _CreditCardID)
+        public static decimal Total { get; set; }
+        public static void İnsertOrderHeader(int _CustomerID, int _SalePersonID, int _TerratoryID, int _BillToAdressID, int _ShipedToAdressID, int _ShipedMethodID, int _CreditCardID, double ProductListPrice, int CurrencyRateID,string Comment)
         {
             AdventureWorksEntities db = new AdventureWorksEntities();
             SalesOrderHeader orh = new SalesOrderHeader
@@ -73,19 +98,22 @@ namespace Iskur_EF.BLL
                 ShipToAddressID = _ShipedToAdressID,
                 ShipMethodID = _ShipedMethodID,
                 CreditCardID = _CreditCardID,
-                SubTotal = 100,
-                TaxAmt = Convert.ToDecimal(100 * 0.18),
-                Freight = Convert.ToDecimal(100 * 0.1),
-                TotalDue = Convert.ToDecimal(100 + 100 * 0.18 + 100 * 0.1),
+                TaxAmt = Convert.ToDecimal(ProductListPrice * 0.18),
+                Freight = Convert.ToDecimal(ProductListPrice * 0.1),
+                TotalDue = Convert.ToDecimal(ProductListPrice + ProductListPrice * 0.18 + ProductListPrice * 0.1),
+                SubTotal = Convert.ToDecimal(ProductListPrice),
                 rowguid = Guid.NewGuid(),
-                ModifiedDate=DateTime.Now
-       
+                ModifiedDate = DateTime.Now,
+                CurrencyRateID = CurrencyRateID,
+                Comment=Comment
+
             };
             db.SalesOrderHeaders.Add(orh);
             db.SaveChanges();
             SaleOrderID = db.SalesOrderHeaders.Max(x => x.SalesOrderID);
+            Total = Convert.ToDecimal(orh.TotalDue);
         }
-        public static void İnsertSaleOrderDetail(int _ProductID)
+        public static void İnsertSaleOrderDetail(int _ProductID, decimal UnitPrice)
         {
             AdventureWorksEntities db = new AdventureWorksEntities();
             SalesOrderDetail ord = new SalesOrderDetail
@@ -95,7 +123,7 @@ namespace Iskur_EF.BLL
                 OrderQty = 1,
                 ProductID = _ProductID,
                 SpecialOfferID = 1,
-                UnitPrice = 7000,
+                UnitPrice = UnitPrice,
                 UnitPriceDiscount = 0,
                 rowguid = Guid.NewGuid(),
                 ModifiedDate = DateTime.Now

@@ -16,6 +16,9 @@ namespace Iskur_EF.UI.Win
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
+
             Application.Run(new Form1());
         }
     }

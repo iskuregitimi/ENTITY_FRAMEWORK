@@ -28,7 +28,7 @@ namespace Iskur_EF.BLL
         public static List<SalesOrderHeader> GetSalesOrderHeaders(int id)
         {
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
-            return datacontext.SalesOrderHeaders.Where(x => x.CustomerID== id).ToList();
+            return datacontext.SalesOrderHeaders.Where(x => x.CustomerID == id).ToList();
         }
 
         public static List<SalesOrderDetail> GetOrderDetail(int SalesOrderId)
@@ -42,5 +42,8 @@ namespace Iskur_EF.BLL
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
             return datacontext.SalesOrderHeaders.Add(sales);
         }
+
+        
+        
     }
 }

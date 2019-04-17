@@ -23,12 +23,10 @@ namespace Iskur_EF.BLL
                 );
             return result.ToList();
         }
-        public static List<Person> GetSalesPerson()
+        public static object GetSalesPerson()
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
-            var result = dataContext.People.Where(p => p.BusinessEntityID > 273 && p.BusinessEntityID < 291);
-            return result.ToList();
-
+            return dataContext.People.Where(p => p.PersonType=="SP").Select(x=> new { x.BusinessEntityID, SalesPersonName = x.FirstName + " " + x.MiddleName + " " + x.LastName }).ToList();
             //object metod ile
             //var result = dataContext.People.Where(p => p.BusinessEntityID > 273 && p.BusinessEntityID < 291).Select(
             //    x => new
@@ -38,17 +36,18 @@ namespace Iskur_EF.BLL
             //    );
             //return result.ToArray();
         }
-        public static List<CreditCard> GetCreditCardID()
+        public static object GetCreditCardID(int CustomerID)
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
-            var result = dataContext.CreditCards;
-            return result.ToList();
+            var result = dataContext.PersonCreditCards.Where(b => b.BusinessEntityID == CustomerID);
+            var kredikartlist = dataContext.CreditCards.Where(a => result.Any(b => b.CreditCardID == a.CreditCardID)).Select(x=> new { x.CreditCardID, KrediKartıListesi=x.CardNumber});
+            return kredikartlist.ToList();
         }
-        public static List<CurrencyRate> GetCurrencyRateID()
+        public static object GetCurrencyRateID()
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
-            var result = dataContext.CurrencyRates;
-            return result.ToList();
+            var currencylist = dataContext.CurrencyRates.Select(x => new { x.CurrencyRateID, DövizKuruListesi=x.ToCurrencyCode});
+            return currencylist.ToList();
         }
         public static List<SalesTerritory> GetSalesTerritoryID()
         {
@@ -57,11 +56,12 @@ namespace Iskur_EF.BLL
             return result.ToList();
         }
         //person.address deki addressid=billtoaddressıd ve addressid=shiptoadressid
-        public static List<Address> GetBillToAddressID()
+        public static object GetBillToAddressID(int CustomerID)
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
-            var result = dataContext.Addresses;
-            return result.ToList();
+            var businessEntityAddresses = dataContext.BusinessEntityAddresses.Where(b => b.BusinessEntityID == CustomerID);
+            var addresList = dataContext.Addresses.Where(a => businessEntityAddresses.Any(b => b.AddressID == a.AddressID)).Select(x => new { x.AddressID, ShipAdres = x.AddressLine1 + " " + x.AddressLine2 });
+            return addresList.ToList(); 
         }
         public static List<ShipMethod> GetShipMethodID()
         {

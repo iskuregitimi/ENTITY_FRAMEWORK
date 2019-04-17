@@ -54,7 +54,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lbl_toplamtutar = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -77,7 +77,8 @@
             this.dgv_urunler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_urunler.Size = new System.Drawing.Size(657, 222);
             this.dgv_urunler.TabIndex = 0;
-            this.dgv_urunler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_urunler_CellContentClick);
+            this.dgv_urunler.DoubleClick += new System.EventHandler(this.dgv_urunler_DoubleClick);
+            this.dgv_urunler.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgv_urunler_MouseDoubleClick);
             // 
             // label1
             // 
@@ -151,7 +152,6 @@
             // 
             // cmb_teriotry
             // 
-            this.cmb_teriotry.FormattingEnabled = true;
             this.cmb_teriotry.Location = new System.Drawing.Point(483, 18);
             this.cmb_teriotry.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_teriotry.Name = "cmb_teriotry";
@@ -325,15 +325,15 @@
             this.label17.TabIndex = 5;
             this.label17.Text = "Toplam Tutar";
             // 
-            // label18
+            // lbl_toplamtutar
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(486, 175);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(155, 13);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "Ara Toplam + Vergiler + Nakliye";
+            this.lbl_toplamtutar.AutoSize = true;
+            this.lbl_toplamtutar.Location = new System.Drawing.Point(486, 175);
+            this.lbl_toplamtutar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_toplamtutar.Name = "lbl_toplamtutar";
+            this.lbl_toplamtutar.Size = new System.Drawing.Size(155, 13);
+            this.lbl_toplamtutar.TabIndex = 5;
+            this.lbl_toplamtutar.Text = "Ara Toplam + Vergiler + Nakliye";
             // 
             // button1
             // 
@@ -372,7 +372,7 @@
             this.ClientSize = new System.Drawing.Size(676, 472);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label18);
+            this.Controls.Add(this.lbl_toplamtutar);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lbl_subTotal);
@@ -437,7 +437,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lbl_toplamtutar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label19;

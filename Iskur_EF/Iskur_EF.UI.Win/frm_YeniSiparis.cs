@@ -80,19 +80,23 @@ namespace Iskur_EF.UI.Win
 
         }
 
-        private void dgv_urunler_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_urunler_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void dgv_urunler_DoubleClick(object sender, EventArgs e)
         {
             productId = int.Parse(dgv_urunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
 
-            var linetotal = ProductsBLL.Linetotal(productId);
+            SalesOrderDetail linetotal = ProductsBLL.Linetotal(productId);
+            double toplam = 0;
 
-            dgv_urunler.Rows.Add(lbl_subTotal.Text);
-            //dgv_urunler.DataSource = tablo;
-            int toplam = 0;
-        
-                toplam += Convert.ToInt32(dgv_urunler.SelectedRows[0].Cells["LineTotal"].Value);
-          
+            toplam += Convert.ToDouble(linetotal.LineTotal) + Convert.ToDouble(lbl_subTotal.Text);
+
             lbl_subTotal.Text = toplam.ToString();
+         double   toplamtutar=(toplam*0.18)+(toplam*0.1);
+            lbl_toplamtutar.Text = toplamtutar.ToString();
         }
     }
 }

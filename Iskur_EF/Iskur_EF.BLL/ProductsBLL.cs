@@ -25,7 +25,10 @@ namespace Iskur_EF.BLL
                     x.Name,
                     x.ProductNumber,
                     x.SafetyStockLevel,
-                    x.Color
+                    x.Color,
+                    x.StandardCost,
+                    x.ListPrice,
+
                     
 
                 }
@@ -43,19 +46,11 @@ namespace Iskur_EF.BLL
 
         }
 
-        public static object Linetotal(int productId)
+        public static SalesOrderDetail Linetotal(int productId)
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
-            //return datacontext.SalesOrderDetails.ToList();
+            return dataContext.SalesOrderDetails.Where(x => x.ProductID == productId).FirstOrDefault();
 
-            var ProductID = dataContext.Products.Where(b => b.ProductID== productId);
-            var lineTotal = dataContext.SalesOrderDetails.Where(a => ProductID.Any(b => b.ProductID == a.ProductID)).Select(
-            x => new
-            {
-                x.LineTotal
-            }
-            );
-            return lineTotal.ToList();
 
         }
 

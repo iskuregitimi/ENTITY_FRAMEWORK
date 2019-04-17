@@ -56,5 +56,11 @@ namespace Iskur_EF.BLL
             return addresList.ToList();
         }
 
+        public static object GetTerritories()
+        {
+            AdventureWorksEntities teDataContext = new AdventureWorksEntities();
+            return teDataContext.SalesTerritories.Select(x => new { x.TerritoryID, Territory = x.Name + "-" + x.Group + "/" + x.CountryRegionCode }).ToList();
+            
+        }
     }
 }

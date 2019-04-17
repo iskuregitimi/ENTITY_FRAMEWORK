@@ -53,6 +53,12 @@ namespace Iskur_EF.UI.Win
             cmb_shippingAdress.DataSource=CustomerBLL.GetCustomerAdress(frm_MusteriListesi.person_beid);
             cmb_shippingAdress.DisplayMember = "Adres";
             cmb_shippingAdress.ValueMember = "AddressID";
+            cmb_Territory.DataSource = CustomerBLL.GetTerritories();
+            cmb_Territory.DisplayMember = "Territory";
+            cmb_Territory.ValueMember = "TerritoryID";
+            cmb_shipmethod.DataSource = MagazaBLL.GetShippingMethod();
+            cmb_shipmethod.ValueMember = "ShipMethodID";
+            cmb_shipmethod.DisplayMember = "ShipCompanies";
         }
 
         private void comboBox1_Format(object sender, ListControlConvertEventArgs e)

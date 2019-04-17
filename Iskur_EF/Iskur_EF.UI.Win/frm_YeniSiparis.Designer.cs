@@ -41,7 +41,7 @@
             this.cmb_billaddress = new System.Windows.Forms.ComboBox();
             this.cmb_shippingAdress = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboboxxx = new System.Windows.Forms.ComboBox();
+            this.cmb_shipmethod = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cmb_CreditCard = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -199,14 +199,14 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Teslimat Adresi(ShipToAddress)";
             // 
-            // comboboxxx
+            // cmb_shipmethod
             // 
-            this.comboboxxx.FormattingEnabled = true;
-            this.comboboxxx.Location = new System.Drawing.Point(483, 90);
-            this.comboboxxx.Margin = new System.Windows.Forms.Padding(2);
-            this.comboboxxx.Name = "comboboxxx";
-            this.comboboxxx.Size = new System.Drawing.Size(185, 21);
-            this.comboboxxx.TabIndex = 2;
+            this.cmb_shipmethod.FormattingEnabled = true;
+            this.cmb_shipmethod.Location = new System.Drawing.Point(483, 90);
+            this.cmb_shipmethod.Margin = new System.Windows.Forms.Padding(2);
+            this.cmb_shipmethod.Name = "cmb_shipmethod";
+            this.cmb_shipmethod.Size = new System.Drawing.Size(185, 21);
+            this.cmb_shipmethod.TabIndex = 2;
             // 
             // label8
             // 
@@ -393,7 +393,7 @@
             this.Controls.Add(this.cmb_CurrencyRate);
             this.Controls.Add(this.cmb_CreditCard);
             this.Controls.Add(this.lbl_musteriadi);
-            this.Controls.Add(this.comboboxxx);
+            this.Controls.Add(this.cmb_shipmethod);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cmb_shippingAdress);
             this.Controls.Add(this.cmb_billaddress);
@@ -427,7 +427,7 @@
         private System.Windows.Forms.ComboBox cmb_billaddress;
         private System.Windows.Forms.ComboBox cmb_shippingAdress;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboboxxx;
+        private System.Windows.Forms.ComboBox cmb_shipmethod;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmb_CreditCard;
         private System.Windows.Forms.Label label9;

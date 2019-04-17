@@ -51,5 +51,10 @@ namespace Iskur_EF.BLL
                 .ToList();
         }
 
+        public static object GetShippingMethod()
+        {
+            AdventureWorksEntities shipDataContext = new AdventureWorksEntities();
+            return shipDataContext.ShipMethods.Select(x => new { x.ShipMethodID, ShipCompanies = x.Name }).ToList();
+        }
     }
 }

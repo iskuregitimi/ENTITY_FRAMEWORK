@@ -21,17 +21,18 @@ namespace Iskur_EF.BLL
            
             return datacontext.SalesOrderDetails.Where(x => x.SalesOrderID == SalesOrderId).ToList();
         }
-        public static SalesOrderHeader AddOrder(int CustomerId,decimal totaldue)
+        public static SalesOrderHeader AddOrder(SalesOrderHeader sales)
         {
             
             SalesOrderHeader salesheader = new SalesOrderHeader();
             salesheader.OrderDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesheader.DueDate= Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
-            salesheader.CustomerID = CustomerId;
-            salesheader.TotalDue = totaldue;
-            salesheader.BillToAddressID = 25989;
-            salesheader.ShipToAddressID = 25989;
-            salesheader.ShipMethodID = 1;
+            salesheader.CustomerID = sales.CustomerID;
+            //salesheader.TotalDue = sales.LineTotal;
+            salesheader.ShipDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            //salesheader.BillToAddressID = id;
+            //salesheader.ShipToAddressID = id;
+            //salesheader.ShipMethodID = id;
             salesheader.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesheader.rowguid = Guid.NewGuid();
 

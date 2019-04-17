@@ -49,7 +49,7 @@
             this.cmb_CrediCard = new System.Windows.Forms.ComboBox();
             this.lbl_customerName = new System.Windows.Forms.Label();
             this.cmb_ShipMethod = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtm_ShipDate = new System.Windows.Forms.DateTimePicker();
             this.cmb_ShiptoAddress = new System.Windows.Forms.ComboBox();
             this.cmb_BilltoAddress = new System.Windows.Forms.ComboBox();
             this.cmb_Territory = new System.Windows.Forms.ComboBox();
@@ -118,9 +118,9 @@
             this.lbl_SubTotal.Location = new System.Drawing.Point(524, 116);
             this.lbl_SubTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_SubTotal.Name = "lbl_SubTotal";
-            this.lbl_SubTotal.Size = new System.Drawing.Size(37, 13);
+            this.lbl_SubTotal.Size = new System.Drawing.Size(31, 13);
             this.lbl_SubTotal.TabIndex = 31;
-            this.lbl_SubTotal.Text = "00000";
+            this.lbl_SubTotal.Text = "0000";
             // 
             // label17
             // 
@@ -269,13 +269,13 @@
             this.cmb_ShipMethod.Size = new System.Drawing.Size(185, 21);
             this.cmb_ShipMethod.TabIndex = 16;
             // 
-            // dateTimePicker1
+            // dtm_ShipDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(202, 36);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
-            this.dateTimePicker1.TabIndex = 19;
+            this.dtm_ShipDate.Location = new System.Drawing.Point(202, 36);
+            this.dtm_ShipDate.Margin = new System.Windows.Forms.Padding(2);
+            this.dtm_ShipDate.Name = "dtm_ShipDate";
+            this.dtm_ShipDate.Size = new System.Drawing.Size(151, 20);
+            this.dtm_ShipDate.TabIndex = 19;
             // 
             // cmb_ShiptoAddress
             // 
@@ -359,6 +359,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(658, 229);
             this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // frm_YeniSiparis
             // 
@@ -386,7 +387,7 @@
             this.Controls.Add(this.cmb_CrediCard);
             this.Controls.Add(this.lbl_customerName);
             this.Controls.Add(this.cmb_ShipMethod);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtm_ShipDate);
             this.Controls.Add(this.cmb_ShiptoAddress);
             this.Controls.Add(this.cmb_BilltoAddress);
             this.Controls.Add(this.cmb_Territory);
@@ -427,7 +428,7 @@
         private System.Windows.Forms.ComboBox cmb_CrediCard;
         private System.Windows.Forms.Label lbl_customerName;
         private System.Windows.Forms.ComboBox cmb_ShipMethod;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtm_ShipDate;
         private System.Windows.Forms.ComboBox cmb_ShiptoAddress;
         private System.Windows.Forms.ComboBox cmb_BilltoAddress;
         private System.Windows.Forms.ComboBox cmb_Territory;

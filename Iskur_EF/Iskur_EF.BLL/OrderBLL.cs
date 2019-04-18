@@ -96,7 +96,8 @@ namespace Iskur_EF.BLL
         }
        
 
-        public static void AddOrder(int CustomerId,DateTime ShipDate, int SalesPersonId,int TerretoryID)
+        public static void AddOrder(int CustomerId,DateTime ShipDate, int SalesPersonId,int TerretoryID,
+			int BillToAdressId,int shipToAdresId,int CrediCardId,int subTotal,int TaxAmt,int Freight)
         {
             SalesOrderHeader soh = new SalesOrderHeader();
             soh.RevisionNumber = 1;
@@ -104,22 +105,22 @@ namespace Iskur_EF.BLL
             soh.ShipDate= ShipDate;
             soh.Status = 1;
             soh.OnlineOrderFlag =false;
-           // soh.AccountNumber =;
-            soh.CustomerID =CustomerId ;
-            soh.SalesPersonID = SalesPersonId;
-            soh.TerritoryID = TerretoryID ;
-            soh.BillToAddressID = ;
-            soh.ShipToAddressID =;
-            soh.ShipMethodID =;
-            soh.CreditCardID =;
-            soh.CreditCardApprovalCode =;
-            soh.CurrencyRateID =;
-            soh.SubTotal =;
-            soh.TaxAmt =;
-            soh.Freight =;
-            soh.Comment =;
-            soh.rowguid =;
-            soh.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss")); 
+			//soh.AccountNumber ='10 - 4020 - 000676';
+			soh.CustomerID = CustomerId;
+			soh.SalesPersonID = SalesPersonId;
+			soh.TerritoryID = TerretoryID;
+			soh.BillToAddressID = BillToAdressId;
+			soh.ShipToAddressID =shipToAdresId;
+			soh.ShipMethodID =5;
+			soh.CreditCardID =CrediCardId;
+			soh.CreditCardApprovalCode ="35568Vi78804";
+			soh.CurrencyRateID =null;
+			soh.SubTotal =subTotal;
+			soh.TaxAmt = TaxAmt;
+			soh.Freight =Freight;
+			soh.Comment ="yorum yapıldı.";
+			//soh.rowguid = ;
+			soh.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss")); 
 
 
 

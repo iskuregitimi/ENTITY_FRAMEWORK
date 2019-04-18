@@ -4,11 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e541ca2032e34dd7801b0749894f5e7f" Name="Diagram1">
+      <Diagram DiagramId="05320b1e363144bb9f356e18db527cfb" Name="Diagram1">
         <EntityTypeShape EntityType="AdventureWorksModel.AWBuildVersion" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.DatabaseLog" Width="1.5" PointX="2.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.ErrorLog" Width="1.5" PointX="4.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksModel.sysdiagram" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.Department" Width="1.5" PointX="12.75" PointY="42.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.Employee" Width="1.5" PointX="9.75" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.EmployeeDepartmentHistory" Width="1.5" PointX="15" PointY="5.75" IsExpanded="true" />
@@ -47,7 +46,7 @@
         <EntityTypeShape EntityType="AdventureWorksModel.ProductSubcategory" Width="1.5" PointX="3.75" PointY="29.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.ScrapReason" Width="1.5" PointX="9" PointY="20.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.TransactionHistory" Width="1.5" PointX="8.25" PointY="33.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksModel.TransactionHistoryArchive" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksModel.TransactionHistoryArchive" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.UnitMeasure" Width="1.5" PointX="0.75" PointY="25.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.WorkOrder" Width="1.5" PointX="11.25" PointY="29" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.WorkOrderRouting" Width="1.5" PointX="13.5" PointY="32.875" IsExpanded="true" />
@@ -75,6 +74,8 @@
         <EntityTypeShape EntityType="AdventureWorksModel.SpecialOffer" Width="1.5" PointX="12" PointY="38" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.SpecialOfferProduct" Width="1.5" PointX="14.25" PointY="29.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.Store" Width="1.5" PointX="9.75" PointY="74.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksModel.Hastalar" Width="1.5" PointX="6.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksModel.Person_History" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.ProductDocument" Width="1.5" PointX="8.25" PointY="56.5" IsExpanded="true" />
         <AssociationConnector Association="AdventureWorksModel.FK_EmployeeDepartmentHistory_Department_DepartmentID" ManuallyRouted="false" />
         <AssociationConnector Association="AdventureWorksModel.FK_Employee_Person_BusinessEntityID" ManuallyRouted="false" />

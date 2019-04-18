@@ -77,7 +77,13 @@ namespace Iskur_EF.UI.Win
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OrderBLL.AddOrder();
+
+
+
+
+			int customerId =  OrderBLL.GetSalePerson()
+
+            OrderBLL.AddOrder(CustomerId,);
         }
     }
 }

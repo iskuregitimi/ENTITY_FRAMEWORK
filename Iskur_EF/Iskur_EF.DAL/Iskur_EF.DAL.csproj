@@ -131,6 +131,9 @@
     <Compile Include="ErrorLog.cs">
       <DependentUpon>AdventureWorksModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Hastalar.cs">
+      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Illustration.cs">
       <DependentUpon>AdventureWorksModel.tt</DependentUpon>
     </Compile>
@@ -150,6 +153,9 @@
       <DependentUpon>AdventureWorksModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PersonPhone.cs">
+      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Person_History.cs">
       <DependentUpon>AdventureWorksModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PhoneNumberType.cs">
@@ -258,9 +264,6 @@
     <Compile Include="Store.cs">
       <DependentUpon>AdventureWorksModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="TransactionHistory.cs">
       <DependentUpon>AdventureWorksModel.tt</DependentUpon>
     </Compile>
@@ -285,8 +288,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AdventureWorksModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="AdventureWorksModel.edmx.diagram">
       <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
     </None>
@@ -294,19 +295,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="AdventureWorksModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AdventureWorksModel.Context.cs</LastGenOutput>
       <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorksModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="AdventureWorksModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
       <LastGenOutput>AdventureWorksModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

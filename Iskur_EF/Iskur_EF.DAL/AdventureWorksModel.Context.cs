@@ -28,7 +28,6 @@ namespace Iskur_EF.DAL
         public virtual DbSet<AWBuildVersion> AWBuildVersions { get; set; }
         public virtual DbSet<DatabaseLog> DatabaseLogs { get; set; }
         public virtual DbSet<ErrorLog> ErrorLogs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<EmployeeDepartmentHistory> EmployeeDepartmentHistories { get; set; }
@@ -95,6 +94,8 @@ namespace Iskur_EF.DAL
         public virtual DbSet<SpecialOffer> SpecialOffers { get; set; }
         public virtual DbSet<SpecialOfferProduct> SpecialOfferProducts { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
+        public virtual DbSet<Hastalar> Hastalars { get; set; }
+        public virtual DbSet<Person_History> Person_History { get; set; }
         public virtual DbSet<ProductDocument> ProductDocuments { get; set; }
     }
 }

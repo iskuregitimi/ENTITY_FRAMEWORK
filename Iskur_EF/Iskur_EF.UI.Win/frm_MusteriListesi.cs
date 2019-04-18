@@ -35,6 +35,13 @@ namespace Iskur_EF.UI.Win
             frm_YeniSiparis f = new frm_YeniSiparis();
             f.CustomerId = int.Parse(dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString());
             f.Show();
+
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

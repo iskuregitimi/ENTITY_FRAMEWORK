@@ -36,9 +36,27 @@ namespace Iskur_EF.UI.Win
         
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
+
             Customer cs = new Customer();
             cs = CustomerBLL.GetCustomer(CustomerId);
             label4.Text = cs.Person.FirstName;
+            comboBox2.DataSource = OrderBLL.GetTerrotry(CustomerId);
+            comboBox2.DisplayMember = "TerritoryID";
+            comboBox2.ValueMember= "TerritoryID";
+            comboBox6.DataSource = OrderBLL.GetCrediCard(CustomerId);
+            comboBox6.DisplayMember = "CreditCardID";
+            comboBox6.ValueMember = "CreditCardID";
+            comboBox7.DataSource = OrderBLL.GetCurrentyRateId();
+            comboBox7.DisplayMember = "CurrencyRateID";
+            comboBox1.DataSource = OrderBLL.GetSalePerson();
+            comboBox1.DisplayMember = "SalesPersonName";
+            comboBox4.DataSource = OrderBLL.GetShipToAddress(CustomerId);
+            comboBox4.ValueMember = "AddressLine1";
+            comboBox3.DataSource = OrderBLL.GetBillToAdress(CustomerId);
+            comboBox3.DisplayMember = "AddressLine1";
+
+
+
         }
 
         private void label4_Click(object sender, EventArgs e)

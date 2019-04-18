@@ -50,12 +50,12 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 48);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(27, 39);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(991, 463);
+            this.dataGridView1.Size = new System.Drawing.Size(743, 376);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // contextMenuStrip1
             // 
@@ -64,38 +64,36 @@
             this.siparişlerToolStripMenuItem,
             this.yeniSiparişEkleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(158, 48);
             // 
             // siparişlerToolStripMenuItem
             // 
             this.siparişlerToolStripMenuItem.Name = "siparişlerToolStripMenuItem";
-            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
+            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.siparişlerToolStripMenuItem.Text = "Siparişler";
             this.siparişlerToolStripMenuItem.Click += new System.EventHandler(this.siparişlerToolStripMenuItem_Click);
             // 
             // yeniSiparişEkleToolStripMenuItem
             // 
             this.yeniSiparişEkleToolStripMenuItem.Name = "yeniSiparişEkleToolStripMenuItem";
-            this.yeniSiparişEkleToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.yeniSiparişEkleToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.yeniSiparişEkleToolStripMenuItem.Text = "Yeni Sipariş Ekle";
             this.yeniSiparişEkleToolStripMenuItem.Click += new System.EventHandler(this.yeniSiparişEkleToolStripMenuItem_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(36, 16);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(27, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(989, 22);
+            this.textBox1.Size = new System.Drawing.Size(743, 20);
             this.textBox1.TabIndex = 1;
             // 
             // frm_MusteriListesi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frm_MusteriListesi";
             this.Text = "frm_MusteriListesi";
             this.Load += new System.EventHandler(this.frm_MusteriListesi_Load);

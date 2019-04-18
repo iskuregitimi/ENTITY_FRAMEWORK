@@ -72,5 +72,42 @@ namespace Iskur_EF.BLL
             return dataContext.CurrencyRates.ToList();
         }
 
+
+
+        public static object GetShipMetodId()
+        {
+
+            return dataContext.ShipMethods.ToList();
+        }
+
+
+        public static object GetProduct(string SearchText)
+        {
+
+            var product = dataContext.Products.Select(x => new
+
+            {
+                x.ProductID,
+                x.Name,
+                x.ProductDocument
+              
+            }
+             );
+
+            return product.ToList();
+
+        }
+
+
+
+        public static object getSubTotal()
+        {
+
+            return dataContext.Products.FirstOrDefault();
+                
+        }
+
+
+
     }
 }

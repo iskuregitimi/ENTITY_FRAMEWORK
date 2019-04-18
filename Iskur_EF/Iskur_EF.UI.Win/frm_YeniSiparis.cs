@@ -37,6 +37,7 @@ namespace Iskur_EF.UI.Win
         {
             Customer cs = new Customer();
             cs = CustomerBLL.GetCustomer(CustomerId);
+            dataGridView1.DataSource = OrderBLL.GetProduct(string.Empty);
             label4.Text = cs.Person.FirstName+"  "+cs.Person.LastName;
             comboBox3.DataSource = OrderBLL.GetBillToAdress(CustomerId);
             comboBox3.DisplayMember = "AddressLine1";
@@ -51,6 +52,11 @@ namespace Iskur_EF.UI.Win
             comboBox4.ValueMember = "AddressLine1";
             comboBox7.DataSource = OrderBLL.GetCurrentyRateId();
             comboBox7.DisplayMember = "CurrencyRateID";
+            comboBox5.DataSource = OrderBLL.GetShipMetodId();
+            comboBox5.DisplayMember = "Name";
+
+            
+           
 
            
         }

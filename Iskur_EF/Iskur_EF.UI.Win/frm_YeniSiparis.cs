@@ -68,18 +68,23 @@ namespace Iskur_EF.UI.Win
             try
             {
 
-                OrderBLL.İnsertOrderHeader(frm_MusteriListesi.CustomerID, 
-                    Convert.ToInt32(cmb_PersonelAdı.SelectedValue), 
-                    Convert.ToInt32(cmb_BölgeID.SelectedValue), 
-                    Convert.ToInt32(cmb_FaturaAdresID.SelectedValue), 
-                    Convert.ToInt32(cmb_ShipToAdresID.SelectedValue), 
-                    Convert.ToInt32(cmb_ShipMethodID.SelectedValue), 
-                    Convert.ToInt32(cmb_KrediKartID.SelectedValue), 
-                    Convert.ToDouble(ProductListPrice), 
-                    Convert.ToInt32(cmb_DövizKuruID.SelectedValue), txt_Comment.Text);
+                int salesPersonID = Convert.ToInt32(cmb_PersonelAdı.SelectedValue);
+                int territoryID = Convert.ToInt32(cmb_BölgeID.SelectedValue);
+                int billToAddressID = Convert.ToInt32(cmb_FaturaAdresID.SelectedValue);
+                int shipToAddressID = Convert.ToInt32(cmb_ShipToAdresID.SelectedValue);
+                int shipMethodID = Convert.ToInt32(cmb_ShipMethodID.SelectedValue);
+                int creditCardID = Convert.ToInt32(cmb_KrediKartID.SelectedValue);
+                decimal subTotal = Convert.ToDecimal(lblSubTotal.Text);
+                decimal Tax = Convert.ToDecimal(lblTax.Text);
+                decimal Freight = Convert.ToDecimal(lblFreight.Text);
+                string Comment = txt_Comment.Text;
 
-                OrderBLL.İnsertSaleOrderDetail(ProductID, ProductListPrice);
-                MessageBox.Show("Siparişiniz Başarıyla Alınmıştır İyi Günler Dileriz");
+                var header = OrderBLL.AddOrder(frm_MusteriListesi.CustomerID, salesPersonID, territoryID, billToAddressID, shipToAddressID, shipMethodID, creditCardID, subTotal, Tax, Freight, Comment);
+                int productID = int.Parse(dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString());
+                Product product = OrderBLL.GetProduct(productID);
+                OrderBLL.AddOrderDetails(product, header);
+
+                MessageBox.Show("Ürün Eklendi!");
             }
             catch
             {

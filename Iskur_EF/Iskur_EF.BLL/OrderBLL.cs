@@ -9,7 +9,7 @@ namespace Iskur_EF.BLL
 {
     public static class OrderBLL
     {
-        public static AdventureWorksEntities db = new AdventureWorksEntities();
+        public static AdventureWorksEntities dataContext = new AdventureWorksEntities();
 
         public static int SaleOrderID { get; set; }
         public static decimal Total { get; set; }
@@ -75,56 +75,51 @@ namespace Iskur_EF.BLL
             return result.ToList();
         }
 
-        public static void İnsertOrderHeader(int _CustomerID, int _SalePersonID, int _TerratoryID, int _BillToAdressID, int _ShipedToAdressID, int _ShipedMethodID, int _CreditCardID, double ProductListPrice, int CurrencyRateID, string Comment)
+        public static SalesOrderHeader AddOrder(int customerID, int salesPersonID, int territoryID, int billToAddressID, int shipToAddressID, int shipMethodID, int creditCardID, decimal subTotal, decimal Tax, decimal Freight, string Comment)
         {
+            SalesOrderHeader salesOrder = new SalesOrderHeader();
+            salesOrder.RevisionNumber = 8;
+            salesOrder.OrderDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            salesOrder.DueDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            salesOrder.Status = 5;
+            salesOrder.OnlineOrderFlag = false;
+            salesOrder.CustomerID = customerID;
+            salesOrder.SalesPersonID = salesPersonID;
+            salesOrder.TerritoryID = territoryID;
+            salesOrder.BillToAddressID = billToAddressID;
+            salesOrder.ShipToAddressID = shipToAddressID;
+            salesOrder.ShipMethodID = shipMethodID;
+            salesOrder.CreditCardID = creditCardID;
+            salesOrder.SubTotal = subTotal;
+            salesOrder.TaxAmt = Tax;
+            salesOrder.Freight = Freight;
+            salesOrder.Comment = Comment;
+            salesOrder.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            salesOrder.rowguid = Guid.NewGuid();
 
-            SalesOrderHeader orh = new SalesOrderHeader
-            {
-                CustomerID = _CustomerID,
-                RevisionNumber = 8,
-                OrderDate = DateTime.Now,
-                DueDate = DateTime.Now,
-                Status = 5,
-                OnlineOrderFlag = false,
-                SalesPersonID = _SalePersonID,
-                TerritoryID = _TerratoryID,
-                BillToAddressID = _BillToAdressID,
-                ShipToAddressID = _ShipedToAdressID,
-                ShipMethodID = _ShipedMethodID,
-                CreditCardID = _CreditCardID,
-                TaxAmt = Convert.ToDecimal(ProductListPrice * 0.18),
-                Freight = Convert.ToDecimal(ProductListPrice * 0.1),
-                TotalDue = Convert.ToDecimal(ProductListPrice + ProductListPrice * 0.18 + ProductListPrice * 0.1),
-                SubTotal = Convert.ToDecimal(ProductListPrice),
-                rowguid = Guid.NewGuid(),
-                ModifiedDate = DateTime.Now,
-                CurrencyRateID = CurrencyRateID,
-                Comment = Comment
-
-            };
-            db.SalesOrderHeaders.Add(orh);
-            db.SaveChanges();
-            SaleOrderID = db.SalesOrderHeaders.Max(x => x.SalesOrderID);
-            Total = Convert.ToDecimal(orh.TotalDue);
+            var header = dataContext.SalesOrderHeaders.Add(salesOrder);
+            dataContext.SaveChanges();
+            return header;
         }
 
-        public static void İnsertSaleOrderDetail(int _ProductID, decimal UnitPrice)
+        public static void AddOrderDetails(Product products, SalesOrderHeader orderHeader)
         {
+            SalesOrderDetail orderDetail = new SalesOrderDetail();
+            orderDetail.SalesOrderID = orderHeader.SalesOrderID;
+            orderDetail.ProductID = products.ProductID;
+            orderDetail.SpecialOfferID = products.SpecialOfferProducts.FirstOrDefault(x => x.ProductID == products.ProductID).SpecialOfferID;
+            orderDetail.OrderQty = 1;
+            orderDetail.UnitPrice = products.ProductCostHistories.FirstOrDefault(x => x.ProductID == products.ProductID).StandardCost;
+            orderDetail.UnitPriceDiscount = 0;
+            orderDetail.rowguid = Guid.NewGuid();
+            orderDetail.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
 
-            SalesOrderDetail ord = new SalesOrderDetail
-            {
-                SalesOrderID = SaleOrderID,
-                CarrierTrackingNumber = "4911 - 403C - 98",
-                OrderQty = 1,
-                ProductID = _ProductID,
-                SpecialOfferID = 1,
-                UnitPrice = UnitPrice,
-                UnitPriceDiscount = 0,
-                rowguid = Guid.NewGuid(),
-                ModifiedDate = DateTime.Now
-            };
-            db.SalesOrderDetails.Add(ord);
-            db.SaveChanges();
+            dataContext.SalesOrderDetails.Add(orderDetail);
+            dataContext.SaveChanges();
+        }
+        public static Product GetProduct(int id)
+        {
+            return dataContext.Products.FirstOrDefault(x => x.ProductID == id);
         }
     }
 }

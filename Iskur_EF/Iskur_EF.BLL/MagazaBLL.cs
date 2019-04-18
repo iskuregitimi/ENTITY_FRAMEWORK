@@ -76,5 +76,20 @@ namespace Iskur_EF.BLL
             
             return calculatedprice.ToString();
         }
+
+        public static float TaxAmount(float calculatedprice)
+        {
+            const float taxrate = 0.18F;
+            float totaltaxamount = calculatedprice * taxrate;
+            return totaltaxamount;
+        }
+
+        public static float freightrate(float calculatedprice)
+        {
+            const float freightrate = 0.1F;
+            float freight = calculatedprice * freightrate;
+            return freight;
+        }
+
     }
 }

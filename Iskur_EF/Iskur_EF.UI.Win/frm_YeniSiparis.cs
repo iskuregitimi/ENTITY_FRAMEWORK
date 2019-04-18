@@ -20,7 +20,9 @@ namespace Iskur_EF.UI.Win
         }
 
         string CrProductName;
-        string calculatedvalue;
+        float calculatedvalue;
+        float taxamount;
+        float freightrate;
         int selectedcurrency;
         private void label1_Click(object sender, EventArgs e)
         {
@@ -76,11 +78,23 @@ namespace Iskur_EF.UI.Win
         private void dgv_urunlistesi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
+            
             CrProductName = dgv_urunlistesi.SelectedRows[0].Cells["Name"].Value.ToString();
-            //int selectedcurrency = Convert.ToInt32(cmb_CurrencyRate.SelectedValue);
+
             selectedcurrency = Convert.ToInt32(cmb_CurrencyRate.SelectedValue);
-            calculatedvalue = MagazaBLL.CalculateListPriceWithCurrencyRate(CrProductName, selectedcurrency).ToString();
-            lbl_SubTotal.Text = calculatedvalue;
+
+            calculatedvalue = Convert.ToSingle(MagazaBLL.CalculateListPriceWithCurrencyRate($"{CrProductName}", selectedcurrency));
+
+            freightrate = MagazaBLL.freightrate(calculatedvalue);
+
+            taxamount = MagazaBLL.TaxAmount(calculatedvalue);
+
+
+            lbl_TaxAmount.Text = taxamount.ToString();
+            lbl_SubTotal.Text = calculatedvalue.ToString();
+            lbl_freight.Text = freightrate.ToString();
+
+            lbl_toplam.Text = (freightrate + taxamount + calculatedvalue).ToString();
         }
     }
 }

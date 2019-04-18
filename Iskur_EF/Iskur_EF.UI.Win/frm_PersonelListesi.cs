@@ -36,5 +36,12 @@ namespace Iskur_EF.UI.Win
             form.businessEntityId = int.Parse(dgv_PersonelListesi.SelectedRows[0].Cells["BusinessEntityID"].Value.ToString());
             form.Show();
         }
+
+        private void personelGüncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dlg_PersonelGuncelle pers = new dlg_PersonelGuncelle();
+            pers.BusiennesId = int.Parse(dgv_PersonelListesi.SelectedRows[0].Cells["BusinessEntityID"].Value.ToString());
+            pers.Show();
+        }
     }
 }

@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmb_salesPerson = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpicker = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_teriotry = new System.Windows.Forms.ComboBox();
@@ -77,7 +77,7 @@
             this.dgv_urunler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_urunler.Size = new System.Drawing.Size(657, 222);
             this.dgv_urunler.TabIndex = 0;
-            this.dgv_urunler.DoubleClick += new System.EventHandler(this.dgv_urunler_DoubleClick);
+            this.dgv_urunler.SelectionChanged += new System.EventHandler(this.dgv_urunler_SelectionChanged);
             this.dgv_urunler.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgv_urunler_MouseDoubleClick);
             // 
             // label1
@@ -123,13 +123,15 @@
             this.cmb_salesPerson.Size = new System.Drawing.Size(151, 21);
             this.cmb_salesPerson.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // dtpicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(164, 37);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dtpicker.Location = new System.Drawing.Point(164, 37);
+            this.dtpicker.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpicker.MinDate = new System.DateTime(2019, 4, 18, 0, 0, 0, 0);
+            this.dtpicker.Name = "dtpicker";
+            this.dtpicker.Size = new System.Drawing.Size(151, 20);
+            this.dtpicker.TabIndex = 3;
+            this.dtpicker.Value = new System.DateTime(2019, 4, 18, 9, 50, 1, 0);
             // 
             // label4
             // 
@@ -399,7 +401,7 @@
             this.Controls.Add(this.cmb_credıtCart);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmb_shipMetod);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpicker);
             this.Controls.Add(this.cmb_shipAdress);
             this.Controls.Add(this.cmb_biltoAddress);
             this.Controls.Add(this.cmb_teriotry);
@@ -424,7 +426,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmb_salesPerson;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpicker;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmb_teriotry;

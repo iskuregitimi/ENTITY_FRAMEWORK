@@ -14,6 +14,7 @@ namespace Iskur_EF.UI.Win
 {
     public partial class dlg_PersonelDetay : Form
     {
+      
         public dlg_PersonelDetay()
         {
             InitializeComponent();

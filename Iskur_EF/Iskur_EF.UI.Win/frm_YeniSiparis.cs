@@ -14,6 +14,9 @@ namespace Iskur_EF.UI.Win
 {
     public partial class frm_YeniSiparis : Form
     {
+
+        SalesOrderHeader salesOrderHeader = new SalesOrderHeader();
+
         public frm_YeniSiparis()
         {
             InitializeComponent();
@@ -23,7 +26,7 @@ namespace Iskur_EF.UI.Win
         public int personId { get; set; }
         public int productId { get; set; }
 
-        public  string FirstName { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -34,17 +37,21 @@ namespace Iskur_EF.UI.Win
         {
 
         }
-        
+
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
+
+            salesOrderHeader.CustomerID = id;
+
             Customer customer = CustomerBLL.GetCustomerName(id);
-           
+
             label4.Text = customer.Person.FirstName;
             var teritory = CustomerBLL.getSalesTEritory(teriotyId);
             dgv_urunler.DataSource = ProductsBLL.getProduct(string.Empty);
 
             var salesPersons = SalesBLL.GetSalesPeople();
             cmb_salesPerson.DisplayMember = "FirstName";
+            cmb_salesPerson.ValueMember = "BusinessEntityID";
             cmb_salesPerson.DataSource = salesPersons;
 
             var bolgeTeritory = CustomerBLL.getSalesTEritory(teriotyId);
@@ -80,9 +87,10 @@ namespace Iskur_EF.UI.Win
             cmb_shipMetod.DisplayMember = "Name";
             cmb_shipMetod.DataSource = shipEtod;
 
-            
 
-           
+
+
+
 
             //cmb_salesPerson=sales.
 
@@ -90,60 +98,64 @@ namespace Iskur_EF.UI.Win
 
         private void dgv_urunler_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            
+
         }
 
-        private void dgv_urunler_DoubleClick(object sender, EventArgs e)
-        {  double toplam = 0;
-            try
-            {
-                if (true)
-                {
-                    productId = int.Parse(dgv_urunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
 
-                    SalesOrderDetail linetotal = ProductsBLL.Linetotal(productId);
-                  
-
-                    toplam += Convert.ToDouble(linetotal.LineTotal)/* + Convert.ToDouble(lbl_subTotal.Text)*/;
-
-                    lbl_vergi.Text = (toplam * 0.18).ToString();
-                    lbl_nakliye.Text = (toplam * 0.1).ToString();
-                    lbl_subTotal.Text = toplam.ToString();
-                    double toplamtutar = (toplam * 0.18) + (toplam * 0.1);
-                    lbl_toplamtutar.Text = toplamtutar.ToString();
-
-                }
-
-
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("ÖYLE BİŞEY YOK");
-            }
-            
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //(int customerID, decimal totalDue, decimal subtotal, int biltoAdressId(personID), int salesAddressId(personID), int shipmetodId)
-            int biltoadressId = Convert.ToInt32(cmb_biltoAddress.SelectedValue);
-            int salesadressId = Convert.ToInt32(cmb_shipAdress.SelectedValue);
-            int shipmetodId = Convert.ToInt32(cmb_shipMetod.SelectedValue);
-            int teriotyId = Convert.ToInt32(cmb_teriotry.SelectedValue);
-            int cardId = Convert.ToInt32(cmb_credıtCart.SelectedValue);
-            string credıAp = (cmb_credıtCart.SelectedValue).ToString();
-            //int curenceryId = Convert.ToInt32(cmb_currency.SelectedValue);
-            decimal toplamtutar = Convert.ToDecimal(lbl_toplamtutar.Text);
-            decimal subtotal = Convert.ToDecimal(lbl_subTotal.Text);
-            string comment = txt_comment.Text;
+            //int biltoadressId = Convert.ToInt32(cmb_biltoAddress.SelectedValue);
+            salesOrderHeader.BillToAddressID = Convert.ToInt32(cmb_biltoAddress.SelectedValue);
+            salesOrderHeader.ShipToAddressID = Convert.ToInt32(cmb_shipAdress.SelectedValue);
+            salesOrderHeader.SalesOrderID = Convert.ToInt32(cmb_shipAdress.SelectedValue);
+            salesOrderHeader.ShipMethodID = Convert.ToInt32(cmb_shipMetod.SelectedValue);
+            salesOrderHeader.TerritoryID = Convert.ToInt32(cmb_teriotry.SelectedValue);
+            salesOrderHeader.CreditCardID = Convert.ToInt32(cmb_credıtCart.SelectedValue);
+            salesOrderHeader.SalesOrderID = Convert.ToInt32(cmb_salesPerson.SelectedValue);
+            salesOrderHeader.CreditCardApprovalCode = (cmb_credıtCart.SelectedValue).ToString();
+            salesOrderHeader.SubTotal = Convert.ToDecimal(lbl_subTotal.Text);
+            salesOrderHeader.TotalDue = Convert.ToDecimal(lbl_toplamtutar.Text);
+            salesOrderHeader.Comment = txt_comment.Text;
+            salesOrderHeader.ShipDate = dtpicker.Value;
+            var header = SalesBLL.AddOrder(salesOrderHeader);
 
+            foreach (DataGridViewRow satir in dgv_urunler.SelectedRows)
+            {
+                int productID = int.Parse(satir.Cells["ProductID"].Value.ToString());
+                Product product = ProductsBLL.GETPRODUCT(productID);
+                SalesBLL.AddOrderDetails(product, header);
+            }
 
-            var header = SalesBLL.AddOrder(id, toplamtutar,subtotal,biltoadressId,salesadressId,shipmetodId,teriotyId,comment,cardId,credıAp/*,curenceryId*/);
-            int productID = int.Parse(dgv_urunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
-            Product product = ProductsBLL.GETPRODUCT(productID);
-            SalesBLL.AddOrderDetails(product, header);
             MessageBox.Show("Ürün Başarıyla Eklendi");
+        }
+
+        private void dgv_urunler_SelectionChanged(object sender, EventArgs e)
+        {
+            salesOrderHeader.SubTotal = 0;
+
+            // Header toplam değerlerini burada hesapla
+
+            foreach (DataGridViewRow satir in dgv_urunler.SelectedRows)
+            {
+                string productId = satir.Cells["ProductID"].Value.ToString();
+                decimal listPrice = decimal.Parse(satir.Cells["ListPrice"].Value.ToString());
+                salesOrderHeader.SubTotal = salesOrderHeader.SubTotal + listPrice;
+
+            }
+
+            ShoHeaderInformation(salesOrderHeader);
+        }
+
+        private void ShoHeaderInformation(SalesOrderHeader header)
+        {
+            lbl_vergi.Text = (header.SubTotal * 0.18m).ToString();
+            lbl_nakliye.Text = (header.SubTotal * 0.1m).ToString();
+            lbl_subTotal.Text = header.SubTotal.ToString();
+            decimal toplamtutar = (header.SubTotal * 0.18m) + (header.SubTotal * 0.1m);
+            lbl_toplamtutar.Text = toplamtutar.ToString();
+
         }
     }
 }

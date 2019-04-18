@@ -17,7 +17,8 @@ namespace Iskur_EF.BLL
                 x => new
                 {
                     x.Employee.Person.FirstName,
-                    x.Employee.Person.LastName
+                    x.Employee.Person.LastName,
+                    x.BusinessEntityID
                 }
                 );
 
@@ -46,30 +47,32 @@ namespace Iskur_EF.BLL
             return dataContext.SalesOrderHeaders.Where(x => x.CustomerID == id).ToList();
         }
 
-        public static SalesOrderHeader AddOrder(int customerID, decimal totalDue,decimal subtotal,int biltoAdressId,int salesAddressId,int shipmetodId,int teriotyId,string comment,int crediId,string credicartAprovel/*,int curencyId*/)
+        public static SalesOrderHeader AddOrder(SalesOrderHeader sales )
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
 
             SalesOrderHeader salesOrder = new SalesOrderHeader();
-            salesOrder.CustomerID = customerID;
-            salesOrder.OrderDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
-            salesOrder.DueDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
-            salesOrder.TotalDue = totalDue;
-            salesOrder.SubTotal = subtotal;
-            salesOrder.TerritoryID = teriotyId;
+            salesOrder.CustomerID = sales.CustomerID;
+            salesOrder.OrderDate = DateTime.Now;// Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            salesOrder.DueDate = DateTime.Now;//  Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            salesOrder.ShipDate = sales.ShipDate;
+            salesOrder.TotalDue = sales.TotalDue;
+            salesOrder.SubTotal = sales.SubTotal;
+            salesOrder.TerritoryID = sales.TerritoryID;
             salesOrder.TaxAmt = 100;
             salesOrder.Freight = 100;
-            salesOrder.Comment = comment;
-            salesOrder.CreditCardID = crediId;
-            salesOrder.CreditCardApprovalCode = credicartAprovel;
-            //salesOrder.CurrencyRateID = curencyId;
+            salesOrder.Comment = sales.Comment;
+            salesOrder.CreditCardID = sales.CreditCardID;
+            salesOrder.CreditCardApprovalCode = sales.CreditCardApprovalCode;
+            salesOrder.SalesOrderID = sales.SalesOrderID;
+           /* salesOrder.CurrencyRate = curencyId*/;
             salesOrder.RevisionNumber = 8;
             salesOrder.Status = 5;
             salesOrder.OnlineOrderFlag = false;
-            salesOrder.BillToAddressID = biltoAdressId;
-            salesOrder.ShipToAddressID = salesAddressId;
-            salesOrder.ShipMethodID = shipmetodId;
-            salesOrder.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            salesOrder.BillToAddressID = sales.BillToAddressID;
+            salesOrder.ShipToAddressID = sales.ShipToAddressID;
+            salesOrder.ShipMethodID = sales.ShipMethodID;
+            salesOrder.ModifiedDate =  DateTime.Now;//Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesOrder.rowguid = Guid.NewGuid();
 
             var header = dataContext.SalesOrderHeaders.Add(salesOrder);

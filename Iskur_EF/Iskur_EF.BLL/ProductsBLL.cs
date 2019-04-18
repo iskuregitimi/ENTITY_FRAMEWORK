@@ -49,8 +49,16 @@ namespace Iskur_EF.BLL
         public static object getCurrenny()
         {
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
-            return datacontext.Currencies.ToList();
 
+            var result = datacontext.Currencies.Select(
+                x => new
+                {
+                   x.CurrencyCode,x.Name
+
+                }
+                );
+
+            return result.ToList();
         }
 
         public static SalesOrderDetail Linetotal(int productId)

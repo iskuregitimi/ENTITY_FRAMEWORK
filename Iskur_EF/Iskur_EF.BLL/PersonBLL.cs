@@ -9,17 +9,33 @@ namespace Iskur_EF.BLL
 {
     public static class PersonBLL
     {
-       //public static List<SalesPerson> getSalesPerson()
-       // {
-       //     var salesperson = (from SalesPerson 
-       //                          select new
-       //                          {
-       //                              ID = d.Id,
-       //                              AdSoyad = d.Ad + " " + d.Soyad
-       //                          }).ToList();
+        public static Person getPerson(int personId)
+        {
+            AdventureWorksEntities datacontext = new AdventureWorksEntities();
+            Person personupdate = datacontext.People.Where(w => w.BusinessEntityID==personId).FirstOrDefault();
+            return personupdate;
 
-       //     return null;
-       // }
+        }
+        public static void addPerson(Person person)
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            Person person2 = new Person();
+            //person.PersonType = "EM";
+            //    person.NameStyle = false;
+            //    person.EmailPromotion = 0;
+            //    person.rowguid = new Guid();
+            //    person.ModifiedDate = DateTime.Now;
+             person2 = dataContext.People.Where(w => w.BusinessEntityID == person.BusinessEntityID).FirstOrDefault();
+            person2.FirstName = person.FirstName;
+            person2.LastName = person.LastName;
+            person2.MiddleName = person.MiddleName;
 
+
+            //var pers = dataContext.People.Add(person);
+
+            dataContext.SaveChanges();
+
+            //return pers;
+        }
     }
 }

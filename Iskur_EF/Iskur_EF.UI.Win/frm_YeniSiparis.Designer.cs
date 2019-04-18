@@ -56,7 +56,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.lbl_toplam = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_comment = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_urunlistesi)).BeginInit();
             this.SuspendLayout();
@@ -179,6 +179,7 @@
             this.cmb_billaddress.Name = "cmb_billaddress";
             this.cmb_billaddress.Size = new System.Drawing.Size(185, 21);
             this.cmb_billaddress.TabIndex = 2;
+            this.cmb_billaddress.SelectedIndexChanged += new System.EventHandler(this.cmb_billaddress_SelectedIndexChanged);
             // 
             // cmb_shippingAdress
             // 
@@ -349,15 +350,16 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Sipariş Ekle";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // txt_comment
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 139);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 50);
-            this.textBox1.TabIndex = 7;
+            this.txt_comment.Location = new System.Drawing.Point(164, 139);
+            this.txt_comment.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_comment.Multiline = true;
+            this.txt_comment.Name = "txt_comment";
+            this.txt_comment.Size = new System.Drawing.Size(151, 50);
+            this.txt_comment.TabIndex = 7;
             // 
             // label19
             // 
@@ -374,7 +376,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 472);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_comment);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_toplam);
             this.Controls.Add(this.lbl_freight);
@@ -443,7 +445,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lbl_toplam;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_comment;
         private System.Windows.Forms.Label label19;
     }
 }

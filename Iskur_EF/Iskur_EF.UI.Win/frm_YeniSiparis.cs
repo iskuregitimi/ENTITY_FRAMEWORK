@@ -96,5 +96,15 @@ namespace Iskur_EF.UI.Win
 
             lbl_toplam.Text = (freightrate + taxamount + calculatedvalue).ToString();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cmb_billaddress_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

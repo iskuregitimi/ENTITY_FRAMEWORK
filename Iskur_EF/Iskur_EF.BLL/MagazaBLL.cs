@@ -91,5 +91,15 @@ namespace Iskur_EF.BLL
             return freight;
         }
 
+        public static object AddOrderHeader(int customerID, int salesPersonID, int territoryID, int billToAddressID, int shipToAddressID, int shipMethodID, int creditCardID, decimal subTotal, decimal Tax, decimal Freight, string Comment)
+        {
+            AdventureWorksEntities aohDataContext = new AdventureWorksEntities;
+            SalesOrderHeader salesOrder = new SalesOrderHeader();
+            salesOrder.RevisionNumber = 8;
+            salesOrder.OrderDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            salesOrder.DueDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            salesOrder.ShipDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+        }
+
     }
 }

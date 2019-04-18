@@ -60,6 +60,7 @@
     <Compile Include="EmployeeBLL.cs" />
     <Compile Include="MagazaBLL.cs" />
     <Compile Include="OrderBLL.cs" />
+    <Compile Include="ProductBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

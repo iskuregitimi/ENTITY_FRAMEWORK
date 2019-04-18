@@ -54,7 +54,7 @@ namespace Iskur_EF.UI.Win
             comboBox4.ValueMember = "AddressLine1";
             comboBox3.DataSource = OrderBLL.GetBillToAdress(CustomerId);
             comboBox3.DisplayMember = "AddressLine1";
-
+            dataGridView1.DataSource = ProductBLL.GetProducts();
 
 
         }

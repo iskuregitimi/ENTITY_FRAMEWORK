@@ -27,7 +27,7 @@ namespace Iskur_EF.UI.Win
         {
 
         }
-       
+
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = OrderBLL.GetProduct();
@@ -38,7 +38,7 @@ namespace Iskur_EF.UI.Win
 
 
             cmbCreditID.DataSource = OrderBLL.GetCreditCardsID(frm_MusteriListesi.CustomerID);
-            cmbCreditID.DisplayMember = "CardNumber"; 
+            cmbCreditID.DisplayMember = "CardNumber";
             cmbCreditID.ValueMember = "CardId";
 
             cmbCurrencyRate.DataSource = OrderBLL.GetCurrencyRate();
@@ -62,20 +62,25 @@ namespace Iskur_EF.UI.Win
             cmbShippedMetod.ValueMember = "ShipMethodID";
 
             lblCustomerName.Text = frm_MusteriListesi.CustomerName;
-            
+
         }
+        public static decimal ProductCurrencyPrice { get; set; }
         public static decimal ProductListPrice { get; set; }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            ProductListPrice =(decimal)dataGridView1.CurrentRow.Cells[3].Value;
+            ProductListPrice = (decimal)dataGridView1.CurrentRow.Cells[3].Value;
+            decimal ProductCurrencyPrice = ProductListPrice * OrderBLL.CurrencyProductPrice(Convert.ToInt32(cmbCurrencyRate.SelectedValue));
+
+
             int ProductID = (int)dataGridView1.CurrentRow.Cells["ProductID"].Value;
 
             try
             {
-               
-                OrderBLL.İnsertOrderHeader(frm_MusteriListesi.CustomerID, Convert.ToInt32(cmbSatısPersoneli.SelectedValue), Convert.ToInt32(cmbTerratory.SelectedValue), Convert.ToInt32(cmbBillToAdress.SelectedValue), Convert.ToInt32(cmbShippedToAdress.SelectedValue), Convert.ToInt32(cmbShippedMetod.SelectedValue), Convert.ToInt32(cmbCreditID.SelectedValue),Convert.ToDouble(ProductListPrice), Convert.ToInt32(cmbCurrencyRate.SelectedValue),textComment.Text);
 
-                OrderBLL.İnsertSaleOrderDetail(ProductID,ProductListPrice);
+                OrderBLL.İnsertOrderHeader(frm_MusteriListesi.CustomerID, Convert.ToInt32(cmbSatısPersoneli.SelectedValue), Convert.ToInt32(cmbTerratory.SelectedValue), Convert.ToInt32(cmbBillToAdress.SelectedValue), Convert.ToInt32(cmbShippedToAdress.SelectedValue), Convert.ToInt32(cmbShippedMetod.SelectedValue), Convert.ToInt32(cmbCreditID.SelectedValue), Convert.ToDouble(ProductCurrencyPrice), Convert.ToInt32(cmbCurrencyRate.SelectedValue), textComment.Text);
+
+                OrderBLL.İnsertSaleOrderDetail(ProductID, ProductCurrencyPrice);
                 MessageBox.Show("Siparişiniz Başarıyla Alınmıştır İyi Günler Dileriz");
             }
             catch

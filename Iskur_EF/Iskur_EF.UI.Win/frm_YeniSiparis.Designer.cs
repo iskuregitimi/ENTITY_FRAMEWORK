@@ -77,7 +77,7 @@
             this.dgvUrunler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUrunler.Size = new System.Drawing.Size(657, 222);
             this.dgvUrunler.TabIndex = 0;
-            this.dgvUrunler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellContentClick);
+            this.dgvUrunler.SelectionChanged += new System.EventHandler(this.dgvUrunler_SelectionChanged);
             // 
             // label1
             // 
@@ -123,9 +123,11 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(164, 37);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker1.MinDate = new System.DateTime(2019, 4, 18, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker1.Value = new System.DateTime(2019, 4, 18, 0, 0, 0, 0);
             // 
             // lblCustomerName
             // 

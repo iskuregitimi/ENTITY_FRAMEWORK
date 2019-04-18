@@ -65,6 +65,12 @@
     <Compile Include="dlg_PersonelDetay.Designer.cs">
       <DependentUpon>dlg_PersonelDetay.cs</DependentUpon>
     </Compile>
+    <Compile Include="dlg_PersonelGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlg_PersonelGuncelle.Designer.cs">
+      <DependentUpon>dlg_PersonelGuncelle.cs</DependentUpon>
+    </Compile>
     <Compile Include="dlg_Siparisler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dlg_PersonelDetay.resx">
       <DependentUpon>dlg_PersonelDetay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlg_PersonelGuncelle.resx">
+      <DependentUpon>dlg_PersonelGuncelle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="dlg_Siparisler.resx">
       <DependentUpon>dlg_Siparisler.cs</DependentUpon>

@@ -29,7 +29,6 @@ namespace Iskur_EF.UI.Win
         private void dlg_PersonelDetay_Load(object sender, EventArgs e)
         {
 
-
             emp = EmployeeBLL.GetPeople(businessEntityId);
             txt_Firstname.Text = emp.Person.FirstName;
             txt_Middlename.Text = emp.Person.MiddleName;
@@ -37,6 +36,10 @@ namespace Iskur_EF.UI.Win
             txt_Jobtitle.Text = emp.JobTitle;
 
             dataGridView1.DataSource = emp.Person.PersonPhones.ToList();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
 
         }
     }

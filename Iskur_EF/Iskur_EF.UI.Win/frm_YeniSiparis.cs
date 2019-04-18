@@ -19,6 +19,7 @@ namespace Iskur_EF.UI.Win
             InitializeComponent();
         }
 
+        SalesOrderHeader salesOrderHeader = new SalesOrderHeader();
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int PersonID { get; set; }
@@ -26,6 +27,7 @@ namespace Iskur_EF.UI.Win
 
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
+            salesOrderHeader.CustomerID = CustomerID;
             dgvUrunler.DataSource = ProductBLL.GetProducts(string.Empty);
             lblCustomerName.Text = FirstName+" "+LastName ;
 
@@ -63,37 +65,51 @@ namespace Iskur_EF.UI.Win
             cmbShipMethod.DataSource = shipMethods;
         }
 
-        private void dgvUrunler_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int ProductID = int.Parse(dgvUrunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
-            SalesOrderDetail result = CustomerBLL.GetProductPrice(ProductID);
-            lblSubTotal.Text = result.LineTotal.ToString();
-            decimal tax = (result.LineTotal) * Convert.ToDecimal(0.18);
-            lblTax.Text = tax.ToString();
-            decimal freight = (result.LineTotal) * Convert.ToDecimal(0.1);
-            lblFreight.Text = freight.ToString();
-            lblTotalAmount.Text = (freight + tax + result.LineTotal).ToString();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            int salesPersonID = Convert.ToInt32(cmbSalesPersons.SelectedValue);
-            int territoryID = Convert.ToInt32(cmbTerritory.SelectedValue);
-            int billToAddressID = Convert.ToInt32(cmbBilltoAdress.SelectedValue);
-            int shipToAddressID = Convert.ToInt32(cmbShiptoAddress.SelectedValue);
-            int shipMethodID = Convert.ToInt32(cmbShipMethod.SelectedValue);
-            int creditCardID = Convert.ToInt32(cmbCreditCards.SelectedValue);
-            decimal subTotal = Convert.ToDecimal(lblSubTotal.Text);
-            decimal Tax = Convert.ToDecimal(lblTax.Text);
-            decimal Freight = Convert.ToDecimal(lblFreight.Text);
-            string Comment = txtComment.Text;
+            salesOrderHeader.SalesOrderID = Convert.ToInt32(cmbSalesPersons.SelectedValue);
+            salesOrderHeader.TerritoryID = Convert.ToInt32(cmbTerritory.SelectedValue);
+            salesOrderHeader.BillToAddressID = Convert.ToInt32(cmbBilltoAdress.SelectedValue);
+            salesOrderHeader.ShipToAddressID = Convert.ToInt32(cmbShiptoAddress.SelectedValue);
+            salesOrderHeader.ShipMethodID = Convert.ToInt32(cmbShipMethod.SelectedValue);
+            salesOrderHeader.CreditCardID = Convert.ToInt32(cmbCreditCards.SelectedValue);
+            salesOrderHeader.SubTotal = Convert.ToDecimal(lblSubTotal.Text);
+            salesOrderHeader.TaxAmt = Convert.ToDecimal(lblTax.Text);
+            salesOrderHeader.Freight = Convert.ToDecimal(lblFreight.Text);
+            salesOrderHeader.Comment = txtComment.Text;
+            salesOrderHeader.ShipDate = dateTimePicker1.Value;
 
-            var header = SiparisBLL.AddOrder(CustomerID,salesPersonID,territoryID,billToAddressID,shipToAddressID,shipMethodID,creditCardID,subTotal,Tax,Freight,Comment);
-            int productID = int.Parse(dgvUrunler.SelectedRows[0].Cells["ProductID"].Value.ToString());
-            Product product = SiparisBLL.GetProduct(productID);
-            SiparisBLL.AddOrderDetails(product, header);
+            var header = SiparisBLL.AddOrder(salesOrderHeader);
+            foreach(DataGridViewRow line in dgvUrunler.SelectedRows)
+            {
+                int productID = int.Parse(line.Cells["ProductID"].Value.ToString());
+                Product product = SiparisBLL.GetProduct(productID);
+                SiparisBLL.AddOrderDetails(product, header);
+            }
+            
 
             MessageBox.Show("Ürün Eklendi!");
+        }
+
+        private void dgvUrunler_SelectionChanged(object sender, EventArgs e)
+        {
+            salesOrderHeader.SubTotal = 0;
+            foreach (DataGridViewRow satir in dgvUrunler.SelectedRows)
+            {
+                string productId = satir.Cells["ProductID"].Value.ToString();
+                decimal listPrice = decimal.Parse(satir.Cells["ListPrice"].Value.ToString());
+                salesOrderHeader.SubTotal = salesOrderHeader.SubTotal + listPrice;
+            }
+            ShoHeaderInformation(salesOrderHeader);
+        }
+
+        private void ShoHeaderInformation(SalesOrderHeader header)
+        {
+            lblTax.Text = (header.SubTotal * 0.18m).ToString();
+            lblFreight.Text = (header.SubTotal * 0.1m).ToString();
+            lblSubTotal.Text = header.SubTotal.ToString();
+            decimal toplamtutar = (header.SubTotal * 0.18m) + (header.SubTotal * 0.1m);
+            lblTotalAmount.Text = toplamtutar.ToString();
         }
     }
 }

@@ -70,7 +70,7 @@ namespace Iskur_EF.UI.Win
         private void button1_Click(object sender, EventArgs e)
         {
             ProductListPrice = (decimal)dataGridView1.CurrentRow.Cells[3].Value;
-            decimal ProductCurrencyPrice = ProductListPrice * OrderBLL.CurrencyProductPrice(Convert.ToInt32(cmbCurrencyRate.SelectedValue));
+            ProductCurrencyPrice = ProductListPrice * OrderBLL.CurrencyProductPrice(Convert.ToInt32(cmbCurrencyRate.SelectedValue));
 
 
             int ProductID = (int)dataGridView1.CurrentRow.Cells["ProductID"].Value;
@@ -89,6 +89,15 @@ namespace Iskur_EF.UI.Win
                 MessageBox.Show("Siparişiniz İşleminiz Gerçekleştirilemedi");
             }
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            lblSub.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            lblFreight.Text = (decimal.Parse(lblSub.Text) *Convert.ToDecimal( 0.1)).ToString();
+            lblTax.Text = (decimal.Parse(lblSub.Text) * Convert.ToDecimal(0.18)).ToString();
+            lblTotal.Text = (decimal.Parse(lblSub.Text) + decimal.Parse(lblFreight.Text) + decimal.Parse(lblTax.Text)).ToString();
         }
     }
 }

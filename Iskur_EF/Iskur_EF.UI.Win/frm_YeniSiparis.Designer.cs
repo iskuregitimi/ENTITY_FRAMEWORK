@@ -39,24 +39,24 @@
             this.cmbx_territory = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbx_bill = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cmbx_shipadres = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cmbx_shipmethodid = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cmb_credit = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbx_currency = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lbl_subtotal = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lbl_tax = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lbl_nakliye = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbl_toplamtutar = new System.Windows.Forms.Label();
+            this.btn_siparisekle = new System.Windows.Forms.Button();
+            this.txt_comment = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_showproducts)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +77,7 @@
             this.dvg_showproducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvg_showproducts.Size = new System.Drawing.Size(657, 222);
             this.dvg_showproducts.TabIndex = 0;
+            this.dvg_showproducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_showproducts_CellContentClick);
             // 
             // label1
             // 
@@ -150,6 +151,8 @@
             // 
             // cmbx_territory
             // 
+            this.cmbx_territory.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.cmbx_territory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbx_territory.FormattingEnabled = true;
             this.cmbx_territory.Location = new System.Drawing.Point(483, 18);
             this.cmbx_territory.Margin = new System.Windows.Forms.Padding(2);
@@ -176,14 +179,14 @@
             this.cmbx_bill.Size = new System.Drawing.Size(185, 21);
             this.cmbx_bill.TabIndex = 2;
             // 
-            // comboBox4
+            // cmbx_shipadres
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(483, 64);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(185, 21);
-            this.comboBox4.TabIndex = 2;
+            this.cmbx_shipadres.FormattingEnabled = true;
+            this.cmbx_shipadres.Location = new System.Drawing.Point(483, 64);
+            this.cmbx_shipadres.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbx_shipadres.Name = "cmbx_shipadres";
+            this.cmbx_shipadres.Size = new System.Drawing.Size(185, 21);
+            this.cmbx_shipadres.TabIndex = 2;
             // 
             // label7
             // 
@@ -195,14 +198,14 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Teslimat Adresi(ShipToAddress)";
             // 
-            // comboBox5
+            // cmbx_shipmethodid
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(483, 90);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(185, 21);
-            this.comboBox5.TabIndex = 2;
+            this.cmbx_shipmethodid.FormattingEnabled = true;
+            this.cmbx_shipmethodid.Location = new System.Drawing.Point(483, 90);
+            this.cmbx_shipmethodid.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbx_shipmethodid.Name = "cmbx_shipmethodid";
+            this.cmbx_shipmethodid.Size = new System.Drawing.Size(185, 21);
+            this.cmbx_shipmethodid.TabIndex = 2;
             // 
             // label8
             // 
@@ -264,15 +267,15 @@
             this.label11.TabIndex = 5;
             this.label11.Text = "Ara Toplam (SubTotal)";
             // 
-            // label12
+            // lbl_subtotal
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(486, 117);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 13);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "00000";
+            this.lbl_subtotal.AutoSize = true;
+            this.lbl_subtotal.Location = new System.Drawing.Point(486, 117);
+            this.lbl_subtotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_subtotal.Name = "lbl_subtotal";
+            this.lbl_subtotal.Size = new System.Drawing.Size(37, 13);
+            this.lbl_subtotal.TabIndex = 5;
+            this.lbl_subtotal.Text = "00000";
             // 
             // label13
             // 
@@ -284,15 +287,15 @@
             this.label13.TabIndex = 5;
             this.label13.Text = "Vergiler (TaxAmount)";
             // 
-            // label14
+            // lbl_tax
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(486, 139);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 13);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "SubTotal * 0,18";
+            this.lbl_tax.AutoSize = true;
+            this.lbl_tax.Location = new System.Drawing.Point(486, 139);
+            this.lbl_tax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_tax.Name = "lbl_tax";
+            this.lbl_tax.Size = new System.Drawing.Size(71, 13);
+            this.lbl_tax.TabIndex = 5;
+            this.lbl_tax.Text = "Subtotal*0.18";
             // 
             // label15
             // 
@@ -304,15 +307,15 @@
             this.label15.TabIndex = 5;
             this.label15.Text = "Nakliye Ücreti (Freight)";
             // 
-            // label16
+            // lbl_nakliye
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(486, 157);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(75, 13);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "SubTotal * 0,1";
+            this.lbl_nakliye.AutoSize = true;
+            this.lbl_nakliye.Location = new System.Drawing.Point(486, 157);
+            this.lbl_nakliye.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_nakliye.Name = "lbl_nakliye";
+            this.lbl_nakliye.Size = new System.Drawing.Size(75, 13);
+            this.lbl_nakliye.TabIndex = 5;
+            this.lbl_nakliye.Text = "SubTotal * 0,1";
             // 
             // label17
             // 
@@ -324,35 +327,37 @@
             this.label17.TabIndex = 5;
             this.label17.Text = "Toplam Tutar";
             // 
-            // label18
+            // lbl_toplamtutar
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(486, 175);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(155, 13);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "Ara Toplam + Vergiler + Nakliye";
+            this.lbl_toplamtutar.AutoSize = true;
+            this.lbl_toplamtutar.Location = new System.Drawing.Point(486, 175);
+            this.lbl_toplamtutar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_toplamtutar.Name = "lbl_toplamtutar";
+            this.lbl_toplamtutar.Size = new System.Drawing.Size(155, 13);
+            this.lbl_toplamtutar.TabIndex = 5;
+            this.lbl_toplamtutar.Text = "Ara Toplam + Vergiler + Nakliye";
+            this.lbl_toplamtutar.Click += new System.EventHandler(this.lbl_toplamtutar_Click);
             // 
-            // button1
+            // btn_siparisekle
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(562, 436);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 24);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Sipariş Ekle";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_siparisekle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_siparisekle.Location = new System.Drawing.Point(562, 436);
+            this.btn_siparisekle.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_siparisekle.Name = "btn_siparisekle";
+            this.btn_siparisekle.Size = new System.Drawing.Size(105, 24);
+            this.btn_siparisekle.TabIndex = 6;
+            this.btn_siparisekle.Text = "Sipariş Ekle";
+            this.btn_siparisekle.UseVisualStyleBackColor = true;
+            this.btn_siparisekle.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // txt_comment
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 139);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 50);
-            this.textBox1.TabIndex = 7;
+            this.txt_comment.Location = new System.Drawing.Point(164, 139);
+            this.txt_comment.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_comment.Multiline = true;
+            this.txt_comment.Name = "txt_comment";
+            this.txt_comment.Size = new System.Drawing.Size(151, 50);
+            this.txt_comment.TabIndex = 7;
             // 
             // label19
             // 
@@ -369,12 +374,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 472);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txt_comment);
+            this.Controls.Add(this.btn_siparisekle);
+            this.Controls.Add(this.lbl_toplamtutar);
+            this.Controls.Add(this.lbl_nakliye);
+            this.Controls.Add(this.lbl_tax);
+            this.Controls.Add(this.lbl_subtotal);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
@@ -389,9 +394,9 @@
             this.Controls.Add(this.cmbx_currency);
             this.Controls.Add(this.cmb_credit);
             this.Controls.Add(this.lbl_musteriadi);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.cmbx_shipmethodid);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.cmbx_shipadres);
             this.Controls.Add(this.cmbx_bill);
             this.Controls.Add(this.cmbx_territory);
             this.Controls.Add(this.cmbx_salesperson);
@@ -421,24 +426,24 @@
         private System.Windows.Forms.ComboBox cmbx_territory;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbx_bill;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cmbx_shipadres;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cmbx_shipmethodid;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmb_credit;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbx_currency;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbl_subtotal;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbl_tax;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lbl_nakliye;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lbl_toplamtutar;
+        private System.Windows.Forms.Button btn_siparisekle;
+        private System.Windows.Forms.TextBox txt_comment;
         private System.Windows.Forms.Label label19;
     }
 }

@@ -9,14 +9,14 @@ namespace Iskur_EF.BLL
 {
    public static class SalesPErsonBLL
     {
-        public static  object GetSalesPeople(string searchText)
+        public static  object GetSalesPeople()
         {
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
             var result = datacontext.SalesPersons.Select(
 
                 x => new
                 {
-
+                    x.BusinessEntityID,
 
                     x.Employee.Person.FirstName
                 }

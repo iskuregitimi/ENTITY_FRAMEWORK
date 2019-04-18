@@ -12,7 +12,9 @@ namespace Iskur_EF.BLL
         public static List<Product> GetProductsInformation(string searchText)
         {
             AdventureWorksEntities datacontext = new AdventureWorksEntities();
-            return datacontext.Products.ToList();
+            return datacontext.Products.Where(x => x.ProductID > 700).ToList();
+
+
         }
 
     }

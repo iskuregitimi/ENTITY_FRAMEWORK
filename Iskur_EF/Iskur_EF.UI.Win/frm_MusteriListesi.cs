@@ -34,6 +34,7 @@ namespace Iskur_EF.UI.Win
         {
             frm_YeniSiparis f = new frm_YeniSiparis();
             f.CustomerId=int.Parse(dvg_showproducts.SelectedRows[0].Cells["CustomerID"].Value.ToString());
+           
          
             f.MdiParent = this.MdiParent;
             f.Show();

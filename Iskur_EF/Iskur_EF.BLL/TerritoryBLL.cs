@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Iskur_EF.BLL
 {
-    public static class TerritoryBLL
-    {
-        public static List<SalesTerritory> GetSalesTerritories()
-        {
-            AdventureWorksEntities datacontext = new AdventureWorksEntities();
-            return datacontext.SalesTerritories.ToList();
-        }
-    }
+    //public static class TerritoryBLL
+    //{
+    //    public static List<SalesTerritory> GetSalesTerritories()
+    //    {
+    //        AdventureWorksEntities datacontext = new AdventureWorksEntities();
+    //        return datacontext.SalesTerritories.ToList();
+    //    }
+    //}
 }

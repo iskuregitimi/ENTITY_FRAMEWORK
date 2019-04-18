@@ -26,9 +26,10 @@ namespace Iskur_EF.BLL
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
             var businessEntityAdresses = dataContext.BusinessEntityAddresses.Where(b => b.BusinessEntityID ==CustomerId);
-            var adressList = dataContext.Addresses.Where(a => businessEntityAdresses.Any(b => b.AddressID == a.AddressID)).Select(b => new
+            var adressList = dataContext.Addresses.Where(a => businessEntityAdresses.Any(b => b.AddressID == a.AddressID)).Select(x => new
             {
-             b.AddressLine1
+               x.AddressID,
+                x.AddressLine1,
                 
             
             }
@@ -44,14 +45,14 @@ namespace Iskur_EF.BLL
             var CreditCard = dataContext.PersonCreditCards.Where(b => b.BusinessEntityID == CustomerId).Select(
                 c => new
                 {
-                    c.CreditCardID
+                    c.CreditCardID,
+                    c.CreditCard.CardNumber,
                 }
 
 
             );
             return CreditCard.ToList();
-
-            
+                       
         }
 
         public static object CurrencyRate()
@@ -61,12 +62,41 @@ namespace Iskur_EF.BLL
             {
                 x.CurrencyRateID,
                 Toplam = x.FromCurrencyCode + "-" + x.ToCurrencyCode + " " + x.AverageRate
-
             }).ToList();
             
-
+        }
+        public static object GetShipMethodName()
+         {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            var result = dataContext.ShipMethods.Select(
+              x => new
+              {
+                  x.ShipMethodID,
+                  x.Name,
+              });
+            return result.ToList();
         }
 
+        public static object GetTerritories(int CustomerId)
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            var result = dataContext.Customers.Where(x => x.CustomerID == CustomerId).Select(
+                c => new
+                {
+                    c.TerritoryID,
+                    c.SalesTerritory.Name,
+                }
+                );
+            return result.ToList();
+
+        }
+        public static Product GetProuctID(int ProductID)
+        {
+            AdventureWorksEntities dataContext = new AdventureWorksEntities();
+            return dataContext.Products.Where(x => x.ProductID == ProductID).FirstOrDefault();
+
+        }
+        
 
 
 

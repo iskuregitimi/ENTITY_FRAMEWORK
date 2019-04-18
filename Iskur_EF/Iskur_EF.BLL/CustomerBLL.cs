@@ -20,6 +20,7 @@ namespace Iskur_EF.BLL
                     x.Person.FirstName,
                     x.Person.LastName,
                     x.TerritoryID
+                    
                 }
                 );
 

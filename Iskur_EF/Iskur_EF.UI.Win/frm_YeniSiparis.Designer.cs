@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Comment = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lbl_LineTotal = new System.Windows.Forms.Label();
             this.lbl_Freight = new System.Windows.Forms.Label();
@@ -61,14 +61,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txt_Comment
             // 
-            this.textBox1.Location = new System.Drawing.Point(202, 138);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 50);
-            this.textBox1.TabIndex = 37;
+            this.txt_Comment.Location = new System.Drawing.Point(202, 138);
+            this.txt_Comment.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_Comment.Multiline = true;
+            this.txt_Comment.Name = "txt_Comment";
+            this.txt_Comment.Size = new System.Drawing.Size(151, 50);
+            this.txt_Comment.TabIndex = 37;
             // 
             // button1
             // 
@@ -360,13 +360,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(658, 229);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // frm_YeniSiparis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 476);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_Comment);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_LineTotal);
             this.Controls.Add(this.lbl_Freight);
@@ -407,7 +408,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Comment;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbl_LineTotal;
         private System.Windows.Forms.Label lbl_Freight;

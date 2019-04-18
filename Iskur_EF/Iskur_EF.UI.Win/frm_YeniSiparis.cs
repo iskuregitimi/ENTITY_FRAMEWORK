@@ -72,7 +72,7 @@ namespace Iskur_EF.UI.Win
         private void button1_Click_1(object sender, EventArgs e)
         {
             salesheader.CustomerID = CustomerId;
-            salesheader.ShipDate =Convert.ToDateTime(dtm_ShipDate.Text);
+            DateTime tarih=dtm_ShipDate.Value;
             salesheader.SalesPersonID =Convert.ToInt32(cmb_SatisPersoneli.SelectedValue);
             salesheader.CreditCardID = Convert.ToInt32(cmb_CrediCard.SelectedValue);
             salesheader.CurrencyRateID = Convert.ToInt32(cmb_CurrencyRate.SelectedValue);
@@ -83,27 +83,43 @@ namespace Iskur_EF.UI.Win
             salesheader.SubTotal = Convert.ToDecimal(lbl_SubTotal.Text);
             salesheader.TaxAmt = Convert.ToDecimal(lbl_TaxAmount.Text);
             salesheader.Freight = Convert.ToDecimal(lbl_Freight.Text);
-            //salesheader.TotalDue = Convert.ToDecimal(lbl_LineTotal.Text);
+            salesheader.Comment = txt_Comment.Text;
 
-            var header = OrderBLL.AddOrder(salesheader);
-            int ProductID = int.Parse(dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString());
-            Product product = ProductBLL.GetProduct(ProductID);
-            OrderBLL.AddOrderDetail(product, header);
+            var header = OrderBLL.AddOrder(salesheader,tarih);
+            foreach (DataGridViewRow item in dataGridView1.SelectedRows)
+            {
+                int ProductID = int.Parse(item.Cells["ProductID"].Value.ToString());
+                Product product = ProductBLL.GetProduct(ProductID);
+                OrderBLL.AddOrderDetail(product,header);
+            }
+           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {           
+            
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            int ProductId = int.Parse(dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString());
-            SalesOrderDetail sonuc = GetBLL.GetSubTotal(ProductId);
-            lbl_SubTotal.Text = Convert.ToDecimal(sonuc.LineTotal).ToString();
+            salesheader.SubTotal = 0;
 
-            decimal taxrate = Convert.ToDecimal(lbl_SubTotal.Text) * Convert.ToDecimal(0.18);
-            lbl_TaxAmount.Text = taxrate.ToString();
+            foreach (DataGridViewRow satir in dataGridView1.SelectedRows)
+            {
+                int ProductId =int.Parse(satir.Cells["ProductID"].Value.ToString());
+                Product sonuc = GetBLL.GetSubTotal(ProductId);
+               salesheader.SubTotal =salesheader.SubTotal +sonuc.StandardCost;
+            }
 
-            decimal freight = Convert.ToDecimal(lbl_SubTotal.Text) * Convert.ToDecimal(0.1);
-            lbl_Freight.Text = freight.ToString();
+            ShoHeaderInformation(salesheader);
+        }
 
-            lbl_LineTotal.Text = lbl_SubTotal.Text + lbl_TaxAmount.Text + lbl_Freight.Text;
+        private void ShoHeaderInformation(SalesOrderHeader salesheader)
+        {
+            lbl_SubTotal.Text = salesheader.SubTotal.ToString();
+            lbl_TaxAmount.Text = (salesheader.SubTotal * 0.18m).ToString();
+            lbl_Freight.Text = (salesheader.SubTotal * 0.1m).ToString();          
+            lbl_LineTotal.Text = (salesheader.SubTotal + salesheader.TaxAmt + salesheader.Freight).ToString();
         }
     }
 }

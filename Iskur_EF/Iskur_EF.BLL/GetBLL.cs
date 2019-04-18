@@ -79,9 +79,10 @@ namespace Iskur_EF.BLL
                 );
             return shipmethod.ToList();
         }
-        public static SalesOrderDetail GetSubTotal(int ProductId)
+
+        public static Product GetSubTotal(int ProductId)
         {
-            return dataContext.SalesOrderDetails.Where(c => c.ProductID == ProductId).FirstOrDefault();
+            return dataContext.Products.Where(c => c.ProductID == ProductId).FirstOrDefault();
           
         }
 

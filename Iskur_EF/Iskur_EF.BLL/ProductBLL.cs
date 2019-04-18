@@ -10,10 +10,24 @@ namespace Iskur_EF.BLL
     public static  class ProductBLL
     {
        static AdventureWorksEntities datacontext = new AdventureWorksEntities();
-        public static List<Product> GetProducts()
+        public static object GetProducts()
         {
            
-            return datacontext.Products.Where(x=>x.ProductID > 700).ToList();
+            var products= datacontext.Products.Where(x=>x.ProductID > 700).Select(
+                x=>new
+                {
+                    x.ProductID,
+                    x.Name,
+                    x.ProductNumber,
+                    x.Color,
+                    x.SafetyStockLevel,
+                    x.Size,
+                    x.ListPrice
+                }
+                
+                );
+
+            return products.ToList();
 
         }
 

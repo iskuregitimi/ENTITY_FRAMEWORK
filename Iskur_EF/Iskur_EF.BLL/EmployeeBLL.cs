@@ -24,6 +24,21 @@ namespace Iskur_EF.BLL
             Employee emp = efDataContext.Employees.Where(e => e.BusinessEntityID == BusinessEntityId).FirstOrDefault();
             return emp;
         }
+
+        public static void UpdateEmployee(Employee emp)
+        {
+            Employee Personel = new Employee();
+            Personel=  dataContext.Employees.Where(x => x.BusinessEntityID == emp.BusinessEntityID).FirstOrDefault();
+            Personel.Person.FirstName = emp.Person.FirstName;
+            Personel.Person.LastName = emp.Person.LastName;
+            Personel.Person.MiddleName = emp.Person.MiddleName;
+            Personel.JobTitle = emp.JobTitle;
+
+            dataContext.SaveChanges();
+         
+            
+
+        }
         
     }
 }

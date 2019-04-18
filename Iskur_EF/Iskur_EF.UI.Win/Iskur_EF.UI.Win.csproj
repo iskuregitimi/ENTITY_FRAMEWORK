@@ -101,6 +101,12 @@
     <Compile Include="frm_YeniSiparis.Designer.cs">
       <DependentUpon>frm_YeniSiparis.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_PersonelGüncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_PersonelGüncelle.Designer.cs">
+      <DependentUpon>frm_PersonelGüncelle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="dlg_Magaza.resx">
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_MusteriListesi.resx">
       <DependentUpon>frm_MusteriListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_PersonelGüncelle.resx">
+      <DependentUpon>frm_PersonelGüncelle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_PersonelListesi.resx">
       <DependentUpon>frm_PersonelListesi.cs</DependentUpon>

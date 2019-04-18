@@ -21,18 +21,28 @@ namespace Iskur_EF.BLL
            
             return datacontext.SalesOrderDetails.Where(x => x.SalesOrderID == SalesOrderId).ToList();
         }
-        public static SalesOrderHeader AddOrder(SalesOrderHeader sales)
+        public static SalesOrderHeader AddOrder(SalesOrderHeader sales,DateTime Tarih)
         {
             
             SalesOrderHeader salesheader = new SalesOrderHeader();
             salesheader.OrderDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesheader.DueDate= Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesheader.CustomerID = sales.CustomerID;
-            //salesheader.TotalDue = sales.LineTotal;
-            salesheader.ShipDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
-            //salesheader.BillToAddressID = id;
-            //salesheader.ShipToAddressID = id;
-            //salesheader.ShipMethodID = id;
+            salesheader.TotalDue = sales.TotalDue;
+            salesheader.ShipDate = Tarih;
+            salesheader.BillToAddressID = sales.BillToAddressID;
+            salesheader.ShipToAddressID = sales.ShipToAddressID;
+            salesheader.ShipMethodID = sales.ShipMethodID;
+            salesheader.TerritoryID = sales.TerritoryID;
+            salesheader.CurrencyRateID = sales.CurrencyRateID;
+            salesheader.CreditCardID = sales.CreditCardID;
+            salesheader.SalesPersonID = sales.SalesPersonID;
+            salesheader.SubTotal = sales.SubTotal;
+            salesheader.TaxAmt = sales.TaxAmt;
+            salesheader.Freight = sales.Freight;
+            salesheader.Status = 5;
+            salesheader.OnlineOrderFlag = false;
+            salesheader.Comment = sales.Comment;
             salesheader.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesheader.rowguid = Guid.NewGuid();
 

@@ -56,7 +56,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Comment = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -112,7 +112,7 @@
             // 
             this.cmb_PersonelAdı.FormattingEnabled = true;
             this.cmb_PersonelAdı.Location = new System.Drawing.Point(164, 59);
-            this.cmb_PersonelAdı.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmb_PersonelAdı.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_PersonelAdı.Name = "cmb_PersonelAdı";
             this.cmb_PersonelAdı.Size = new System.Drawing.Size(151, 21);
             this.cmb_PersonelAdı.TabIndex = 2;
@@ -120,7 +120,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(164, 37);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 3;
@@ -149,7 +149,7 @@
             // 
             this.cmb_BölgeID.FormattingEnabled = true;
             this.cmb_BölgeID.Location = new System.Drawing.Point(483, 18);
-            this.cmb_BölgeID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmb_BölgeID.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_BölgeID.Name = "cmb_BölgeID";
             this.cmb_BölgeID.Size = new System.Drawing.Size(185, 21);
             this.cmb_BölgeID.TabIndex = 2;
@@ -168,7 +168,7 @@
             // 
             this.cmb_FaturaAdresID.FormattingEnabled = true;
             this.cmb_FaturaAdresID.Location = new System.Drawing.Point(483, 40);
-            this.cmb_FaturaAdresID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmb_FaturaAdresID.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_FaturaAdresID.Name = "cmb_FaturaAdresID";
             this.cmb_FaturaAdresID.Size = new System.Drawing.Size(185, 21);
             this.cmb_FaturaAdresID.TabIndex = 2;
@@ -177,7 +177,7 @@
             // 
             this.cmb_ShipToAdresID.FormattingEnabled = true;
             this.cmb_ShipToAdresID.Location = new System.Drawing.Point(483, 64);
-            this.cmb_ShipToAdresID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmb_ShipToAdresID.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_ShipToAdresID.Name = "cmb_ShipToAdresID";
             this.cmb_ShipToAdresID.Size = new System.Drawing.Size(185, 21);
             this.cmb_ShipToAdresID.TabIndex = 2;
@@ -196,7 +196,7 @@
             // 
             this.cmb_ShipMethodID.FormattingEnabled = true;
             this.cmb_ShipMethodID.Location = new System.Drawing.Point(483, 90);
-            this.cmb_ShipMethodID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmb_ShipMethodID.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_ShipMethodID.Name = "cmb_ShipMethodID";
             this.cmb_ShipMethodID.Size = new System.Drawing.Size(185, 21);
             this.cmb_ShipMethodID.TabIndex = 2;
@@ -215,7 +215,7 @@
             // 
             this.cmb_KrediKartID.FormattingEnabled = true;
             this.cmb_KrediKartID.Location = new System.Drawing.Point(164, 84);
-            this.cmb_KrediKartID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmb_KrediKartID.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_KrediKartID.Name = "cmb_KrediKartID";
             this.cmb_KrediKartID.Size = new System.Drawing.Size(151, 21);
             this.cmb_KrediKartID.TabIndex = 2;
@@ -234,7 +234,7 @@
             // 
             this.cmb_DövizKuruID.FormattingEnabled = true;
             this.cmb_DövizKuruID.Location = new System.Drawing.Point(164, 108);
-            this.cmb_DövizKuruID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmb_DövizKuruID.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_DövizKuruID.Name = "cmb_DövizKuruID";
             this.cmb_DövizKuruID.Size = new System.Drawing.Size(151, 21);
             this.cmb_DövizKuruID.TabIndex = 2;
@@ -333,7 +333,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(562, 436);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 24);
             this.button1.TabIndex = 6;
@@ -341,14 +341,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // txt_Comment
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 139);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 50);
-            this.textBox1.TabIndex = 7;
+            this.txt_Comment.Location = new System.Drawing.Point(164, 139);
+            this.txt_Comment.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_Comment.Multiline = true;
+            this.txt_Comment.Name = "txt_Comment";
+            this.txt_Comment.Size = new System.Drawing.Size(151, 50);
+            this.txt_Comment.TabIndex = 7;
             // 
             // label19
             // 
@@ -365,7 +365,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 472);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_Comment);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label16);
@@ -434,7 +434,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Comment;
         private System.Windows.Forms.Label label19;
     }
 }

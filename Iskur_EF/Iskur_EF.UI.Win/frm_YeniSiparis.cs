@@ -58,9 +58,34 @@ namespace Iskur_EF.UI.Win
 
         }
 
+        public static decimal ProductListPrice { get; set; }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            ProductListPrice = (decimal)dataGridView1.CurrentRow.Cells[3].Value;
+            int ProductID = (int)dataGridView1.CurrentRow.Cells["ProductID"].Value;
 
+            try
+            {
+
+                OrderBLL.İnsertOrderHeader(frm_MusteriListesi.CustomerID, 
+                    Convert.ToInt32(cmb_PersonelAdı.SelectedValue), 
+                    Convert.ToInt32(cmb_BölgeID.SelectedValue), 
+                    Convert.ToInt32(cmb_FaturaAdresID.SelectedValue), 
+                    Convert.ToInt32(cmb_ShipToAdresID.SelectedValue), 
+                    Convert.ToInt32(cmb_ShipMethodID.SelectedValue), 
+                    Convert.ToInt32(cmb_KrediKartID.SelectedValue), 
+                    Convert.ToDouble(ProductListPrice), 
+                    Convert.ToInt32(cmb_DövizKuruID.SelectedValue), txt_Comment.Text);
+
+                OrderBLL.İnsertSaleOrderDetail(ProductID, ProductListPrice);
+                MessageBox.Show("Siparişiniz Başarıyla Alınmıştır İyi Günler Dileriz");
+            }
+            catch
+            {
+
+                MessageBox.Show("Siparişiniz İşleminiz Gerçekleştirilemedi");
+            }
         }
     }
 }

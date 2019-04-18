@@ -9,6 +9,11 @@ namespace Iskur_EF.BLL
 {
     public static class OrderBLL
     {
+        public static AdventureWorksEntities db = new AdventureWorksEntities();
+
+        public static int SaleOrderID { get; set; }
+        public static decimal Total { get; set; }
+
         public static object GetProducts()
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
@@ -46,8 +51,8 @@ namespace Iskur_EF.BLL
         public static object GetCurrencyRateID()
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
-            var currencylist = dataContext.CurrencyRates.Select(x => new { x.CurrencyRateID, DövizKuruListesi=x.ToCurrencyCode});
-            return currencylist.ToList();
+            var result = dataContext.CurrencyRates.Select(x => new { x.CurrencyRateID, DövizKuruListesi = x.FromCurrencyCode + " to " + x.ToCurrencyCode + " with " + x.AverageRate });
+            return result.ToList();
         }
         public static List<SalesTerritory> GetSalesTerritoryID()
         {
@@ -68,6 +73,58 @@ namespace Iskur_EF.BLL
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
             var result = dataContext.ShipMethods;
             return result.ToList();
+        }
+
+        public static void İnsertOrderHeader(int _CustomerID, int _SalePersonID, int _TerratoryID, int _BillToAdressID, int _ShipedToAdressID, int _ShipedMethodID, int _CreditCardID, double ProductListPrice, int CurrencyRateID, string Comment)
+        {
+
+            SalesOrderHeader orh = new SalesOrderHeader
+            {
+                CustomerID = _CustomerID,
+                RevisionNumber = 8,
+                OrderDate = DateTime.Now,
+                DueDate = DateTime.Now,
+                Status = 5,
+                OnlineOrderFlag = false,
+                SalesPersonID = _SalePersonID,
+                TerritoryID = _TerratoryID,
+                BillToAddressID = _BillToAdressID,
+                ShipToAddressID = _ShipedToAdressID,
+                ShipMethodID = _ShipedMethodID,
+                CreditCardID = _CreditCardID,
+                TaxAmt = Convert.ToDecimal(ProductListPrice * 0.18),
+                Freight = Convert.ToDecimal(ProductListPrice * 0.1),
+                TotalDue = Convert.ToDecimal(ProductListPrice + ProductListPrice * 0.18 + ProductListPrice * 0.1),
+                SubTotal = Convert.ToDecimal(ProductListPrice),
+                rowguid = Guid.NewGuid(),
+                ModifiedDate = DateTime.Now,
+                CurrencyRateID = CurrencyRateID,
+                Comment = Comment
+
+            };
+            db.SalesOrderHeaders.Add(orh);
+            db.SaveChanges();
+            SaleOrderID = db.SalesOrderHeaders.Max(x => x.SalesOrderID);
+            Total = Convert.ToDecimal(orh.TotalDue);
+        }
+
+        public static void İnsertSaleOrderDetail(int _ProductID, decimal UnitPrice)
+        {
+
+            SalesOrderDetail ord = new SalesOrderDetail
+            {
+                SalesOrderID = SaleOrderID,
+                CarrierTrackingNumber = "4911 - 403C - 98",
+                OrderQty = 1,
+                ProductID = _ProductID,
+                SpecialOfferID = 1,
+                UnitPrice = UnitPrice,
+                UnitPriceDiscount = 0,
+                rowguid = Guid.NewGuid(),
+                ModifiedDate = DateTime.Now
+            };
+            db.SalesOrderDetails.Add(ord);
+            db.SaveChanges();
         }
     }
 }

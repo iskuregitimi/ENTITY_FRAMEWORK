@@ -56,5 +56,25 @@ namespace Iskur_EF.BLL
             AdventureWorksEntities shipDataContext = new AdventureWorksEntities();
             return shipDataContext.ShipMethods.Select(x => new { x.ShipMethodID, ShipCompanies = x.Name }).ToList();
         }
+
+        public static object CalculateListPriceWithCurrencyRate(string Name,int SelectedCurrencyID)
+        {
+            AdventureWorksEntities calcDataContext = new AdventureWorksEntities();
+            var productprice = calcDataContext.Products.Where(x => x.Name == Name).Select(y=>
+            
+                y.ListPrice
+            
+            ).FirstOrDefault();
+          
+            var currencyRate = calcDataContext.CurrencyRates.Where(c => c.CurrencyRateID == SelectedCurrencyID).Select(cr =>
+            
+                cr.AverageRate
+            
+            ).FirstOrDefault();
+
+            var calculatedprice = productprice * currencyRate;
+            
+            return calculatedprice.ToString();
+        }
     }
 }

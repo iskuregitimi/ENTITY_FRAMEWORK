@@ -18,8 +18,10 @@ namespace Iskur_EF.UI.Win
         {
             InitializeComponent();
         }
-        
 
+        string CrProductName;
+        string calculatedvalue;
+        int selectedcurrency;
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -27,6 +29,7 @@ namespace Iskur_EF.UI.Win
 
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
+
 
         }
 
@@ -68,6 +71,16 @@ namespace Iskur_EF.UI.Win
         private void cmb_shippingAdressList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgv_urunlistesi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            CrProductName = dgv_urunlistesi.SelectedRows[0].Cells["Name"].Value.ToString();
+            //int selectedcurrency = Convert.ToInt32(cmb_CurrencyRate.SelectedValue);
+            selectedcurrency = Convert.ToInt32(cmb_CurrencyRate.SelectedValue);
+            calculatedvalue = MagazaBLL.CalculateListPriceWithCurrencyRate(CrProductName, selectedcurrency).ToString();
+            lbl_SubTotal.Text = calculatedvalue;
         }
     }
 }

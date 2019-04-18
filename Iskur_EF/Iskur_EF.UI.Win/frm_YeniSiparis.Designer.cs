@@ -48,7 +48,7 @@
             this.cmb_CurrencyRate = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lbl_SubTotal = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -77,6 +77,7 @@
             this.dgv_urunlistesi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_urunlistesi.Size = new System.Drawing.Size(657, 222);
             this.dgv_urunlistesi.TabIndex = 0;
+            this.dgv_urunlistesi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_urunlistesi_CellContentClick);
             // 
             // label1
             // 
@@ -268,15 +269,15 @@
             this.label11.TabIndex = 5;
             this.label11.Text = "Ara Toplam (SubTotal)";
             // 
-            // label12
+            // lbl_SubTotal
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(486, 117);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 13);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "00000";
+            this.lbl_SubTotal.AutoSize = true;
+            this.lbl_SubTotal.Location = new System.Drawing.Point(486, 117);
+            this.lbl_SubTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_SubTotal.Name = "lbl_SubTotal";
+            this.lbl_SubTotal.Size = new System.Drawing.Size(37, 13);
+            this.lbl_SubTotal.TabIndex = 5;
+            this.lbl_SubTotal.Text = "00000";
             // 
             // label13
             // 
@@ -378,7 +379,7 @@
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lbl_SubTotal);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
@@ -434,7 +435,7 @@
         private System.Windows.Forms.ComboBox cmb_CurrencyRate;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbl_SubTotal;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;

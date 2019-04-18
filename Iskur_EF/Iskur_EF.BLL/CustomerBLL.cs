@@ -45,6 +45,7 @@ namespace Iskur_EF.BLL
 
 
 
+
         public static Customer GetCustomer(int CustomerID)
 
         {

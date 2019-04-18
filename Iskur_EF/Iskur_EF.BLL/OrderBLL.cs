@@ -56,7 +56,7 @@ namespace Iskur_EF.BLL
                 CurrencyName = x.FromCurrencyCode+"--"+x.ToCurrencyCode+"--"+x.AverageRate,
                 CurrencyID=x.CurrencyRateID
             });
-
+            //naber
             //var a = db.Currencies.Select(x => x.Name);
             return a.ToList();
         }

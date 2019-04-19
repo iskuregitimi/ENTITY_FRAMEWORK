@@ -112,14 +112,6 @@ namespace Iskur_EF.UI.Win
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ////int personbeid = (cmb_salesperson.SelectedValue));
-            //int customerid = frm_MusteriListesi.customer_cid;
-            //int territoryid = Convert.ToInt32(cmb_Territory.SelectedValue);
-            //int billtoaddress = Convert.ToInt32(cmb_billaddress.SelectedValue);
-            //int shiptoaddress = Convert.ToInt32(cmb_billaddress.SelectedValue);
-            //int 
-            //MagazaBLL.AddOrderHeader(customerid,territoryid,billtoaddress,);
-
             salesOrderHeader.BillToAddressID = Convert.ToInt32(cmb_billaddress.SelectedValue);
             salesOrderHeader.ShipToAddressID = Convert.ToInt32(cmb_shippingAdress.SelectedValue);
             salesOrderHeader.SalesOrderID = Convert.ToInt32(cmb_shippingAdress.SelectedValue);

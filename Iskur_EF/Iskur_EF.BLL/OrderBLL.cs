@@ -77,10 +77,34 @@ namespace Iskur_EF.BLL
         }
 
 
-        public static void AddOrder()
+        public static void AddOrder(int customerID, int salePersonID, int territoryID, int billToAdressID, int shiptoadressID, int shipmethodID, int creditcardID, decimal subTotal, decimal tax, decimal freight, string comment)
         {
-            SalesOrderHeader soh = new SalesOrderHeader();
-            
+     
+   
+            //SalesOrderHeader sales = new SalesOrderHeader();
+            //sales.CustomerID = customerID;
+            //sales.SalesPersonID = salePersonID;
+            //sales.TerritoryID = territoryID;
+            //sales.BillToAddressID = billToAdressID;
+            //sales.ShipToAddressID = shiptoadressID;
+            //sales.ShipMethodID = shipmethodID;
+            //sales.CreditCardID = creditcardID;
+            //sales.SubTotal = subTotal;
+            //sales.TaxAmt = tax;
+            //sales.Freight = freight;
+            //sales.Comment = comment;
+            //sales.RevisionNumber = 15;
+            //sales.OrderDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            //sales.DueDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            //sales.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            //sales.OnlineOrderFlag = false;
+            //sales.Status = 5;
+            //sales.rowguid = Guid.NewGuid();
+            //var header = dataContext.SalesOrderHeaders.Add(sales);
+            //dataContext.SaveChanges();
+
+            //return header;
+
 
 
         }

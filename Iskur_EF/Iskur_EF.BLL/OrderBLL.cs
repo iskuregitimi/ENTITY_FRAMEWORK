@@ -144,6 +144,15 @@ namespace Iskur_EF.BLL
             db.SalesOrderDetails.Add(ord);
             db.SaveChanges();
         }
-
+        public static int SaleId { get; set; }
+        public static void OrderDelete(int saleId)
+        {
+            //var b = db.SalesOrderDetails.Find(saleId);
+            //db.SalesOrderDetails.Remove(b);
+            var a= db.SalesOrderHeaders.Find(saleId);
+            db.SalesOrderHeaders.Remove(a);
+           
+            db.SaveChanges();
+        }
     }
 }

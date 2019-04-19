@@ -23,6 +23,7 @@ namespace Iskur_EF.UI.Win
         private void dlg_Siparisler_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = CustomerBLL.GetSalesOrderHeaders(CustomerId);
+
         }
 
         private void siparişDetayToolStripMenuItem_Click(object sender, EventArgs e)
@@ -30,6 +31,12 @@ namespace Iskur_EF.UI.Win
             frm_SiparisDetail frm = new frm_SiparisDetail();
             frm.SalesOrderId = int.Parse(dataGridView1.SelectedRows[0].Cells["SalesOrderID"].Value.ToString());
             frm.Show();
+        }
+
+        private void siparişiİptalEtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OrderBLL.SaleOrderID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            OrderBLL.OrderDelete(OrderBLL.SaleOrderID);
         }
     }
 }

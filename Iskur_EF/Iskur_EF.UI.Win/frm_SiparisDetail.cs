@@ -24,5 +24,10 @@ namespace Iskur_EF.UI.Win
         {
             dataGridView1.DataSource = CustomerBLL.GetOrderDetail(SalesOrderId);
         }
+
+        private void siparişiİptalEtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

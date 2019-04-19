@@ -14,16 +14,27 @@ namespace Iskur_EF.UI.Win
 {
     public partial class frm_YeniSiparis : Form
     {
+        SalesOrderHeader salesOrderHeader = new SalesOrderHeader();
+
         public frm_YeniSiparis()
         {
             InitializeComponent();
         }
+
+        public int id { get; set; }
+        public int teriotyId { get; set; }
+        public int personId { get; set; }
+        public int productId { get; set; }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
         string CrProductName;
         float calculatedvalue;
         float taxamount;
         float freightrate;
         int selectedcurrency;
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -47,20 +58,28 @@ namespace Iskur_EF.UI.Win
             cmb_salesperson.DataSource = EmployeeBLL.GetSalesPerson();
             cmb_salesperson.DisplayMember = "SalesPersonName";
             cmb_salesperson.ValueMember = "BusinessEntityID";
+      
             cmb_CreditCard.DataSource = EmployeeBLL.GetCreditCard(frm_MusteriListesi.person_beid);
             cmb_CreditCard.DisplayMember = "CardType";
-            cmb_CurrencyRate.DataSource = MagazaBLL.GetCurrencyRate();
+            cmb_CreditCard.ValueMember = "CreditCardID";
+            var currencyRateid = MagazaBLL.GetCurrencyRate();
+
+            cmb_CurrencyRate.DataSource = currencyRateid;
             cmb_CurrencyRate.DisplayMember = "CurrencyCode";
             cmb_CurrencyRate.ValueMember = "CurrencyRateID";
             cmb_billaddress.DataSource = CustomerBLL.GetCustomerAdress(frm_MusteriListesi.person_beid);
             cmb_billaddress.DisplayMember = "Adres";
             cmb_billaddress.ValueMember = "AddressID";
+
             cmb_shippingAdress.DataSource=CustomerBLL.GetCustomerAdress(frm_MusteriListesi.person_beid);
             cmb_shippingAdress.DisplayMember = "Adres";
             cmb_shippingAdress.ValueMember = "AddressID";
-            cmb_Territory.DataSource = CustomerBLL.GetTerritories();
+            var territory = CustomerBLL.GetTerritories();
+
+            cmb_Territory.DataSource = territory;
             cmb_Territory.DisplayMember = "Territory";
             cmb_Territory.ValueMember = "TerritoryID";
+            
             cmb_shipmethod.DataSource = MagazaBLL.GetShippingMethod();
             cmb_shipmethod.ValueMember = "ShipMethodID";
             cmb_shipmethod.DisplayMember = "ShipCompanies";
@@ -99,7 +118,37 @@ namespace Iskur_EF.UI.Win
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            ////int personbeid = (cmb_salesperson.SelectedValue));
+            //int customerid = frm_MusteriListesi.customer_cid;
+            //int territoryid = Convert.ToInt32(cmb_Territory.SelectedValue);
+            //int billtoaddress = Convert.ToInt32(cmb_billaddress.SelectedValue);
+            //int shiptoaddress = Convert.ToInt32(cmb_billaddress.SelectedValue);
+            //int 
+            //MagazaBLL.AddOrderHeader(customerid,territoryid,billtoaddress,);
+
+            salesOrderHeader.BillToAddressID = Convert.ToInt32(cmb_billaddress.SelectedValue);
+            salesOrderHeader.ShipToAddressID = Convert.ToInt32(cmb_shippingAdress.SelectedValue);
+            salesOrderHeader.SalesOrderID = Convert.ToInt32(cmb_shippingAdress.SelectedValue);
+            salesOrderHeader.ShipMethodID = Convert.ToInt32(cmb_shipmethod.SelectedValue);
+            salesOrderHeader.TerritoryID = Convert.ToInt32(cmb_Territory.SelectedValue);
+            salesOrderHeader.CreditCardID = Convert.ToInt32(cmb_CreditCard.SelectedValue);
+            salesOrderHeader.SalesOrderID = Convert.ToInt32(cmb_salesperson.SelectedValue);
+            salesOrderHeader.CreditCardApprovalCode = (cmb_CreditCard.SelectedValue).ToString();
+            salesOrderHeader.SubTotal = Convert.ToDecimal(lbl_SubTotal.Text);
+            salesOrderHeader.TotalDue = Convert.ToDecimal(lbl_toplam.Text);
+            salesOrderHeader.Comment = txt_comment.Text;
+            salesOrderHeader.ShipDate = dtpicker.Value;
+            var header = MagazaBLL.AddOrder(salesOrderHeader);
+
+            foreach (DataGridViewRow satir in dgv_urunlistesi.SelectedRows)
+            {
+                int productID = int.Parse(satir.Cells["ProductID"].Value.ToString());
+                Product product = MagazaBLL.GETPRODUCT(productID);
+                MagazaBLL.AddOrderDetails(product, header);
+            }
+
+            MessageBox.Show("Ürün Başarıyla Eklendi");
+
         }
 
         private void cmb_billaddress_SelectedIndexChanged(object sender, EventArgs e)

@@ -20,7 +20,8 @@ namespace Iskur_EF.UI.Win
         
         public static string musteribilgi;
         public static int person_beid;
-        public static int person_cid;
+        public static int customer_cid;
+        
 
         private void siparişlerToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -36,6 +37,7 @@ namespace Iskur_EF.UI.Win
 
         private void yeniSiparişEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            customer_cid = Convert.ToInt32(dgv_musterilistesi.SelectedRows[0].Cells["CustomerID"].Value.ToString());
             musteribilgi = dgv_musterilistesi.SelectedRows[0].Cells["Firstname"].Value.ToString() + " " + dgv_musterilistesi.SelectedRows[0].Cells["LastName"].Value.ToString();
             person_beid = Int32.Parse(dgv_musterilistesi.SelectedRows[0].Cells["BusinessEntityID"].Value.ToString());
             //kesinlikle daha pratik bir yolu olmalı

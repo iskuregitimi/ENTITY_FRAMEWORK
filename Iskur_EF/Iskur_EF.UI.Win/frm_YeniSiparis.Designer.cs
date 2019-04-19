@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmb_salesperson = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpicker = new System.Windows.Forms.DateTimePicker();
             this.lbl_musteriadi = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_Territory = new System.Windows.Forms.ComboBox();
@@ -123,13 +123,13 @@
             this.cmb_salesperson.TabIndex = 2;
             this.cmb_salesperson.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.comboBox1_Format);
             // 
-            // dateTimePicker1
+            // dtpicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(164, 37);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dtpicker.Location = new System.Drawing.Point(164, 37);
+            this.dtpicker.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpicker.Name = "dtpicker";
+            this.dtpicker.Size = new System.Drawing.Size(151, 20);
+            this.dtpicker.TabIndex = 3;
             // 
             // lbl_musteriadi
             // 
@@ -397,7 +397,7 @@
             this.Controls.Add(this.cmb_CreditCard);
             this.Controls.Add(this.lbl_musteriadi);
             this.Controls.Add(this.cmb_shipmethod);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpicker);
             this.Controls.Add(this.cmb_shippingAdress);
             this.Controls.Add(this.cmb_billaddress);
             this.Controls.Add(this.cmb_Territory);
@@ -422,7 +422,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmb_salesperson;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpicker;
         private System.Windows.Forms.Label lbl_musteriadi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmb_Territory;

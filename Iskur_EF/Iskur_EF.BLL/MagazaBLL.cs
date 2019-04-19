@@ -32,12 +32,15 @@ namespace Iskur_EF.BLL
                 {
                     x.ProductID,
                     x.Name,
+                    x.ProductNumber,
                     x.Color,
+                    x.SafetyStockLevel,
+                    x.StandardCost,
                     x.ListPrice,
                     x.Size,
-                    x.SizeUnitMeasureCode,
                     x.Weight,
-                    x.WeightUnitMeasureCode
+                    x.SellStartDate,
+                    x.SellEndDate
                 }
                 );
 

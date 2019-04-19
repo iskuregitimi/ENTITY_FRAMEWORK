@@ -27,7 +27,7 @@ namespace Iskur_EF.UI.Win
         float taxamount;
         float freightrate;
         int selectedcurrency;
-
+        int CustomerID = frm_MusteriListesi.customer_cid;
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -132,7 +132,7 @@ namespace Iskur_EF.UI.Win
             salesOrderHeader.TotalDue = Convert.ToDecimal(lbl_toplam.Text);
             salesOrderHeader.Comment = txt_comment.Text;
             salesOrderHeader.ShipDate = dtpicker.Value;
-            var header = MagazaBLL.AddOrder(salesOrderHeader);
+            var header = MagazaBLL.AddOrder(salesOrderHeader,CustomerID);
 
             foreach (DataGridViewRow satir in dgv_urunlistesi.SelectedRows)
             {

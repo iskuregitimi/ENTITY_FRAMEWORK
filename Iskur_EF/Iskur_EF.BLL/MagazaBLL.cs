@@ -30,6 +30,7 @@ namespace Iskur_EF.BLL
             var result = datacontext.Products.Select(
                 x => new
                 {
+                    x.ProductID,
                     x.Name,
                     x.Color,
                     x.ListPrice,
@@ -98,12 +99,12 @@ namespace Iskur_EF.BLL
         //    return findsalespersonid.ToString();
         //}
 
-        public static SalesOrderHeader AddOrder(SalesOrderHeader sales)
+        public static SalesOrderHeader AddOrder(SalesOrderHeader sales,int CustomerID)
         {
             AdventureWorksEntities dataContext = new AdventureWorksEntities();
 
             SalesOrderHeader salesOrder = new SalesOrderHeader();
-            salesOrder.CustomerID = sales.CustomerID;
+            salesOrder.CustomerID = CustomerID;
             salesOrder.OrderDate = DateTime.Now;// Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesOrder.DueDate = DateTime.Now;//  Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             salesOrder.ShipDate = sales.ShipDate;

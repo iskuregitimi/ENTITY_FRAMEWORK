@@ -68,5 +68,20 @@ namespace Iskur_EF.UI.Win
         {
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            double StandardCost = double.Parse(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+
+            label12.Text = StandardCost.ToString();
+            label14.Text = (StandardCost * 18 / 100).ToString();
+            label16.Text = (StandardCost * 1 / 10).ToString();
+            label18.Text = (StandardCost + (StandardCost * 18 / 100) + (StandardCost * 1 / 10)).ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

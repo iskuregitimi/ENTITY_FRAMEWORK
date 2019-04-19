@@ -46,6 +46,7 @@ namespace Iskur_EF.UI.Win
 
         private void frm_YeniSiparis_Load(object sender, EventArgs e)
         {
+            
             dgv_urunlistesi.DataSource = MagazaBLL.GetProducts();
             lbl_musteriadi.Text = frm_MusteriListesi.musteribilgi;
             cmb_salesperson.DataSource = EmployeeBLL.GetSalesPerson();
@@ -145,6 +146,11 @@ namespace Iskur_EF.UI.Win
         }
 
         private void cmb_billaddress_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpicker_ValueChanged(object sender, EventArgs e)
         {
 
         }

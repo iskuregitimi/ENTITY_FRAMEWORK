@@ -130,6 +130,7 @@
             this.dtpicker.Name = "dtpicker";
             this.dtpicker.Size = new System.Drawing.Size(151, 20);
             this.dtpicker.TabIndex = 3;
+            this.dtpicker.ValueChanged += new System.EventHandler(this.dtpicker_ValueChanged);
             // 
             // lbl_musteriadi
             // 

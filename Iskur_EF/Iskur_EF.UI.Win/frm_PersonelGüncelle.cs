@@ -14,17 +14,18 @@ namespace Iskur_EF.UI.Win
 {
     public partial class frm_PersonelGüncelle : Form
     {
+        internal int busines;
+
         public frm_PersonelGüncelle()
         {
             InitializeComponent();
         }
 
-        public int PersonelID { get; internal set; }
+        public int PersonelID;
 
         private void btn_PersonelGüncelle_Click(object sender, EventArgs e)
         {
-            Employee emp = new Employee();
-            emp = EmployeeBLL.GetPeople(PersonelID);
+            Employee emp = EmployeeBLL.GetPeople(PersonelID);
             emp.Person.FirstName = txt_Firstname.Text;
             emp.Person.LastName = txt_Lastname.Text;
             emp.Person.MiddleName = txt_Middlename.Text;
@@ -32,5 +33,6 @@ namespace Iskur_EF.UI.Win
             EmployeeBLL.UpdateEmployee(emp);
 
         }
+
     }
 }

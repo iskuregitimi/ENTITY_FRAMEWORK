@@ -43,5 +43,7 @@ namespace Iskur_EF.UI.Win
             frm.PersonelID = int.Parse(dgv_PersonelListesi.SelectedRows[0].Cells["BusinessEntityID"].Value.ToString());
             frm.Show();
         }
+
+     
     }
 }

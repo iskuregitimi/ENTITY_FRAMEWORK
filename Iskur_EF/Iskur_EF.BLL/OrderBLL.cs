@@ -63,10 +63,16 @@ namespace Iskur_EF.BLL
            orderdetail.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
             datacontext.SalesOrderDetails.Add(orderdetail);
             datacontext.SaveChanges();
+        }
 
+        public static void DeleteOrder(int salesid)
+        {
+
+            SalesOrderHeader header = datacontext.SalesOrderHeaders.Where(x => x.SalesOrderID == salesid).FirstOrDefault();           
+            datacontext.SalesOrderHeaders.Remove(header);
+            datacontext.SaveChanges();
 
         }
-        
      
     }
 }

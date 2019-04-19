@@ -32,8 +32,8 @@
             this.dgv_PersonelListesi = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.personelDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.personelGüncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PersonelListesi)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,14 +64,21 @@
             this.personelDetayToolStripMenuItem,
             this.personelGüncelleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 48);
             // 
             // personelDetayToolStripMenuItem
             // 
             this.personelDetayToolStripMenuItem.Name = "personelDetayToolStripMenuItem";
-            this.personelDetayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personelDetayToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.personelDetayToolStripMenuItem.Text = "Personel Detay";
             this.personelDetayToolStripMenuItem.Click += new System.EventHandler(this.personelDetayToolStripMenuItem_Click);
+            // 
+            // personelGüncelleToolStripMenuItem
+            // 
+            this.personelGüncelleToolStripMenuItem.Name = "personelGüncelleToolStripMenuItem";
+            this.personelGüncelleToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.personelGüncelleToolStripMenuItem.Text = "Personel Güncelle";
+            this.personelGüncelleToolStripMenuItem.Click += new System.EventHandler(this.personelGüncelleToolStripMenuItem_Click);
             // 
             // textBox1
             // 
@@ -82,13 +89,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(583, 20);
             this.textBox1.TabIndex = 1;
-            // 
-            // personelGüncelleToolStripMenuItem
-            // 
-            this.personelGüncelleToolStripMenuItem.Name = "personelGüncelleToolStripMenuItem";
-            this.personelGüncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.personelGüncelleToolStripMenuItem.Text = "Personel Güncelle";
-            this.personelGüncelleToolStripMenuItem.Click += new System.EventHandler(this.personelGüncelleToolStripMenuItem_Click);
             // 
             // frm_PersonelListesi
             // 

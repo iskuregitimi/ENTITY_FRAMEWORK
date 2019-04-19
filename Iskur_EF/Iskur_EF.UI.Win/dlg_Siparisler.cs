@@ -31,5 +31,11 @@ namespace Iskur_EF.UI.Win
             frm.SalesOrderId = int.Parse(dataGridView1.SelectedRows[0].Cells["SalesOrderID"].Value.ToString());
             frm.Show();
         }
+
+        private void siparişSilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int OrderID = int.Parse(dataGridView1.SelectedRows[0].Cells["SalesOrderID"].Value.ToString());
+            OrderBLL.DeleteOrder(OrderID);
+        }
     }
 }

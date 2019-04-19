@@ -30,8 +30,16 @@ namespace Iskur_EF.UI.Win
             txt_Lastname.Text = emp.Person.LastName;
             txt_Jobtitle.Text = emp.JobTitle;
 
-            dataGridView1.DataSource = emp.Person.PersonPhones.ToList();
+            dgv_PersonelDetay.DataSource = emp.Person.BusinessEntityID;
 
+          
+
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+           
+            
         }
     }
 }

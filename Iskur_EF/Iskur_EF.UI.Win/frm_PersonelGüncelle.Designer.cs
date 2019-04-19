@@ -32,13 +32,11 @@
             this.txt_Lastname = new System.Windows.Forms.TextBox();
             this.txt_Middlename = new System.Windows.Forms.TextBox();
             this.txt_Firstname = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_PersonelGüncelle = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_Jobtitle
@@ -68,14 +66,6 @@
             this.txt_Firstname.Name = "txt_Firstname";
             this.txt_Firstname.Size = new System.Drawing.Size(436, 20);
             this.txt_Firstname.TabIndex = 11;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 160);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(507, 170);
-            this.dataGridView1.TabIndex = 7;
             // 
             // label4
             // 
@@ -115,7 +105,7 @@
             // 
             // btn_PersonelGüncelle
             // 
-            this.btn_PersonelGüncelle.Location = new System.Drawing.Point(447, 351);
+            this.btn_PersonelGüncelle.Location = new System.Drawing.Point(273, 181);
             this.btn_PersonelGüncelle.Name = "btn_PersonelGüncelle";
             this.btn_PersonelGüncelle.Size = new System.Drawing.Size(103, 23);
             this.btn_PersonelGüncelle.TabIndex = 12;
@@ -127,20 +117,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 402);
+            this.ClientSize = new System.Drawing.Size(606, 243);
             this.Controls.Add(this.btn_PersonelGüncelle);
             this.Controls.Add(this.txt_Jobtitle);
             this.Controls.Add(this.txt_Lastname);
             this.Controls.Add(this.txt_Middlename);
             this.Controls.Add(this.txt_Firstname);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frm_PersonelGüncelle";
             this.Text = "PersonelGüncelle";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,7 +141,6 @@
         private System.Windows.Forms.TextBox txt_Lastname;
         private System.Windows.Forms.TextBox txt_Middlename;
         private System.Windows.Forms.TextBox txt_Firstname;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

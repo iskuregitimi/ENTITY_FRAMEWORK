@@ -32,12 +32,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_PersonelDetay = new System.Windows.Forms.DataGridView();
             this.txt_Firstname = new System.Windows.Forms.TextBox();
             this.txt_Middlename = new System.Windows.Forms.TextBox();
             this.txt_Lastname = new System.Windows.Forms.TextBox();
             this.txt_Jobtitle = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_PersonelDetay)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -76,13 +77,13 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Job Title :";
             // 
-            // dataGridView1
+            // dgv_PersonelDetay
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 164);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(507, 210);
-            this.dataGridView1.TabIndex = 1;
+            this.dgv_PersonelDetay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_PersonelDetay.Location = new System.Drawing.Point(18, 161);
+            this.dgv_PersonelDetay.Name = "dgv_PersonelDetay";
+            this.dgv_PersonelDetay.Size = new System.Drawing.Size(507, 210);
+            this.dgv_PersonelDetay.TabIndex = 1;
             // 
             // txt_Firstname
             // 
@@ -112,16 +113,27 @@
             this.txt_Jobtitle.Size = new System.Drawing.Size(436, 20);
             this.txt_Jobtitle.TabIndex = 2;
             // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(422, 378);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(103, 23);
+            this.btn_Delete.TabIndex = 3;
+            this.btn_Delete.Text = "Sil";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
+            // 
             // dlg_PersonelDetay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 419);
+            this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.txt_Jobtitle);
             this.Controls.Add(this.txt_Lastname);
             this.Controls.Add(this.txt_Middlename);
             this.Controls.Add(this.txt_Firstname);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_PersonelDetay);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -129,7 +141,7 @@
             this.Name = "dlg_PersonelDetay";
             this.Text = "dlg_PersonelDetay";
             this.Load += new System.EventHandler(this.dlg_PersonelDetay_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_PersonelDetay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,10 +153,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_PersonelDetay;
         private System.Windows.Forms.TextBox txt_Firstname;
         private System.Windows.Forms.TextBox txt_Middlename;
         private System.Windows.Forms.TextBox txt_Lastname;
         private System.Windows.Forms.TextBox txt_Jobtitle;
+        private System.Windows.Forms.Button btn_Delete;
     }
 }

@@ -33,9 +33,9 @@
             this.personelListesiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mağazalarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.müşteriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.siparişlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.müşteriToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.müşteriListesiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.siparişlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,11 +81,6 @@
             this.müşteriToolStripMenuItem.Name = "müşteriToolStripMenuItem";
             this.müşteriToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             // 
-            // siparişlerToolStripMenuItem
-            // 
-            this.siparişlerToolStripMenuItem.Name = "siparişlerToolStripMenuItem";
-            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
             // müşteriToolStripMenuItem1
             // 
             this.müşteriToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -97,9 +92,14 @@
             // müşteriListesiToolStripMenuItem
             // 
             this.müşteriListesiToolStripMenuItem.Name = "müşteriListesiToolStripMenuItem";
-            this.müşteriListesiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.müşteriListesiToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.müşteriListesiToolStripMenuItem.Text = "Müşteri Listesi";
             this.müşteriListesiToolStripMenuItem.Click += new System.EventHandler(this.müşteriListesiToolStripMenuItem_Click);
+            // 
+            // siparişlerToolStripMenuItem
+            // 
+            this.siparişlerToolStripMenuItem.Name = "siparişlerToolStripMenuItem";
+            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // Form1
             // 

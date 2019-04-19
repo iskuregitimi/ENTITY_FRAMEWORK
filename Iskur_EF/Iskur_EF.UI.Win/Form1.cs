@@ -37,5 +37,11 @@ namespace Iskur_EF.UI.Win
             form.MdiParent = this;
             form.Show();
         }
+
+        private void ürünlerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //dlg_Urunler urun = new dlg_Urunler();
+            //urun.Show();
+        }
     }
 }

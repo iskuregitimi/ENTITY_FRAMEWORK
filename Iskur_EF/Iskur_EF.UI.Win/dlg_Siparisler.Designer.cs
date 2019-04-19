@@ -32,6 +32,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.siparişDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.siparişSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,16 +52,24 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.siparişDetayToolStripMenuItem});
+            this.siparişDetayToolStripMenuItem,
+            this.siparişSilToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
             // siparişDetayToolStripMenuItem
             // 
             this.siparişDetayToolStripMenuItem.Name = "siparişDetayToolStripMenuItem";
-            this.siparişDetayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.siparişDetayToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.siparişDetayToolStripMenuItem.Text = "Sipariş Detay";
             this.siparişDetayToolStripMenuItem.Click += new System.EventHandler(this.siparişDetayToolStripMenuItem_Click);
+            // 
+            // siparişSilToolStripMenuItem
+            // 
+            this.siparişSilToolStripMenuItem.Name = "siparişSilToolStripMenuItem";
+            this.siparişSilToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.siparişSilToolStripMenuItem.Text = "Sipariş Sil";
+            this.siparişSilToolStripMenuItem.Click += new System.EventHandler(this.siparişSilToolStripMenuItem_Click);
             // 
             // dlg_Siparisler
             // 
@@ -82,5 +91,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem siparişDetayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem siparişSilToolStripMenuItem;
     }
 }

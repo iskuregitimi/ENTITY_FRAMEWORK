@@ -50,13 +50,7 @@ namespace Iskur_EF.BLL
             return datacontext.SalesOrderHeaders.Add(sales);
         }
 
-        //public static SalesTerritory getSalesTeritory(int id)
-        //{
-        //    AdventureWorksEntities datacontext = new AdventureWorksEntities();
-        //    return datacontext.SalesTerritories.Where(x=> x.c)
-
-
-        //}
+     
 
         public static object getSalesTEritory(int id)
         {

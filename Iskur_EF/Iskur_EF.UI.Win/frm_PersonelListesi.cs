@@ -43,5 +43,14 @@ namespace Iskur_EF.UI.Win
             pers.BusiennesId = int.Parse(dgv_PersonelListesi.SelectedRows[0].Cells["BusinessEntityID"].Value.ToString());
             pers.Show();
         }
+
+        private void personelSilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int businessEntityID= int.Parse(dgv_PersonelListesi.SelectedRows[0].Cells["BusinessEntityID"].Value.ToString());
+            PersonBLL.deletePerson(businessEntityID);
+            dgv_PersonelListesi.Refresh();
+            dgv_PersonelListesi.Update();
+
+        }
     }
 }

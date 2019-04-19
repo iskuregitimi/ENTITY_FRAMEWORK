@@ -120,6 +120,7 @@
             this.cmbSatısPersoneli.Name = "cmbSatısPersoneli";
             this.cmbSatısPersoneli.Size = new System.Drawing.Size(151, 21);
             this.cmbSatısPersoneli.TabIndex = 2;
+            this.cmbSatısPersoneli.SelectedIndexChanged += new System.EventHandler(this.cmbSatısPersoneli_SelectedIndexChanged);
             // 
             // dateTimePicker1
             // 

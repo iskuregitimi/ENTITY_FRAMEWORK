@@ -89,6 +89,12 @@
     <Compile Include="frm_PersonelListesi.Designer.cs">
       <DependentUpon>frm_PersonelListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_PersonUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_PersonUpdate.Designer.cs">
+      <DependentUpon>frm_PersonUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_SiparisDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_PersonelListesi.resx">
       <DependentUpon>frm_PersonelListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_PersonUpdate.resx">
+      <DependentUpon>frm_PersonUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_SiparisDetail.resx">
       <DependentUpon>frm_SiparisDetail.cs</DependentUpon>

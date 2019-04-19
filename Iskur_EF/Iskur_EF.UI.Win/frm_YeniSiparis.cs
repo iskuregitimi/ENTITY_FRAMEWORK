@@ -99,5 +99,10 @@ namespace Iskur_EF.UI.Win
             lblTax.Text = (decimal.Parse(lblSub.Text) * Convert.ToDecimal(0.18)).ToString();
             lblTotal.Text = (decimal.Parse(lblSub.Text) + decimal.Parse(lblFreight.Text) + decimal.Parse(lblTax.Text)).ToString();
         }
+
+        private void cmbSatısPersoneli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

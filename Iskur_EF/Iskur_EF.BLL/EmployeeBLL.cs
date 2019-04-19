@@ -22,5 +22,16 @@ namespace Iskur_EF.BLL
             Employee emp = efDataContext.Employees.Where(e => e.BusinessEntityID == BusinessEntityId).FirstOrDefault();
             return emp;
         }
+        public static int BEID { get; set; }
+        public static void EmpoyeeUpdate(int BEID,string firstname,string middlename,string lastname,string title)
+        {
+            AdventureWorksEntities db = new AdventureWorksEntities();
+            var a= db.People.Find(BEID);
+            a.FirstName = firstname;
+            a.MiddleName = middlename;
+            a.LastName = lastname;
+            a.Title = title;
+            db.SaveChanges();
+        }
     }
 }

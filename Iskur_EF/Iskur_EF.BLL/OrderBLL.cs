@@ -20,7 +20,10 @@ namespace Iskur_EF.BLL
 
                 ).ToList();
         }
-
+        public static object GetShip()
+        {
+            return dataContext.ShipMethods.ToList();
+        }
         public static object GetCrediCard(int CustomerId)
         {
             return dataContext.PersonCreditCards.Where(x => x.BusinessEntityID == CustomerId).Select(
@@ -58,7 +61,8 @@ namespace Iskur_EF.BLL
             var bussinesEntityAdress = dataContext.BusinessEntityAddresses.Where(b => b.BusinessEntityID == customerId);
             var adresList = dataContext.Addresses.Where(a => bussinesEntityAdress.Any(b => b.AddressID == a.AddressID)).Select(b => new
             {
-                b.AddressLine1
+                b.AddressLine1,
+                b.AddressID
 
             });
             return adresList.ToList();
@@ -70,43 +74,41 @@ namespace Iskur_EF.BLL
             var bussinesEntityAdress = dataContext.BusinessEntityAddresses.Where(x => x.BusinessEntityID == CustomerId);
             var adresList = dataContext.Addresses.Where(y => bussinesEntityAdress.Any(x => x.AddressID == y.AddressID)).Select(b => new
             {
-                b.AddressLine1
+                b.AddressLine1,
+                b.AddressID
             }
             );
             return adresList.ToList();
         }
 
 
-        public static void AddOrder(int customerID, int salePersonID, int territoryID, int billToAdressID, int shiptoadressID, int shipmethodID, int creditcardID, decimal subTotal, decimal tax, decimal freight, string comment)
+        public static SalesOrderHeader AddOrder(SalesOrderHeader salesheader)
         {
-     
-   
-            //SalesOrderHeader sales = new SalesOrderHeader();
-            //sales.CustomerID = customerID;
-            //sales.SalesPersonID = salePersonID;
-            //sales.TerritoryID = territoryID;
-            //sales.BillToAddressID = billToAdressID;
-            //sales.ShipToAddressID = shiptoadressID;
-            //sales.ShipMethodID = shipmethodID;
-            //sales.CreditCardID = creditcardID;
-            //sales.SubTotal = subTotal;
-            //sales.TaxAmt = tax;
-            //sales.Freight = freight;
-            //sales.Comment = comment;
-            //sales.RevisionNumber = 15;
-            //sales.OrderDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
-            //sales.DueDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
-            //sales.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
-            //sales.OnlineOrderFlag = false;
-            //sales.Status = 5;
-            //sales.rowguid = Guid.NewGuid();
-            //var header = dataContext.SalesOrderHeaders.Add(sales);
-            //dataContext.SaveChanges();
+            SalesOrderHeader sales = new SalesOrderHeader();
+            sales.CustomerID = salesheader.CustomerID;
+            sales.SalesPersonID = salesheader.SalesPersonID;
+            sales.TerritoryID = salesheader.TerritoryID;
+            sales.BillToAddressID = salesheader.BillToAddressID;
+            sales.ShipToAddressID = salesheader.ShipToAddressID;
+            sales.ShipMethodID = salesheader.ShipMethodID;
+            sales.CreditCardID = salesheader.CreditCardID;
+            sales.SubTotal = salesheader.SubTotal;
+            sales.TaxAmt = salesheader.TaxAmt;
+            sales.Freight = salesheader.Freight;
+            sales.Comment = salesheader.Comment;
+            sales.RevisionNumber = 15;
+            sales.OrderDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            sales.DueDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            sales.ShipDate = salesheader.ShipDate;
+            sales.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"));
+            sales.OnlineOrderFlag = false;
+            sales.Status = 5;
+            sales.rowguid = Guid.NewGuid();
 
-            //return header;
-
-
-
+            var header = dataContext.SalesOrderHeaders.Add(sales);
+            dataContext.SaveChanges();
+            return header;
         }
+
     }
 }

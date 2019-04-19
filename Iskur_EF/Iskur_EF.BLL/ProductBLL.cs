@@ -27,6 +27,8 @@ namespace Iskur_EF.BLL
                       x.ProductID,
                       x.Name,
                       x.ProductNumber,
+                      x.StandardCost,
+
                       x.SafetyStockLevel,
                       x.ReorderPoint,
                   }

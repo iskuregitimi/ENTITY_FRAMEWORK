@@ -81,7 +81,7 @@ namespace Iskur_EF.UI.Win
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            OrderBLL.AddOrder();
         }
     }
 }

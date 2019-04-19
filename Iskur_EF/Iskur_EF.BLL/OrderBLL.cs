@@ -75,5 +75,14 @@ namespace Iskur_EF.BLL
             );
             return adresList.ToList();
         }
+
+
+        public static void AddOrder()
+        {
+            SalesOrderHeader soh = new SalesOrderHeader();
+            
+
+
+        }
     }
 }

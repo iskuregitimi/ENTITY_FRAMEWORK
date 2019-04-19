@@ -21,13 +21,6 @@ namespace Iskur_EF.UI.Win
             InitializeComponent();
         }
 
-        public int id { get; set; }
-        public int teriotyId { get; set; }
-        public int personId { get; set; }
-        public int productId { get; set; }
-
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
 
         string CrProductName;
         float calculatedvalue;
